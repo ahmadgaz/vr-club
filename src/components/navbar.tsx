@@ -1,6 +1,8 @@
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
+import Logo from "../../public/logo.png";
 
 const ListItem = ({
   key,
@@ -17,16 +19,40 @@ const ListItem = ({
     <li key={key}>
       <Link
         href={link}
-        className="transition-all duration-200 ease-in-out hover:text-yellow-300"
+        className="transition-all duration-200 ease-in-out max-md:hidden max-md:font-bold md:font-black md:uppercase md:hover:text-yellow-300"
       >
         {children}
       </Link>
-      <div className="flex w-full justify-center  max-md:hidden">
+      <div
+        id="tab-decorator-1"
+        className="flex w-full justify-center  max-md:hidden"
+      >
         <div
           className={`${
-            router.pathname === link ? "w-7/12" : "w-0"
+            router.pathname === link ? "w-10/12" : "w-0"
           } h-[2px] rounded bg-white  transition-all duration-200 ease-in-out`}
         ></div>
+      </div>
+      <div
+        id="tab-decorator-2"
+        className="relative h-[43px] w-full justify-center md:hidden"
+      >
+        <div
+          className={`${
+            router.pathname === link ? "w-full" : "w-0"
+          } absolute left-0 top-0 flex  h-[40px] items-center rounded-lg bg-white  transition-all duration-200 ease-in-out`}
+        >
+          <Link
+            href={link}
+            className={`${
+              router.pathname === link
+                ? "max-md:text-black"
+                : "max-md:text-white max-md:hover:text-yellow-300"
+            } p-5 transition-all duration-200 ease-in-out max-md:font-bold md:hidden md:font-black md:uppercase md:hover:text-yellow-300`}
+          >
+            {children}
+          </Link>
+        </div>
       </div>
     </li>
   );
@@ -37,30 +63,32 @@ export default function Navbar() {
 
   const links = [
     <ListItem key={0} link="/">
-      HOME
+      Home
     </ListItem>,
     <ListItem key={0} link="/about">
-      ABOUT
+      About
     </ListItem>,
     <ListItem key={0} link="/projects">
-      PROJECTS
+      Projects
     </ListItem>,
     <ListItem key={0} link="/events">
-      EVENTS
+      Events
     </ListItem>,
     <ListItem key={0} link="/resources">
-      RESOURCES
+      Resources
     </ListItem>,
   ];
 
   return (
     <nav
       id="fade-in"
-      className="body-font fixed top-0 z-10 w-full bg-transparent px-12 py-6 font-azo-sans text-xs font-black text-white"
+      className="body-font fixed top-0 z-10 w-full bg-transparent px-12 py-6 font-azo-sans text-xs  text-white"
     >
       <div className="flex flex-col">
-        <div className="flex justify-between">
-          <div className="flex items-center md:flex-1">LOGO</div>
+        <div className="flex items-center justify-between">
+          <div className="flex items-center md:flex-1">
+            <Image className="w-10" src={Logo} alt="logo" />
+          </div>
           <ul className=" flex flex-1 justify-between max-md:hidden">
             {links}
           </ul>
@@ -91,7 +119,7 @@ export default function Navbar() {
             isOpen
               ? "max-md:translate-x-0 max-md:opacity-100"
               : "max-md:translate-x-full max-md:opacity-0 "
-          } m-4 flex h-60 max-h-[50vh] flex-col items-center justify-between overflow-scroll rounded-2xl bg-gradient-to-tr from-[#793b8399] to-[#eb584999] p-8  transition-all duration-500 ease-in-out`}
+          } h-65 m-4 flex max-h-[50vh] flex-col overflow-scroll rounded-2xl bg-gradient-to-tr from-[#793b8399] to-[#eb584999] p-4 transition-all duration-500 ease-in-out`}
         >
           {links}
         </ul>

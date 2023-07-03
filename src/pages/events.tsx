@@ -15,7 +15,7 @@ export default function About() {
       </Head>
       <main
         id="home-bg"
-        className="from-80 to-80 duration-5000 opacity colors flex min-h-screen flex-col items-center justify-center opacity-80"
+        className="from-80 to-80 duration-5000 opacity colors flex min-h-[100dvh] touch-none flex-col items-center justify-center overscroll-contain opacity-80"
       ></main>
     </>
   );
