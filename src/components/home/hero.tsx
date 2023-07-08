@@ -32,7 +32,7 @@ export default function Hero() {
         />
       </div>
       {/* Conditional backdrop */}
-      <div className="absolute min-w-[100dvw] overflow-hidden opacity-30 blur-[60px]  xl:hidden ">
+      <div className="absolute min-w-[100dvw] overflow-hidden opacity-30 blur-[60px]  xl:hidden  ">
         <div>
           <div className="h-52 w-full bg-black"></div>
           <div className="h-52 w-full bg-black"></div>
