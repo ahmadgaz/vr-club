@@ -52,7 +52,7 @@ export default function Hero() {
           <Image
             src={starBorder as string}
             alt="star-border-home"
-            className="absolute -left-14 -top-2"
+            className="absolute -left-14 -top-2 min-w-[721px]"
           />
           <div className="w-[550px] pl-2 pt-10 text-[24px]">
             <p>
