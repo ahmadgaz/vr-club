@@ -6,7 +6,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <>
       <Navbar />
       <meta name="theme-color" content="#000000" />
-      <main className="touch-none overscroll-contain">{children}</main>
+      <main className="">{children}</main>
     </>
   );
 }

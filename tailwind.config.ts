@@ -16,10 +16,16 @@ export default {
       "5xl": "4rem",
       "6xl": "5rem",
       "7xl": "6rem",
-      "8xl": "8rem",
+      "8xl": "7rem",
       "9xl": "9rem",
     },
     extend: {
+      dropShadow: {
+        "3xl": "0px 10px 30px rgba(0, 0, 0, 0.1)",
+        "4xl": "0px 10px 30px rgba(0, 0, 0, 0.3)",
+        "5xl": "0px 10px 30px rgba(0, 0, 0, 0.70)",
+        "6xl": "0px 10px 30px rgba(0, 0, 0, 1)",
+      },
       fontFamily: {
         "azo-sans": ["azo-sans-web", "sans-serif"],
       },

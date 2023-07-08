@@ -3,35 +3,25 @@
 @tailwind utilities;
 @import url("https://use.typekit.net/ivb4kbt.css");
 
-/* HOME BG ANIMATION */
-#home-bg {
-  background: #000000;
-  position: relative;
-  z-index: -3;
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 60% 100%;
+  }
 }
 
-#home-bg:before,
-#home-bg:after {
-  animation: 2s ease-out 0s 1 fadein;
-  content: "";
-  position: absolute;
-  width: 100%;
+/* HOME BG ANIMATION */
+body {
+  background: linear-gradient(315deg, #f04b50 0.52%, #414c59 44.92%, #333 100%);
+  /* background-size: cover */
+  margin: 0;
   height: 100%;
-  opacity: 0.8;
-}
-#home-bg:before {
-  background: linear-gradient(250deg, #ec1e24 10%, transparent 70%);
-  z-index: -2;
-  top: 0;
-  left: 0;
-  transition: background 0.5s ease-out;
-}
-#home-bg:after {
-  background: linear-gradient(180deg, transparent, #121f2f);
-  z-index: -1;
-  bottom: 0;
-  right: 0;
-  transition: background 0.5s ease-out;
+  min-height: 100dvh;
+  background-size: 200% 200%;
+  background-position: 60% 100%;
+  animation: 0.5s ease 0s 1 gradient;
 }
 
 /* HIDE SCROLLBAR */
@@ -45,9 +35,8 @@
 }
 
 /* FADE IN ANIMATION */
-
 #fade-in {
-  animation: 200ms ease-out 0s 1 fadein;
+  animation: 1s ease-out 0s 1 fadein;
 }
 
 @keyframes fadein {
@@ -55,6 +44,27 @@
     opacity: 0%;
   }
   100% {
-    opacity: 80%;
+    opacity: 100%;
   }
+}
+
+/* GLOBAL SCROLLBAR */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+  display: none;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #f26f47;
+  border-radius: 5px;
+  border: #e1e0e2 3px solid;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #99987a77;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
 }
