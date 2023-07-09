@@ -11,17 +11,29 @@
     background-position: 60% 100%;
   }
 }
+@keyframes gradient2 {
+  0% {
+    background-position: 60% 100%;
+  }
+  50% {
+    background-position: 55% 100%;
+  }
+  100% {
+    background-position: 60% 100%;
+  }
+}
 
 /* HOME BG ANIMATION */
 body {
-  background: linear-gradient(315deg, #f04b50 0.52%, #414c59 44.92%, #333 100%);
+  background: linear-gradient(270deg, #f04b50 0.1%, #414c59 44.92%, #333 100%);
   /* background-size: cover */
   margin: 0;
   height: 100%;
   min-height: 100dvh;
   background-size: 200% 200%;
   background-position: 60% 100%;
-  animation: 0.5s ease 0s 1 gradient;
+  animation: 2s ease 0s 1 gradient;
+  animation: 10s ease infinite gradient2;
 }
 
 /* HIDE SCROLLBAR */
