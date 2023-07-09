@@ -63,12 +63,12 @@ export default function Hero() {
         </div>
       </div>
       <div id="fade-in" className="h-[875px] w-[100dvw] md:hidden">
-        {/* Gradients */}
+        {/* Gradients
         <div className="absolute left-0 top-0 w-[100dvw] overflow-hidden blur-[120px] ">
           <div className="from-26% h-52 w-full bg-gradient-to-r from-[#863d50] to-[#F05A26] to-100%"></div>
           <div className="via-26% to-81% h-52 w-full bg-gradient-to-r from-[#4c4194] from-0% via-[#5373D4]  to-[#F05A26]"></div>
           <div className="from-18% h-52 w-full bg-gradient-to-r from-[#ac2a2a] to-[#EC1E27] to-100%"></div>
-        </div>
+        </div> */}
       </div>
     </>
   );
