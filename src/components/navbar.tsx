@@ -20,7 +20,7 @@ const ListItem = ({
     <li>
       <Link
         href={link}
-        className="transition-all duration-200 ease-in-out max-md:hidden max-md:font-bold md:font-black md:uppercase md:hover:text-[#D3A309]"
+        className="transition-all duration-500 ease-in-out max-md:hidden max-md:font-bold md:font-black md:uppercase md:hover:text-[#D3A309]"
         onClick={() => {
           setIsOpen(false);
         }}
@@ -36,7 +36,7 @@ const ListItem = ({
         <div
           className={`${
             router.pathname === link ? "w-10/12" : "w-0"
-          } h-[2px] rounded bg-[#E1E0E2]  transition-all duration-200 ease-in-out`}
+          } h-[2px] rounded bg-[#E1E0E2]  transition-all duration-500 ease-in-out`}
         ></div>
       </div>
 
@@ -48,7 +48,7 @@ const ListItem = ({
         <div
           className={`${
             router.pathname === link ? "w-full" : "w-0"
-          } absolute left-0 top-0 flex  h-[80px] items-center rounded-3xl bg-black  transition-all duration-200 ease-in-out`}
+          } absolute left-0 top-0 flex  h-[80px] items-center rounded-3xl bg-black  transition-all duration-500 ease-in-out`}
         >
           <Link
             href={link}
@@ -56,7 +56,7 @@ const ListItem = ({
               router.pathname === link
                 ? "max-md:text-[#E1E0E2]"
                 : "max-md:text-black max-md:hover:text-[#D3A309]"
-            } p-6 text-2xl uppercase transition-all duration-200 ease-in-out max-md:font-bold md:hidden md:font-black md:hover:text-[#D3A309]`}
+            } p-6 text-2xl uppercase transition-all duration-500 ease-in-out max-md:font-bold md:hidden md:font-black md:hover:text-[#D3A309]`}
             onClick={() => {
               setIsOpen(false);
             }}
@@ -108,7 +108,7 @@ export default function Navbar() {
   return (
     <nav
       id="fade-in"
-      className="body-font fixed top-0 z-10 flex w-full justify-center border-b-[1px] border-[#ffffff35] bg-[#ffffff14] px-12 py-6 font-azo-sans text-xs text-[#E1E0E2] backdrop-blur-2xl"
+      className="body-font fixed top-0 z-10 flex w-full justify-center px-12 py-6 font-azo-sans text-xs text-[#E1E0E2] md:border-b-[1px] md:border-[#ffffff35] md:bg-[#ffffff14] md:backdrop-blur-2xl"
     >
       <div className="w-[1000px] max-w-full">
         <div className="flex flex-col">
@@ -117,7 +117,7 @@ export default function Navbar() {
             <div
               className={`${
                 isLoadedLogo ? "opacity-100" : "opacity-0"
-              } flex items-center transition-all duration-200 ease-in-out md:flex-1 `}
+              } flex items-center transition-all duration-500 ease-in-out md:flex-1 `}
             >
               <Image
                 className="w-10"

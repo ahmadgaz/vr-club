@@ -11,17 +11,6 @@
     background-position: 60% 100%;
   }
 }
-@keyframes gradient2 {
-  0% {
-    background-position: 60% 100%;
-  }
-  50% {
-    background-position: 55% 100%;
-  }
-  100% {
-    background-position: 60% 100%;
-  }
-}
 
 /* HOME BG ANIMATION */
 body {
@@ -33,7 +22,6 @@ body {
   background-size: 200% 200%;
   background-position: 60% 100%;
   animation: 2s ease 0s 1 gradient;
-  animation: 10s ease infinite gradient2;
 }
 
 /* HIDE SCROLLBAR */

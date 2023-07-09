@@ -11,7 +11,7 @@ export default function Footer() {
   const emailRef = useRef<LottieRefCurrentProps | null>(null);
 
   return (
-    <div className="body-font flex  w-[100dvw] flex-1 justify-center bg-gradient-to-t from-black to-transparent font-azo-sans  text-[#E1E0E2]">
+    <div className="body-font flex  w-[100dvw] min-w-full flex-1 justify-center bg-gradient-to-t from-black to-transparent font-azo-sans  text-[#E1E0E2]">
       <div className="relative min-h-[225px]  w-full">
         <div className="absolute bottom-10 flex w-full  flex-col items-center">
           <p className="text-center">
@@ -22,7 +22,7 @@ export default function Footer() {
               onMouseEnter={() => {
                 instaRef.current?.goToAndPlay(0, true);
               }}
-              className="h-10 w-10 rounded-xl border-[1px] p-[7px]  transition-all duration-200 ease-in-out hover:h-11 hover:w-11 active:h-10 active:w-10"
+              className="h-10 w-10 rounded-xl border-[1px] p-[7px]  transition-all duration-500 ease-in-out hover:h-11 hover:w-11 active:h-10 active:w-10"
             >
               <Lottie
                 lottieRef={instaRef}
@@ -34,7 +34,7 @@ export default function Footer() {
               onMouseEnter={() => {
                 discordRef.current?.goToAndPlay(0, true);
               }}
-              className="h-10 w-10 rounded-xl border-[1px] p-[7px]  transition-all duration-200 ease-in-out hover:h-11 hover:w-11 active:h-10 active:w-10"
+              className="h-10 w-10 rounded-xl border-[1px] p-[7px]  transition-all duration-500 ease-in-out hover:h-11 hover:w-11 active:h-10 active:w-10"
             >
               <Lottie
                 lottieRef={discordRef}
@@ -46,7 +46,7 @@ export default function Footer() {
               onMouseEnter={() => {
                 emailRef.current?.goToAndPlay(0, true);
               }}
-              className="h-10 w-10 rounded-xl border-[1px] p-[7px]  transition-all duration-200 ease-in-out hover:h-11 hover:w-11 active:h-10 active:w-10"
+              className="h-10 w-10 rounded-xl border-[1px] p-[7px]  transition-all duration-500 ease-in-out hover:h-11 hover:w-11 active:h-10 active:w-10"
             >
               <Lottie
                 lottieRef={emailRef}
