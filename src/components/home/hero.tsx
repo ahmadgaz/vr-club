@@ -105,7 +105,7 @@ export default function Hero() {
             alt="hero-graphic"
             className={`${
               isLoadedGraphic ? "opacity-100" : "opacity-0"
-            } min-h-[90dvh] w-[900px] max-w-[100vw] object-cover transition-all duration-500 ease-in-out`}
+            } min-h-[90vh] w-[900px] max-w-[100vw] object-cover transition-all duration-500 ease-in-out`}
             onLoadingComplete={() => {
               setIsLoadedGraphic(true);
             }}
