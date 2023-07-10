@@ -10,8 +10,8 @@ export default function HeroImage() {
 
   return (
     <div className="relative overflow-hidden drop-shadow-5xl">
-      <div className="absolute z-10 h-[100dvh] w-[100dvw] border-b-[1px] border-[#ffffff5d] bg-gradient-to-t from-[#3b0f0f] via-[#00000000] via-10%  "></div>
-      <div className="absolute z-10 flex h-[100dvh] w-[100dvw] flex-col items-center justify-center">
+      <div className="absolute z-10 h-[100vh] w-[100dvw] border-b-[1px] border-[#ffffff5d] bg-gradient-to-t from-[#3b0f0f] via-[#00000000] via-10%  "></div>
+      <div className="absolute z-10 flex h-[100vh] w-[100dvw] flex-col items-center justify-center">
         <Image
           src={heroLogo as string}
           alt="hero-logo"
