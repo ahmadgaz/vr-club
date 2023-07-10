@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import logoWhite from "../../public/logo-white.svg";
 import logoBlack from "../../public/logo-black.svg";
 
@@ -73,6 +73,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [isHidden, setIsHidden] = useState<boolean>(true);
   const [isLoadedLogo, setIsLoadedLogo] = useState<boolean>(false);
+  const [isAtTop, setIsAtTop] = useState<boolean>(true);
 
   useEffect(() => {
     if (!isHidden) {
@@ -86,6 +87,23 @@ export default function Navbar() {
       }, 500);
     }
   }, [isOpen]);
+
+  const listenToScroll = useCallback(() => {
+    const heightToHideFrom = 300;
+    const winScroll = window.scrollY;
+
+    if (winScroll > heightToHideFrom) {
+      isAtTop && // to limit setting state only the first time
+        setIsAtTop(false);
+    } else {
+      setIsAtTop(true);
+    }
+  }, [isAtTop]);
+
+  useEffect(() => {
+    window.addEventListener("scroll", listenToScroll);
+    return () => window.removeEventListener("scroll", listenToScroll);
+  }, [listenToScroll]);
 
   const links = [
     <ListItem key={0} link="/" setIsOpen={setIsOpen}>
@@ -108,7 +126,11 @@ export default function Navbar() {
   return (
     <nav
       id="fade-in"
-      className="body-font fixed top-0 z-10 flex w-full justify-center px-12 py-6 font-azo-sans text-xs text-[#E1E0E2] md:border-b-[1px] md:border-[#ffffff35] md:bg-[#ffffff14] md:backdrop-blur-2xl"
+      className={`${
+        !isAtTop
+          ? "md:border-b-[1px] md:border-[#ffffff35] md:bg-[#ffffff14] md:backdrop-blur-2xl"
+          : ""
+      } body-font fixed top-0 z-10 flex w-full justify-center px-12 py-6 font-azo-sans text-xs text-[#E1E0E2]`}
     >
       <div className="w-[1000px] max-w-full">
         <div className="flex flex-col">
@@ -116,11 +138,13 @@ export default function Navbar() {
             {/* Logo */}
             <div
               className={`${
-                isLoadedLogo ? "opacity-100" : "opacity-0"
-              } flex items-center transition-all duration-500 ease-in-out md:flex-1 `}
+                isLoadedLogo && !isAtTop
+                  ? "mr-40 opacity-100"
+                  : "mr-0 opacity-0"
+              } flex h-10 w-10 items-center justify-center transition-all duration-500 ease-in-out `}
             >
               <Image
-                className="w-10"
+                className={`transition-all duration-500 ease-in-out`}
                 src={logoWhite as string}
                 alt="logo"
                 onLoadingComplete={() => {

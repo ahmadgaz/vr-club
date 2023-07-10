@@ -42,7 +42,7 @@ export default function Button({
   ) : (
     <button className="h-[60px] max-w-full rounded-[30px] border-[1px] border-[#E1E0E2] text-[12pt] text-[#E1E0E2] mix-blend-screen transition-all duration-200 ease-in-out hover:border-[2px]  active:border-[1px]">
       <Link href={link}>
-        <span className="flex h-[61px] w-[241px]  max-w-full items-center justify-center ">
+        <span className="flex h-[30px] w-[241px]  max-w-full items-center justify-center ">
           {text}
           <Image src={arrowWhite as string} alt="arrow" className="ml-3 w-3" />
         </span>
