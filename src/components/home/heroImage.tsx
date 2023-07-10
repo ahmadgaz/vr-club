@@ -35,7 +35,7 @@ export default function HeroImage() {
           loading="lazy"
           className={`${
             isLoadedImage ? "opacity-100" : "opacity-0"
-          } h-[100vh] w-[100dvw] object-cover transition-all duration-500 ease-in-out`}
+          } h-[100vh] w-[100dvw] object-cover transition-opacity duration-500 ease-in-out`}
           onLoadingComplete={() => {
             setIsLoadedImage(true);
           }}
