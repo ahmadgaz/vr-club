@@ -52,32 +52,31 @@ export default function Bg() {
           setIsLoadedHeroImage(true);
         }}
       />
-
       {/* Circle gradients */}
-      <div className="absolute top-[500px] -z-30 flex w-full justify-center opacity-50">
-        <div className="flex w-[1000px] max-w-[50%] max-md:flex-col">
+      <div className="absolute top-[700px] -z-30 flex w-full justify-center opacity-50">
+        <div className="flex w-[300px] max-w-[50%] max-md:flex-col">
           <div className="flex flex-1 justify-center">
             <div
               id="radial-gradient"
-              className="absolute aspect-square w-[1200px] max-w-full"
+              className="absolute aspect-square w-[600px] max-w-full"
             ></div>
           </div>
           <div className="flex flex-1 justify-center">
             <div
               id="radial-gradient"
-              className=" absolute aspect-square w-[1200px] max-w-full max-md:mt-[200px]"
+              className=" absolute aspect-square w-[600px] max-w-full max-md:mt-[200px]"
             ></div>
           </div>
           <div className="flex flex-1 justify-center md:hidden">
             <div
               id="radial-gradient"
-              className=" absolute aspect-square w-[1200px] max-w-full max-md:mt-[400px]"
+              className=" absolute aspect-square w-[600px] max-w-full max-md:mt-[400px]"
             ></div>
           </div>
           <div className="flex flex-1 justify-center md:hidden">
             <div
               id="radial-gradient"
-              className=" absolute aspect-square w-[1200px] max-w-full max-md:mt-[600px]"
+              className=" absolute aspect-square w-[600px] max-w-full max-md:mt-[600px]"
             ></div>
           </div>
         </div>

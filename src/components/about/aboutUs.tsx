@@ -22,12 +22,14 @@ export default function AboutUs() {
       >
         {/* Content */}
         <div className="flex h-fit flex-wrap justify-between">
-          <div className="body-font relative ml-16 mt-[6.5rem] flex max-w-[550px] flex-col self-start  font-azo-sans  text-[#E1E0E2] max-md:max-w-full md:flex-1">
-            <p className="text-[36pt] font-black">About Us</p>
+          <div className="body-font relative mx-16 mt-[6.5rem] flex max-w-[550px] flex-col self-start font-azo-sans  text-[#E1E0E2]  max-md:max-w-full max-md:items-center md:flex-1">
+            <p className="text-[36pt] font-black max-md:text-center">
+              About Us
+            </p>
             <div className="w-[110%] max-w-[80dvw]">
               <StarBorderText />
             </div>
-            <p className="mr-10 mt-10 text-[12pt] ">
+            <p className="mt-12 text-[12pt] max-md:text-center ">
               Our mission is to dive into the immersive world of Augmented and
               Virtual Realities. We are a community of passionate individuals
               from all disciplines, bonded together by our shared fascination
@@ -219,7 +221,7 @@ export default function AboutUs() {
 function StarBorderText() {
   return (
     <div className="relative w-full">
-      <div className="absolute -left-10 -top-14 h-[670px] w-full">
+      <div className="absolute -top-14 h-[670px] w-full md:-left-10">
         <div className="absolute h-full w-[2px] border-l-[1px] border-white max-md:hidden"></div>
         <div className="absolute left-2 top-1 h-[95%] w-[2px] border-l-[1px] border-white max-md:hidden"></div>
         <div className="absolute top-16 h-[2px] w-[95%] border-t-[1px] border-white max-md:left-1"></div>
@@ -228,27 +230,27 @@ function StarBorderText() {
       <Image
         src={star as string}
         alt="star"
-        className="absolute -left-10 top-[1rem] w-4 translate-x-[-50%] translate-y-[-50%] transition-all duration-500  ease-in-out"
+        className="absolute top-[1rem] w-4 translate-x-[-50%] translate-y-[-50%] transition-all duration-500 ease-in-out  md:-left-10"
       />
       <Image
         src={star as string}
         alt="star"
-        className="absolute -left-8 top-[0.5rem] w-4 translate-x-[-50%] translate-y-[-50%] transition-all duration-500  ease-in-out"
+        className="absolute left-2 top-[0.5rem] w-4 translate-x-[-50%] translate-y-[-50%] transition-all duration-500 ease-in-out  md:-left-8"
       />
       <Image
         src={star as string}
         alt="star"
-        className="absolute right-20 top-[1.5rem] w-4  transition-all duration-500  ease-in-out"
+        className="absolute right-8 top-[1.5rem] w-4  transition-all duration-500 ease-in-out md:right-20"
       />
       <Image
         src={star as string}
         alt="star"
-        className="absolute right-16 top-[1.5rem] w-4  transition-all duration-500  ease-in-out"
+        className="absolute right-4 top-[1.5rem] w-4  transition-all duration-500 ease-in-out md:right-16"
       />
       <Image
         src={star as string}
         alt="star"
-        className="absolute right-12 top-[1.5rem] w-4  transition-all duration-500  ease-in-out"
+        className="absolute right-0 top-[1.5rem] w-4  transition-all duration-500 ease-in-out md:right-12"
       />
     </div>
   );
