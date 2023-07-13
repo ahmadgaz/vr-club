@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useCallback, useEffect, useState } from "react";
+import discordIcon from "../assets/images/discord-icon.svg";
 import logoWhite from "../../public/logo-white.svg";
 import logoBlack from "../../public/logo-black.svg";
 
@@ -130,11 +131,27 @@ export default function Navbar() {
         !isAtTop
           ? "border-b-[1px] border-[#ffffff35] bg-[#ffffff14] backdrop-blur-2xl"
           : ""
-      } body-font fixed top-0 z-50 flex w-full justify-center px-8 py-3 pt-4 font-azo-sans text-xs  text-[#E1E0E2] md:py-6`}
+      } body-font fixed top-0 z-50 flex w-full justify-center px-8 py-3 pt-3 font-azo-sans text-xs  text-[#E1E0E2] md:py-6`}
     >
       <div className="w-[1200px] max-w-full">
         <div className="flex flex-col">
           <div className="flex items-center justify-between">
+            {/* Discord */}
+            <Link
+              href="https://discord.gg/gSbpSzZ2uG"
+              className={`${
+                isLoadedLogo ? "opacity-100 md:mr-40" : "opacity-0 md:mr-0"
+              } flex h-6 w-6 items-center justify-center transition-all duration-500 ease-in-out md:hidden md:h-9 md:w-9 `}
+            >
+              <Image
+                className={`transition-all duration-500 ease-in-out`}
+                src={discordIcon as string}
+                alt="logo"
+                onLoadingComplete={() => {
+                  setIsLoadedLogo(true);
+                }}
+              />
+            </Link>
             {/* Logo */}
             <div
               className={`${
@@ -159,7 +176,7 @@ export default function Navbar() {
             </ul>
 
             {/* Mobile */}
-            <div className="md:hidden">
+            <div className="w-6 md:hidden">
               <button
                 type="button"
                 onClick={() => {
@@ -175,7 +192,7 @@ export default function Navbar() {
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
-                  className=" h-5 w-5"
+                  className=" h-5 w-5 pt-1"
                 >
                   <path
                     strokeLinecap="round"
@@ -216,7 +233,7 @@ export default function Navbar() {
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="black"
-                        className=" h-5 w-5"
+                        className=" h-5 w-5 pt-1"
                       >
                         <path
                           strokeLinecap="round"

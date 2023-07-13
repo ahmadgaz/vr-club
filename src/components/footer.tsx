@@ -28,6 +28,7 @@ export default function Footer() {
                 lottieRef={instaRef}
                 animationData={instagramAnimation}
                 loop={false}
+                className=" h-5"
               />
             </button>
             <button
@@ -46,12 +47,13 @@ export default function Footer() {
               onMouseEnter={() => {
                 emailRef.current?.goToAndPlay(0, true);
               }}
-              className="h-10 w-10 rounded-xl border-[1px] p-[7px]  transition-all duration-500 ease-in-out hover:h-11 hover:w-11 active:h-10 active:w-10"
+              className="h-10 w-10 rounded-xl  border-[1px] p-[7px]  transition-all duration-500 ease-in-out hover:h-11 hover:w-11 active:h-10 active:w-10"
             >
               <Lottie
                 lottieRef={emailRef}
                 animationData={emailAnimation}
                 loop={false}
+                className="mb-6 h-5"
               />
             </button>
           </div>
