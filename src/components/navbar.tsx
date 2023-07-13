@@ -130,7 +130,7 @@ export default function Navbar() {
         !isAtTop
           ? "border-b-[1px] border-[#ffffff35] bg-[#ffffff14] backdrop-blur-2xl"
           : ""
-      } body-font fixed top-0 z-50 flex w-full justify-center px-12 py-6 font-azo-sans  text-xs text-[#E1E0E2]`}
+      } body-font fixed top-0 z-50 flex w-full justify-center px-8 py-3 pt-4 font-azo-sans text-xs  text-[#E1E0E2] md:py-6`}
     >
       <div className="w-[1200px] max-w-full">
         <div className="flex flex-col">
@@ -141,7 +141,7 @@ export default function Navbar() {
                 isLoadedLogo && !isAtTop
                   ? "opacity-100 md:mr-40"
                   : "opacity-0 md:mr-0"
-              } flex h-10 w-10 items-center justify-center transition-all duration-500 ease-in-out `}
+              } flex h-6 w-6 items-center justify-center transition-all duration-500 ease-in-out `}
             >
               <Image
                 className={`transition-all duration-500 ease-in-out`}
@@ -175,7 +175,7 @@ export default function Navbar() {
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
-                  className="h-10 w-10"
+                  className=" h-5 w-5"
                 >
                   <path
                     strokeLinecap="round"
@@ -204,7 +204,7 @@ export default function Navbar() {
                 <div className="flex items-center justify-between">
                   <div className="flex items-center md:flex-1">
                     <Image
-                      className="w-10"
+                      className="w-6"
                       src={logoBlack as string}
                       alt="logo"
                     />
@@ -216,7 +216,7 @@ export default function Navbar() {
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="black"
-                        className="h-10 w-10"
+                        className=" h-5 w-5"
                       >
                         <path
                           strokeLinecap="round"
