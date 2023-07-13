@@ -14,7 +14,7 @@ export default function Footer() {
     <div className="body-font flex  w-[100dvw] min-w-full flex-1 justify-center bg-gradient-to-t from-black to-transparent font-azo-sans  text-[#E1E0E2]">
       <div className="relative min-h-[225px]  w-full">
         <div className="absolute bottom-10 flex w-full  flex-col items-center">
-          <p className="text-center">
+          <p className="text-center max-md:text-[8pt]">
             Brought to you by the AR/VR Club Team @ SJSU
           </p>
           <div className="mt-3 flex h-12 w-36 flex-row items-center justify-between">

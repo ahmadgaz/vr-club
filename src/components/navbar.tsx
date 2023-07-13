@@ -128,19 +128,19 @@ export default function Navbar() {
       id="fade-in"
       className={`${
         !isAtTop
-          ? "md:border-b-[1px] md:border-[#ffffff35] md:bg-[#ffffff14] md:backdrop-blur-2xl"
+          ? "border-b-[1px] border-[#ffffff35] bg-[#ffffff14] backdrop-blur-2xl"
           : ""
-      } body-font fixed top-0 z-10 flex w-full justify-center px-12 py-6 font-azo-sans text-xs text-[#E1E0E2]`}
+      } body-font fixed top-0 z-50 flex w-full justify-center px-12 py-6 font-azo-sans  text-xs text-[#E1E0E2]`}
     >
-      <div className="w-[1000px] max-w-full">
+      <div className="w-[1200px] max-w-full">
         <div className="flex flex-col">
           <div className="flex items-center justify-between">
             {/* Logo */}
             <div
               className={`${
                 isLoadedLogo && !isAtTop
-                  ? "mr-40 opacity-100"
-                  : "mr-0 opacity-0"
+                  ? "opacity-100 md:mr-40"
+                  : "opacity-0 md:mr-0"
               } flex h-10 w-10 items-center justify-center transition-all duration-500 ease-in-out `}
             >
               <Image

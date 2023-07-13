@@ -12,6 +12,11 @@
   }
 }
 
+#radial-gradient {
+  background: radial-gradient(#c6e8f9, #e1e0e228 37%, #e1e0e200 50%);
+  border-radius: 100%;
+  mix-blend-mode: overlay;
+}
 /* HOME BG ANIMATION */
 body {
   background: linear-gradient(270deg, #f04b50 0.1%, #414c59 44.92%, #333 100%);
