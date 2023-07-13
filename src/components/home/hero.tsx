@@ -13,7 +13,7 @@ export default function Hero() {
   return (
     <>
       {/* Landing pg */}
-      <div className="body-font z-[5]  flex h-[600px] w-[100dvw] flex-col items-center justify-center font-azo-sans font-light text-[#E1E0E2]">
+      <div className="body-font z-[5]  flex h-[650px] w-[100dvw] flex-col items-center justify-center font-azo-sans font-light text-[#E1E0E2]">
         <Image
           src={heroLogo as string}
           alt="hero-logo"

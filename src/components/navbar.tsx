@@ -141,7 +141,7 @@ export default function Navbar() {
                 isLoadedLogo && !isAtTop
                   ? "opacity-100 md:mr-40"
                   : "opacity-0 md:mr-0"
-              } flex h-6 w-6 items-center justify-center transition-all duration-500 ease-in-out `}
+              } flex h-6 w-6 items-center justify-center transition-all duration-500 ease-in-out md:h-9 md:w-9 `}
             >
               <Image
                 className={`transition-all duration-500 ease-in-out`}
