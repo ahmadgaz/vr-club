@@ -91,7 +91,7 @@ export default function Navbar() {
   }, [isOpen]);
 
   const listenToScroll = useCallback(() => {
-    const heightToHideFrom = 300;
+    const heightToHideFrom = 0;
     const winScroll = window.scrollY;
 
     if (winScroll > heightToHideFrom) {
