@@ -19,7 +19,7 @@ export default function Hero() {
           alt="hero-logo"
           className={`${
             isLoadedLogo ? "opacity-100" : "opacity-0"
-          } mb-5 mt-20 w-44 max-w-full drop-shadow-xl transition-all duration-500 ease-in-out`}
+          } mb-4 mt-20 w-44 max-w-full drop-shadow-xl transition-all duration-500 ease-in-out`}
           onLoadingComplete={() => setIsLoadedLogo(true)}
         />
         <Image

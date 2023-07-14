@@ -47,7 +47,7 @@ export default function Bg() {
         loading="lazy"
         className={`${
           isLoadedHeroImage ? "opacity-100" : "opacity-0"
-        } absolute -z-20 h-[100vh] w-[100dvw] object-cover object-bottom  transition-opacity duration-500  ease-in-out`}
+        } absolute -z-20 h-[100vh] w-[100dvw] object-cover object-bottom blur-[500px]  transition-opacity duration-500  ease-in-out`}
         onLoadingComplete={() => {
           setIsLoadedHeroImage(true);
         }}
