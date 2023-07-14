@@ -11,7 +11,10 @@ export default function Footer() {
   const emailRef = useRef<LottieRefCurrentProps | null>(null);
 
   return (
-    <div className="body-font flex  w-[100dvw] min-w-full flex-1 justify-center bg-gradient-to-t from-black to-transparent font-azo-sans  text-[#E1E0E2]">
+    <div
+      id="fade-in"
+      className="body-font flex  w-[100dvw] min-w-full flex-1 justify-center bg-gradient-to-t from-black to-transparent font-azo-sans  text-[#E1E0E2]"
+    >
       <div className="relative min-h-[225px]  w-full">
         <div className="absolute bottom-10 flex w-full  flex-col items-center">
           <p className="text-center max-md:text-[8pt]">
