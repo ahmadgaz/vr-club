@@ -50,7 +50,7 @@ export default function Home() {
   }, []);
 
   const listenToScroll = useCallback(() => {
-    setScrollPosition(window.scrollY + window.innerHeight);
+    setScrollPosition(window.scrollY + window.innerHeight - 100);
   }, []);
 
   useEffect(() => {
