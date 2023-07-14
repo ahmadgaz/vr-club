@@ -15,7 +15,7 @@ export default function Hero() {
       {/* Landing pg */}
       <div
         id="fade-in"
-        className="body-font z-[5]  flex h-[650px] w-[100dvw] flex-col items-center justify-center font-azo-sans font-light text-[#E1E0E2]"
+        className="body-font z-[5]  flex h-[650px] w-[100vw] flex-col items-center justify-center font-azo-sans font-light text-[#E1E0E2]"
       >
         <Image
           src={heroLogo as string}

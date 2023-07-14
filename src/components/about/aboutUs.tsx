@@ -15,21 +15,15 @@ export default function AboutUs() {
   const [hoveredCardThree, setHoveredCardThree] = useState<boolean>(false);
 
   return (
-    <div
-      id="fade-in"
-      className=" relative mt-20 flex w-[100dvw] justify-center"
-    >
-      <div
-        id="fade-in"
-        className="relative flex h-fit min-h-[700px] w-[1200px] max-w-full flex-col "
-      >
+    <div id="fade-in" className=" relative mt-20 flex w-[100vw] justify-center">
+      <div className="relative flex h-fit min-h-[700px] w-[1200px] max-w-full flex-col ">
         {/* Content */}
         <div className="flex h-fit flex-wrap justify-between">
           <div className="body-font relative mx-16 mt-[6.5rem] flex max-w-[550px] flex-col self-start font-azo-sans  text-[#E1E0E2]  max-md:max-w-full max-md:items-center md:flex-1">
             <p className="text-[36pt] font-black leading-tight tracking-tight max-md:text-center">
               About Us
             </p>
-            <div className="w-[110%] max-w-[80dvw]">
+            <div className="w-[110%] max-w-[80vw]">
               <StarBorderText />
             </div>
             <p className="mt-11 text-[12pt] max-md:text-center ">
