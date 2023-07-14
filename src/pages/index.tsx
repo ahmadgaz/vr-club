@@ -50,7 +50,7 @@ export default function Home() {
   }, []);
 
   const listenToScroll = useCallback(() => {
-    setScrollPosition(window.scrollY + window.innerHeight - 100);
+    setScrollPosition(window.scrollY + window.innerHeight);
   }, []);
 
   useEffect(() => {
@@ -71,7 +71,7 @@ export default function Home() {
             <Hero />
           </div>
           {scrollPosition > heroHeight &&
-          scrollPosition - window.innerHeight + 100 < heroHeight + aboutUsHeight ? (
+          scrollPosition - window.innerHeight < heroHeight + aboutUsHeight ? (
             <div ref={handleSetAboutUsHeight}>
               <AboutUs />
             </div>
@@ -79,7 +79,7 @@ export default function Home() {
             <div style={{ height: `${aboutUsHeight}px` }}></div>
           )}
           {scrollPosition > heroHeight + aboutUsHeight &&
-          scrollPosition - window.innerHeight + 100 <
+          scrollPosition - window.innerHeight <
             heroHeight + aboutUsHeight + equipmentHeight ? (
             <div ref={handleSetEquipmentHeight}>
               <Equipment />

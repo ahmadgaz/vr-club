@@ -15,7 +15,7 @@ export default function AboutUs() {
   const [hoveredCardThree, setHoveredCardThree] = useState<boolean>(false);
 
   return (
-    <div id="fade-in" className=" relative mt-20 flex w-[100vw] justify-center">
+    <div id="fade-in" className=" relative flex w-[100vw] justify-center">
       <div className="relative flex h-fit min-h-[700px] w-[1200px] max-w-full flex-col ">
         {/* Content */}
         <div className="flex h-fit flex-wrap justify-between">
