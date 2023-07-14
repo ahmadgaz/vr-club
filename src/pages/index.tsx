@@ -71,7 +71,7 @@ export default function Home() {
             <Hero />
           </div>
           {scrollPosition > heroHeight &&
-          scrollPosition - window.innerHeight < heroHeight + aboutUsHeight ? (
+          scrollPosition - window.innerHeight + 100 < heroHeight + aboutUsHeight ? (
             <div ref={handleSetAboutUsHeight}>
               <AboutUs />
             </div>
@@ -79,7 +79,7 @@ export default function Home() {
             <div style={{ height: `${aboutUsHeight}px` }}></div>
           )}
           {scrollPosition > heroHeight + aboutUsHeight &&
-          scrollPosition - window.innerHeight <
+          scrollPosition - window.innerHeight + 100 <
             heroHeight + aboutUsHeight + equipmentHeight ? (
             <div ref={handleSetEquipmentHeight}>
               <Equipment />
