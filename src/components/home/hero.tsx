@@ -72,8 +72,8 @@ function StarBorder() {
   return (
     <div className="relative h-full w-full">
       <div className="absolute h-full w-full">
-        <div className="absolute left-1 top-0 h-[2px] w-[95%] border-t-[1px] border-white"></div>
-        <div className="absolute top-2 h-[2px] w-full border-t-[1px] border-white"></div>
+        <div className="absolute left-1 top-0 h-[2px] w-[95%] border-t-[1px] border-[#E1E0E2]"></div>
+        <div className="absolute top-2 h-[2px] w-full border-t-[1px] border-[#E1E0E2]"></div>
       </div>
       <div className="absolute"></div>
       <Image

@@ -20,7 +20,7 @@ export default function Bg() {
         alt="hero-graphic"
         className={`${
           isLoadedGradient ? "opacity-100" : "opacity-0"
-        } absolute top-[150px] -z-40  h-[800px] w-[100dvw]  blur-3xl transition-all  duration-500 ease-in-out`}
+        } absolute top-[50px] -z-40  h-[800px] w-[100dvw]  blur-[100px] transition-all  duration-500 ease-in-out`}
         onLoadingComplete={() => {
           setIsLoadedGradient(true);
         }}
@@ -53,7 +53,7 @@ export default function Bg() {
         }}
       />
       {/* Circle gradients */}
-      <div className="absolute top-[700px] -z-30 flex w-full justify-center opacity-50">
+      <div className="absolute top-[700px] -z-30 flex w-full justify-center opacity-50 blur-[50px]">
         <div className="flex w-[300px] max-w-[50%] max-md:flex-col">
           <div className="flex flex-1 justify-center">
             <div

@@ -18,12 +18,14 @@ export default function Equipment() {
     <div className="relative flex w-[100dvw] justify-center">
       <div
         id="fade-in"
-        className="relative flex h-fit min-h-[700px] w-[1200px] max-w-[90%] flex-col "
+        className="relative flex h-fit min-h-[700px] w-[1200px] max-w-full flex-col "
       >
         {/* Content */}
         <div className=" h-fit w-full">
           <div className="body-font relative ml-16 mt-[2rem] flex flex-col self-start  font-azo-sans  text-[#E1E0E2] max-md:max-w-full md:flex-1">
-            <p className="pr-20 text-right text-[36pt] font-black">Equipment</p>
+            <p className="pr-20 text-center text-[36pt] font-black tracking-tight md:text-right">
+              Equipment
+            </p>
             <div className="-z-10 w-[100%]">
               <StarBorderText />
             </div>
@@ -78,10 +80,10 @@ function StarBorderText() {
   return (
     <div className="relative w-full">
       <div className="absolute -left-10 -top-96 h-[800px] w-full">
-        <div className="absolute right-0 h-full w-[2px] border-l-[1px] border-white max-md:hidden"></div>
-        <div className="absolute right-2 top-1 h-[95%] w-[2px] border-l-[1px] border-white max-md:hidden"></div>
-        <div className="absolute  right-1 top-[24.5rem] h-[2px] w-[95%] border-t-[1px] border-white"></div>
-        <div className="absolute right-0 top-[25rem] h-[2px] w-[98%] border-t-[1px] border-white"></div>
+        <div className="absolute right-0 h-full w-[2px] border-l-[1px] border-[#E1E0E2] max-md:hidden"></div>
+        <div className="absolute right-2 top-1 h-[95%] w-[2px] border-l-[1px] border-[#E1E0E2] max-md:hidden"></div>
+        <div className="absolute  right-1 top-[24.5rem] h-[2px] w-[95%] border-t-[1px] border-[#E1E0E2]"></div>
+        <div className="absolute right-0 top-[25rem] h-[2px] w-[98%] border-t-[1px] border-[#E1E0E2]"></div>
       </div>
       <Image
         src={star as string}
@@ -116,9 +118,9 @@ function StarBorderImage() {
   return (
     <div className="relative w-full">
       <div className="absolute -right-10  h-[500px] w-full">
-        <div className="absolute right-0 top-[-7rem] h-[80%] w-[2px] border-l-[1px] border-white max-md:hidden"></div>
-        <div className="absolute right-2 top-[-17rem] h-full w-[2px] border-l-[1px] border-white max-md:hidden"></div>
-        <div className="absolute right-2 top-0 h-[2px] w-full border-t-[1px] border-white"></div>
+        <div className="absolute right-0 top-[-7rem] h-[80%] w-[2px] border-l-[1px] border-[#E1E0E2] max-md:hidden"></div>
+        <div className="absolute right-2 top-[-17rem] h-full w-[2px] border-l-[1px] border-[#E1E0E2] max-md:hidden"></div>
+        <div className="absolute right-2 top-0 h-[2px] w-full border-t-[1px] border-[#E1E0E2]"></div>
       </div>
 
       <Image

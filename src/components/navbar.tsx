@@ -2,7 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useCallback, useEffect, useState } from "react";
-import discordIcon from "../assets/images/discord-icon.svg";
+import discordIconBlack from "../assets/images/discord-icon-black.svg";
+import discordIconWhite from "../assets/images/discord-icon-white.svg";
 import logoWhite from "../../public/logo-white.svg";
 import logoBlack from "../../public/logo-black.svg";
 
@@ -135,30 +136,34 @@ export default function Navbar() {
     >
       <div className="w-[1200px] max-w-full">
         <div className="flex flex-col">
-          <div className="flex items-center justify-between">
+          <div className="h- flex items-center justify-between">
             {/* Discord */}
-            <Link
-              href="https://discord.gg/gSbpSzZ2uG"
-              className={`${
-                isLoadedLogo ? "opacity-100 md:mr-40" : "opacity-0 md:mr-0"
-              } flex h-6 w-6 items-center justify-center transition-all duration-500 ease-in-out md:hidden md:h-9 md:w-9 `}
-            >
-              <Image
-                className={`transition-all duration-500 ease-in-out`}
-                src={discordIcon as string}
-                alt="logo"
-                onLoadingComplete={() => {
-                  setIsLoadedLogo(true);
-                }}
-              />
-            </Link>
+            <div className="flex w-9 items-center justify-start md:hidden">
+              <Link
+                href="https://discord.gg/gSbpSzZ2uG"
+                className={`${
+                  isLoadedLogo ? "opacity-100 md:mr-40" : "opacity-0 md:mr-0"
+                } ${
+                  isAtTop ? " h-9 w-9" : " h-6 w-6"
+                } flex items-center justify-center transition-all duration-500 ease-in-out md:hidden md:h-9 md:w-9 `}
+              >
+                <Image
+                  className={`transition-all duration-500 ease-in-out`}
+                  src={discordIconWhite as string}
+                  alt="logo"
+                  onLoadingComplete={() => {
+                    setIsLoadedLogo(true);
+                  }}
+                />
+              </Link>
+            </div>
             {/* Logo */}
             <div
               className={`${
                 isLoadedLogo && !isAtTop
                   ? "opacity-100 md:mr-40"
                   : "opacity-0 md:mr-0"
-              } flex h-6 w-6 items-center justify-center transition-all duration-500 ease-in-out md:h-9 md:w-9 `}
+              } flex h-7 w-7 items-center justify-center transition-all duration-500 ease-in-out md:h-9 md:w-9 `}
             >
               <Image
                 className={`transition-all duration-500 ease-in-out`}
@@ -171,12 +176,12 @@ export default function Navbar() {
             </div>
 
             {/* Desktop */}
-            <ul className=" flex flex-grow justify-between max-md:hidden">
+            <ul className=" flex flex-grow justify-between max-md:hidden ">
               {links}
             </ul>
 
             {/* Mobile */}
-            <div className="w-6 md:hidden">
+            <div className="flex w-9 items-center justify-end md:hidden">
               <button
                 type="button"
                 onClick={() => {
@@ -192,7 +197,9 @@ export default function Navbar() {
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
-                  className=" h-5 w-5 pt-1"
+                  className={`${
+                    isAtTop ? " h-9 w-9" : " h-6 w-6"
+                  }  pt-1 transition-all duration-500 ease-in-out`}
                 >
                   <path
                     strokeLinecap="round"
@@ -219,21 +226,36 @@ export default function Navbar() {
             <div className="absolute left-0 top-0 z-10 w-[100dvw] bg-transparent px-12 py-6">
               <div className="flex flex-col">
                 <div className="flex items-center justify-between">
+                  <div className="flex w-9 items-center justify-start md:hidden">
+                    <Link
+                      href="https://discord.gg/gSbpSzZ2uG"
+                      className={`flex h-9 w-9 items-center justify-center transition-all duration-500 ease-in-out md:hidden md:h-9 md:w-9 `}
+                    >
+                      <Image
+                        className={`transition-all duration-500 ease-in-out`}
+                        src={discordIconBlack as string}
+                        alt="logo"
+                        onLoadingComplete={() => {
+                          setIsLoadedLogo(true);
+                        }}
+                      />
+                    </Link>
+                  </div>
                   <div className="flex items-center md:flex-1">
                     <Image
-                      className="w-6"
+                      className="w-10"
                       src={logoBlack as string}
                       alt="logo"
                     />
                   </div>
-                  <div className="md:hidden">
+                  <div className="w-9 md:hidden">
                     <button type="button" onClick={() => setIsOpen(!isOpen)}>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="black"
-                        className=" h-5 w-5 pt-1"
+                        className=" h-9 w-9 pt-1"
                       >
                         <path
                           strokeLinecap="round"
