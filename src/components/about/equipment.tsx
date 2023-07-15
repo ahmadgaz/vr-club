@@ -29,13 +29,13 @@ export default function Equipment() {
             </div>
           </div>
         </div>
-        <div className="mt-10 flex w-full flex-1 flex-col flex-wrap items-center justify-stretch pl-12 md:pl-24 md:pr-12">
+        <div className="mt-10 flex w-full flex-1 flex-col flex-wrap items-center justify-stretch px-20 ">
           <div
             className={`${
               hoveredCardOne
                 ? "hover:border-opacity-50 hover:drop-shadow-6xl"
                 : ""
-            } body-font relative mr-8 mt-5  flex-1  self-stretch rounded-[30px] border-[1px] border-[#E1E0E2] border-opacity-10 bg-gradient-to-t from-[rgba(83,115,212,0.3)] to-[rgba(255,255,255,0.3)] px-8 py-8 pr-16 font-azo-sans font-light text-[#E1E0E2] drop-shadow-5xl backdrop-blur-[30px] transition-all duration-500  ease-in-out `}
+            } body-font relative mt-5  flex-1  self-stretch rounded-[30px] border-[1px] border-[#E1E0E2] border-opacity-10 bg-gradient-to-t from-[rgba(83,115,212,0.3)] to-[rgba(255,255,255,0.3)] px-8 py-8 pr-16 font-azo-sans font-light text-[#E1E0E2] drop-shadow-5xl backdrop-blur-[30px] transition-all duration-500  ease-in-out `}
           ></div>
           <div className="body-font mt-5 max-w-full text-center font-azo-sans text-[12pt] italic text-[#E1E0E2]">
             <p>
