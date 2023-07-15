@@ -8,6 +8,7 @@ import canvas from "../../assets/images/canvas-icon.svg";
 import Link from "next/link";
 import arrowWhite from "../../assets/images/arrow-white.svg";
 import arrowBlack from "../../assets/images/arrow-black.svg";
+import Button from "../button";
 
 export default function Equipment() {
   const [hoveredCardOne, setHoveredCardOne] = useState<boolean>(false);
@@ -28,44 +29,22 @@ export default function Equipment() {
             </div>
           </div>
         </div>
-        <div className="mt-10 flex w-full flex-1 flex-wrap items-stretch justify-stretch pl-12 md:pl-24 md:pr-12">
+        <div className="mt-10 flex w-full flex-1 flex-col flex-wrap items-center justify-stretch pl-12 md:pl-24 md:pr-12">
           <div
             className={`${
               hoveredCardOne
                 ? "hover:border-opacity-50 hover:drop-shadow-6xl"
                 : ""
-            } body-font relative mr-20 mt-5    flex-1 rounded-[30px] border-[1px] border-[#E1E0E2] border-opacity-10 bg-gradient-to-t from-[rgba(83,115,212,0.3)] to-[rgba(255,255,255,0.3)] px-8 py-8 pr-16 font-azo-sans font-light text-[#E1E0E2] drop-shadow-5xl backdrop-blur-[30px] transition-all duration-500  ease-in-out `}
-          >
-            {/* <div className="absolute -right-11 top-0 h-full w-24 rounded-[30px] border-[1px]"></div> */}
-            <button
-              onMouseEnter={() => {
-                setHoveredCardOne(true);
-              }}
-              onMouseLeave={() => {
-                setHoveredCardOne(false);
-              }}
-              className={`${
-                hoveredCardOne ? "bg-[#E1E0E2]" : ""
-              } absolute -right-11 top-0 h-full w-24 rounded-[30px] border-[1px] border-[#E1E0E2] transition-all duration-200 ease-in-out`}
-            >
-              <Link href="">
-                <span className="flex h-[30px] w-full   items-center justify-center ">
-                  {hoveredCardOne ? (
-                    <Image
-                      src={arrowBlack as string}
-                      alt="arrow"
-                      className="w-3"
-                    />
-                  ) : (
-                    <Image
-                      src={arrowWhite as string}
-                      alt="arrow"
-                      className="w-3"
-                    />
-                  )}
-                </span>
-              </Link>
-            </button>
+            } body-font relative mr-8 mt-5  flex-1  self-stretch rounded-[30px] border-[1px] border-[#E1E0E2] border-opacity-10 bg-gradient-to-t from-[rgba(83,115,212,0.3)] to-[rgba(255,255,255,0.3)] px-8 py-8 pr-16 font-azo-sans font-light text-[#E1E0E2] drop-shadow-5xl backdrop-blur-[30px] transition-all duration-500  ease-in-out `}
+          ></div>
+          <div className="body-font mt-5 max-w-full text-center font-azo-sans text-[12pt] italic text-[#E1E0E2]">
+            <p>
+              Get your hands on this and much more as a{" "}
+              <b className="text-[#D3A309]">member</b> of the AR/VR Club @ SJSU!
+            </p>
+          </div>
+          <div className="mt-4 h-[60px] w-96 max-w-full">
+            <Button link="" text="JOIN OUR DISCORD" color="#D3A309" />
           </div>
         </div>
       </div>

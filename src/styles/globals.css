@@ -86,3 +86,47 @@ body {
 ::-webkit-scrollbar-corner {
   background: transparent;
 }
+
+/* GOLD BUTTON */
+#gold-button {
+  font-family: "Hind Guntur", sans-serif;
+
+  background: #a67d00;
+  overflow: hidden;
+}
+
+#gold-button:after,
+#gold-button:before {
+  height: 60px;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: calc(-100% - 30px);
+  width: calc(100% + 20px);
+  color: #fff;
+  border-radius: 2px;
+  transform: skew(-25deg);
+}
+
+#gold-button:after {
+  background: #fff;
+  transition: left 0.8s cubic-bezier(0.86, 0, 0.07, 1) 0.2s;
+  z-index: -10;
+  opacity: 0.8;
+}
+
+#gold-button:before {
+  background: #c59807;
+  z-index: -5;
+  transition: left 1s cubic-bezier(0.86, 0, 0.07, 1);
+}
+
+#gold-button:hover:after {
+  left: calc(0% - 10px);
+  transition: left 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+}
+
+#gold-button:hover:before {
+  left: calc(0% - 10px);
+  transition: left 1s cubic-bezier(0.86, 0, 0.07, 1);
+}
