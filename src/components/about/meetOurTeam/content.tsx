@@ -1,0 +1,17 @@
+import React from "react";
+import StarBorderText from "./starBorderText";
+
+export default function Content() {
+  return (
+    <div className="flex h-fit flex-wrap justify-center">
+      <div className="relative  mx-16 flex  flex-col self-start  text-[#E1E0E2]  max-md:w-full max-md:items-center md:flex-1">
+        <p className="text-[36pt] font-black leading-tight tracking-tight max-md:text-center">
+          MEET OUR TEAM
+        </p>
+        <div className="w-[110%] max-w-[80vw]">
+          <StarBorderText />
+        </div>
+      </div>
+    </div>
+  );
+}

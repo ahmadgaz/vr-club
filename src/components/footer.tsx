@@ -1,9 +1,9 @@
 import React, { useRef } from "react";
 import Lottie from "lottie-react";
 import type { LottieRefCurrentProps } from "lottie-react";
-import instagramAnimation from "../assets/images/instagram-animation.json";
-import discordAnimation from "../assets/images/discord-animation.json";
-import emailAnimation from "../assets/images/email-animation.json";
+import instagramAnimation from "../assets/animations/instagram-animation.json";
+import discordAnimation from "../assets/animations/discord-animation.json";
+import emailAnimation from "../assets/animations/email-animation.json";
 
 export default function Footer() {
   const instaRef = useRef<LottieRefCurrentProps | null>(null);

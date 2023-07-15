@@ -1,26 +1,16 @@
 import Head from "next/head";
-import React, {
-  lazy,
-  Suspense,
-  useCallback,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import React, { lazy, Suspense, useCallback, useEffect, useState } from "react";
 
 const Bg = lazy(() => import("~/components/bg"));
-const Hero = lazy(() => import("~/components/home/hero"));
-const AboutUs = lazy(() => import("~/components/about/aboutUs"));
-const Equipment = lazy(() => import("~/components/about/equipment"));
-const MeetOurTeam = lazy(() => import("~/components/about/meetOurTeam"));
+const Hero = lazy(() => import("~/components/home/hero/hero"));
+const AboutUs = lazy(() => import("~/components/about/aboutUs/aboutUs"));
+const Equipment = lazy(() => import("~/components/about/equipment/equipment"));
+const MeetOurTeam = lazy(
+  () => import("~/components/about/meetOurTeam/meetOurTeam")
+);
 const Footer = lazy(() => import("~/components/footer"));
 
-// import { useEffect, useRef } from "react";
-// import Link from "next/link";
-// import { api } from "~/utils/api";
-
 export default function Home() {
-  // const hello = api.example.hello.useQuery({ text: "from tRPC" });
   const [scrollPosition, setScrollPosition] = useState(0);
   const [heroHeight, setHeroHeight] = useState<number>(2000);
   const [aboutUsHeight, setAboutUsHeight] = useState<number>(2000);

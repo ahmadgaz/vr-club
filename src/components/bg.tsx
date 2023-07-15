@@ -1,30 +1,16 @@
 import Image from "next/image";
 import React, { useState } from "react";
-import gradient from "../assets/images/gradient.png";
 import planets from "../assets/images/planets.png";
 import heroImage from "../assets/images/hero-image.png";
 
 export default function Bg() {
-  const [isLoadedImage, setIsLoadedImage] = useState<boolean>(false);
-  const [isLoadedGradient, setIsLoadedGradient] = useState<boolean>(false);
-
-  const [isLoadedHeroImage, setIsLoadedHeroImage] = useState<boolean>(false);
+  const [isLoadedPlanets, setIsLoadedPlanets] = useState<boolean>(false);
+  const [isLoadedBgGradient, setIsLoadedBgGradient] = useState<boolean>(false);
 
   return (
     <>
+      {/* Mobile backdrop */}
       <div className="absolute h-[600px] w-full bg-gradient-to-b from-black to-transparent opacity-50 md:hidden"></div>
-
-      {/* Gradient */}
-      {/* <Image
-        src={gradient}
-        alt="hero-graphic"
-        className={`${
-          isLoadedGradient ? "opacity-100" : "opacity-0"
-        } absolute top-[50px] -z-40  h-[800px] w-[100vw]  blur-[100px] transition-all  duration-500 ease-in-out`}
-        onLoadingComplete={() => {
-          setIsLoadedGradient(true);
-        }}
-      /> */}
 
       {/* Planets */}
       <div className=" absolute right-0 top-[0px] -z-10 pt-20">
@@ -32,10 +18,10 @@ export default function Bg() {
           src={planets}
           alt="hero-graphic"
           className={`${
-            isLoadedImage ? "opacity-100" : "opacity-0"
+            isLoadedPlanets ? "opacity-100" : "opacity-0"
           }  w-[1000px] max-w-[100vw] object-contain transition-all duration-500 ease-in-out`}
           onLoadingComplete={() => {
-            setIsLoadedImage(true);
+            setIsLoadedPlanets(true);
           }}
         />
       </div>
@@ -69,17 +55,18 @@ export default function Bg() {
           </div>
         </div>
       </div>
-      {/* BG Image */}
+
+      {/* BG Gradient */}
       <Image
         src={heroImage}
         id="hero-image"
         alt="hero-image"
         loading="lazy"
         className={`${
-          isLoadedHeroImage ? "opacity-100" : "opacity-0"
+          isLoadedBgGradient ? "opacity-100" : "opacity-0"
         } absolute -z-30 h-[100vh] w-[100vw] object-cover object-bottom  blur-[150px]  transition-opacity duration-500  ease-in-out`}
         onLoadingComplete={() => {
-          setIsLoadedHeroImage(true);
+          setIsLoadedBgGradient(true);
         }}
       />
     </>
