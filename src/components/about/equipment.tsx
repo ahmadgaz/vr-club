@@ -29,7 +29,7 @@ export default function Equipment() {
             </div>
           </div>
         </div>
-        <div className="mt-10 flex w-full flex-1 flex-col flex-wrap items-center justify-stretch px-20 ">
+        <div className="mt-10 flex w-full flex-1 flex-col flex-wrap items-center justify-stretch px-10 md:px-20 ">
           <div
             className={`${
               hoveredCardOne
