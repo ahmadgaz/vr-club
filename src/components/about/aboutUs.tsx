@@ -15,13 +15,13 @@ export default function AboutUs() {
   const [hoveredCardThree, setHoveredCardThree] = useState<boolean>(false);
 
   return (
-    <div id="fade-in" className=" relative flex w-[100vw] justify-center">
+    <div id="fade-in" className=" relative mb-4 flex w-[100vw] justify-center">
       <div className="relative flex h-fit min-h-[700px] w-[1200px] max-w-full flex-col ">
         {/* Content */}
         <div className="flex h-fit flex-wrap justify-between">
           <div className="body-font relative mx-16 mt-[6.5rem] flex max-w-[550px] flex-col self-start font-azo-sans  text-[#E1E0E2]  max-md:max-w-full max-md:items-center md:flex-1">
             <p className="text-[36pt] font-black leading-tight tracking-tight max-md:text-center">
-              About Us
+              ABOUT US
             </p>
             <div className="w-[110%] max-w-[80vw]">
               <StarBorderText />
@@ -37,13 +37,13 @@ export default function AboutUs() {
               put on a VR headset before, you&apos;re welcome here!
             </p>
           </div>
-          <div className="relative mt-5 flex h-fit flex-col items-center self-end drop-shadow-xl max-md:w-full md:flex-1 ">
+          <div className="relative mt-10 flex h-fit flex-col items-center self-center  max-md:w-full md:flex-1 ">
             <Image
               src={vrGirl}
               alt="vr-girl"
               className=" w-[30rem] max-w-[70%] object-cover"
             />
-            <div className="z-10 w-full pr-20 ">
+            <div className="w-full pr-20 ">
               <StarBorderImage />
             </div>
           </div>
