@@ -16,7 +16,7 @@ export default function Equipment() {
   const [hoveredCardThree, setHoveredCardThree] = useState<boolean>(false);
 
   return (
-    <div id="fade-in" className="relative flex w-[100vw] justify-center">
+    <div id="fade-in" className="relative mb-8 flex w-[100vw] justify-center">
       <div className="relative flex h-fit min-h-[700px] w-[1200px] max-w-full flex-col ">
         {/* Content */}
         <div className=" h-fit w-full">

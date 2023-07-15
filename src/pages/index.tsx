@@ -12,6 +12,7 @@ const Bg = lazy(() => import("~/components/bg"));
 const Hero = lazy(() => import("~/components/home/hero"));
 const AboutUs = lazy(() => import("~/components/about/aboutUs"));
 const Equipment = lazy(() => import("~/components/about/equipment"));
+const MeetOurTeam = lazy(() => import("~/components/about/meetOurTeam"));
 const Footer = lazy(() => import("~/components/footer"));
 
 // import { useEffect, useRef } from "react";
@@ -21,14 +22,10 @@ const Footer = lazy(() => import("~/components/footer"));
 export default function Home() {
   // const hello = api.example.hello.useQuery({ text: "from tRPC" });
   const [scrollPosition, setScrollPosition] = useState(0);
-  const heroRef = useRef<HTMLDivElement>(null);
-  const aboutUsRef = useRef<HTMLDivElement>(null);
-  const equipmentRef = useRef<HTMLDivElement>(null);
-  const footerRef = useRef<HTMLDivElement>(null);
   const [heroHeight, setHeroHeight] = useState<number>(2000);
   const [aboutUsHeight, setAboutUsHeight] = useState<number>(2000);
   const [equipmentHeight, setEquipmentHeight] = useState<number>(2000);
-  const [footerHeight, setFooterHeight] = useState<number>(2000);
+  const [meetOurTeamHeight, setMeetOurTeamHeight] = useState<number>(2000);
 
   const handleSetHeroHeight = useCallback((node: HTMLDivElement) => {
     if (node) {
@@ -46,6 +43,12 @@ export default function Home() {
     if (node) {
       console.log(node?.offsetHeight);
       setEquipmentHeight(node?.offsetHeight);
+    }
+  }, []);
+  const handleSetMeetOurTeamHeight = useCallback((node: HTMLDivElement) => {
+    if (node) {
+      console.log(node?.offsetHeight);
+      setMeetOurTeamHeight(node?.offsetHeight);
     }
   }, []);
 
@@ -86,6 +89,15 @@ export default function Home() {
             </div>
           ) : (
             <div style={{ height: `${equipmentHeight}px` }}></div>
+          )}
+          {scrollPosition > heroHeight + aboutUsHeight + equipmentHeight &&
+          scrollPosition - window.innerHeight <
+            heroHeight + aboutUsHeight + equipmentHeight + meetOurTeamHeight ? (
+            <div ref={handleSetMeetOurTeamHeight}>
+              <MeetOurTeam />
+            </div>
+          ) : (
+            <div style={{ height: `${meetOurTeamHeight}px` }}></div>
           )}
           <Footer />
         </Suspense>
