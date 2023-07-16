@@ -99,6 +99,11 @@ const ListItem = ({
             } p-6 text-2xl uppercase transition-all duration-500 ease-in-out max-md:font-bold md:hidden md:font-black md:hover:text-[#D3A309]`}
             onClick={() => {
               setIsOpen(false);
+              if (isClient) {
+                scrollToSection(
+                  heights.slice(0, order).reduce((a, b) => a + b, 0) - 100
+                );
+              }
             }}
           >
             {children}
