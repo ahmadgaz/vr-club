@@ -9,15 +9,20 @@ import logoBlack from "../../public/logo-black.svg";
 import { useAppContext } from "~/context/context";
 
 const ListItem = ({
-  link,
+  order,
   setIsOpen,
   children,
 }: {
-  link: string;
+  order: number;
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
   children: React.ReactNode;
 }) => {
-  const router = useRouter();
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   const {
     scrollPosition,
     heroHeight,
@@ -29,7 +34,22 @@ const ListItem = ({
     resourcesHeight,
   } = useAppContext();
 
-  const scrollToPage = (scrollY: number) => {
+  const heights = [
+    heroHeight,
+    aboutUsHeight + equipmentHeight + meetOurTeamHeight,
+    projectsHeight,
+    eventsHeight,
+    resourcesHeight,
+  ];
+
+  const isAtSection =
+    isClient &&
+    scrollPosition - window.innerHeight + 1 >
+      heights.slice(0, order).reduce((a, b) => a + b, 0) - 200 &&
+    scrollPosition - window.innerHeight + 1 <
+      heights.slice(0, order + 1).reduce((a, b) => a + b, 0) - 200;
+
+  const scrollToSection = (scrollY: number) => {
     window.scrollTo({ top: scrollY, behavior: "smooth" });
   };
 
@@ -39,6 +59,11 @@ const ListItem = ({
         className="transition-all duration-500 ease-in-out max-md:hidden max-md:font-bold md:font-black md:uppercase md:hover:text-[#D3A309]"
         onClick={() => {
           setIsOpen(false);
+          if (isClient) {
+            scrollToSection(
+              heights.slice(0, order).reduce((a, b) => a + b, 0) - 100
+            );
+          }
         }}
       >
         {children}
@@ -51,7 +76,7 @@ const ListItem = ({
       >
         <div
           className={`${
-            router.pathname === link ? "w-10/12" : "w-0"
+            isAtSection ? "w-10/12" : "w-0"
           } h-[2px] rounded bg-[#E1E0E2]  transition-all duration-500 ease-in-out`}
         ></div>
       </div>
@@ -63,13 +88,12 @@ const ListItem = ({
       >
         <div
           className={`${
-            router.pathname === link ? "w-full" : "w-0"
+            isAtSection ? "w-full" : "w-0"
           } absolute left-0 top-0 flex  h-[80px] items-center rounded-3xl bg-black  transition-all duration-500 ease-in-out`}
         >
-          <Link
-            href={link}
+          <button
             className={`${
-              router.pathname === link
+              isAtSection
                 ? "max-md:text-[#E1E0E2]"
                 : "max-md:text-black max-md:hover:text-[#D3A309]"
             } p-6 text-2xl uppercase transition-all duration-500 ease-in-out max-md:font-bold md:hidden md:font-black md:hover:text-[#D3A309]`}
@@ -78,7 +102,7 @@ const ListItem = ({
             }}
           >
             {children}
-          </Link>
+          </button>
         </div>
       </div>
     </li>
@@ -122,19 +146,19 @@ export default function Navbar() {
   }, [listenToScroll]);
 
   const links = [
-    <ListItem key={0} link="/" setIsOpen={setIsOpen}>
+    <ListItem key={0} order={0} setIsOpen={setIsOpen}>
       Home
     </ListItem>,
-    <ListItem key={1} link="/about" setIsOpen={setIsOpen}>
+    <ListItem key={1} order={1} setIsOpen={setIsOpen}>
       About
     </ListItem>,
-    <ListItem key={2} link="/projects" setIsOpen={setIsOpen}>
+    <ListItem key={2} order={2} setIsOpen={setIsOpen}>
       Projects
     </ListItem>,
-    <ListItem key={3} link="/events" setIsOpen={setIsOpen}>
+    <ListItem key={3} order={3} setIsOpen={setIsOpen}>
       Events
     </ListItem>,
-    <ListItem key={4} link="/resources" setIsOpen={setIsOpen}>
+    <ListItem key={4} order={4} setIsOpen={setIsOpen}>
       Resources
     </ListItem>,
   ];
