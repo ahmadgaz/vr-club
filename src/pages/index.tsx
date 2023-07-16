@@ -8,6 +8,8 @@ const Equipment = lazy(() => import("~/components/about/equipment/equipment"));
 const MeetOurTeam = lazy(
   () => import("~/components/about/meetOurTeam/meetOurTeam")
 );
+const Projects = lazy(() => import("~/components/projects/projects/projects"));
+const Events = lazy(() => import("~/components/events/events/events"));
 const Footer = lazy(() => import("~/components/footer"));
 
 export default function Home() {
@@ -16,29 +18,37 @@ export default function Home() {
   const [aboutUsHeight, setAboutUsHeight] = useState<number>(2000);
   const [equipmentHeight, setEquipmentHeight] = useState<number>(2000);
   const [meetOurTeamHeight, setMeetOurTeamHeight] = useState<number>(2000);
+  const [projectsHeight, setProjectsHeight] = useState<number>(2000);
+  const [eventsHeight, setEventsHeight] = useState<number>(2000);
 
   const handleSetHeroHeight = useCallback((node: HTMLDivElement) => {
     if (node) {
-      console.log(node?.offsetHeight);
       setHeroHeight(node?.offsetHeight);
     }
   }, []);
   const handleSetAboutUsHeight = useCallback((node: HTMLDivElement) => {
     if (node) {
-      console.log(node?.offsetHeight);
       setAboutUsHeight(node?.offsetHeight);
     }
   }, []);
   const handleSetEquipmentHeight = useCallback((node: HTMLDivElement) => {
     if (node) {
-      console.log(node?.offsetHeight);
       setEquipmentHeight(node?.offsetHeight);
     }
   }, []);
   const handleSetMeetOurTeamHeight = useCallback((node: HTMLDivElement) => {
     if (node) {
-      console.log(node?.offsetHeight);
       setMeetOurTeamHeight(node?.offsetHeight);
+    }
+  }, []);
+  const handleSetProjectsHeight = useCallback((node: HTMLDivElement) => {
+    if (node) {
+      setProjectsHeight(node?.offsetHeight);
+    }
+  }, []);
+  const handleSetEventsHeight = useCallback((node: HTMLDivElement) => {
+    if (node) {
+      setEventsHeight(node?.offsetHeight);
     }
   }, []);
 
@@ -50,6 +60,12 @@ export default function Home() {
     window.addEventListener("scroll", listenToScroll);
     return () => window.removeEventListener("scroll", listenToScroll);
   }, [listenToScroll]);
+
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setScrollPosition(window.scrollY + window.innerHeight);
+  //   }, 100);
+  // }, []);
 
   return (
     <>
@@ -88,6 +104,39 @@ export default function Home() {
             </div>
           ) : (
             <div style={{ height: `${meetOurTeamHeight}px` }}></div>
+          )}
+          {scrollPosition >
+            heroHeight + aboutUsHeight + equipmentHeight + meetOurTeamHeight &&
+          scrollPosition - window.innerHeight <
+            heroHeight +
+              aboutUsHeight +
+              equipmentHeight +
+              meetOurTeamHeight +
+              projectsHeight ? (
+            <div ref={handleSetProjectsHeight}>
+              <Projects />
+            </div>
+          ) : (
+            <div style={{ height: `${projectsHeight}px` }}></div>
+          )}
+          {scrollPosition >
+            heroHeight +
+              aboutUsHeight +
+              equipmentHeight +
+              meetOurTeamHeight +
+              projectsHeight &&
+          scrollPosition - window.innerHeight <
+            heroHeight +
+              aboutUsHeight +
+              equipmentHeight +
+              meetOurTeamHeight +
+              projectsHeight +
+              eventsHeight ? (
+            <div ref={handleSetEventsHeight}>
+              <Events />
+            </div>
+          ) : (
+            <div style={{ height: `${eventsHeight}px` }}></div>
           )}
           <Footer />
         </Suspense>

@@ -27,10 +27,15 @@ export default function Button({
   const r = hexToRgb(color).r;
   const g = hexToRgb(color).g;
   const b = hexToRgb(color).b;
-  console.log(color, r, g, b);
   return variant === "fill" ? (
     <button
-      id={color ? "gold-button" : ""}
+      id={
+        color === "#D3A309"
+          ? "gold-button"
+          : color === "#d87575"
+          ? "red-button"
+          : ""
+      }
       className={` h-[60px] w-full flex-1 rounded-[30px] ${
         color ? "text-[#E1E0E2]" : "bg-[#E1E0E2] text-black"
       }   text-[12pt]  drop-shadow-3xl transition-all duration-500 ease-in-out ${

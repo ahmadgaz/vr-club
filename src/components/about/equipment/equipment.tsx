@@ -10,7 +10,7 @@ export default function Equipment() {
         <Content />
         <div className="mt-10 flex w-full flex-1 flex-col flex-wrap items-center justify-stretch px-10 md:px-20 ">
           <Carousel />
-          <div className="body-font mt-5 max-w-full text-center font-azo-sans text-[12pt] italic text-[#E1E0E2]">
+          <div className="body-font mt-5 max-w-full text-center font-azo-sans text-[12pt] font-bold italic text-[#E1E0E2]">
             <p>
               Get your hands on this and much more as a{" "}
               <b className="text-[#D3A309]">member</b> of the AR/VR Club @ SJSU!

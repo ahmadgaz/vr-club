@@ -64,7 +64,7 @@ export default function Bg() {
         loading="lazy"
         className={`${
           isLoadedBgGradient ? "opacity-100" : "opacity-0"
-        } absolute -z-30 h-[100vh] w-[100vw] object-cover object-bottom  blur-[150px]  transition-opacity duration-500  ease-in-out`}
+        } absolute -z-30 h-[100vh] w-[100vw] scale-150 overflow-hidden  object-cover object-bottom blur-[150px] transition-opacity duration-500  ease-in-out`}
         onLoadingComplete={() => {
           setIsLoadedBgGradient(true);
         }}
