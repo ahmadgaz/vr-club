@@ -1,6 +1,7 @@
 import Head from "next/head";
 import React, { lazy, Suspense, useCallback, useEffect, useState } from "react";
 import { useAppContext } from "~/context/context";
+import { throttle } from "lodash";
 
 const Bg = lazy(() => import("~/components/bg"));
 const Hero = lazy(() => import("~/components/home/hero/hero"));
@@ -45,7 +46,6 @@ export default function Home() {
   const handleSetHeroHeight = useCallback(
     (node: HTMLDivElement) => {
       if (node) {
-        console.log(node?.offsetHeight);
         setHeroHeight(node?.offsetHeight);
       }
     },
@@ -54,7 +54,6 @@ export default function Home() {
   const handleSetAboutUsHeight = useCallback(
     (node: HTMLDivElement) => {
       if (node) {
-        console.log(node?.offsetHeight);
         setAboutUsHeight(node?.offsetHeight);
       }
     },
@@ -63,7 +62,6 @@ export default function Home() {
   const handleSetEquipmentHeight = useCallback(
     (node: HTMLDivElement) => {
       if (node) {
-        console.log(node?.offsetHeight);
         setEquipmentHeight(node?.offsetHeight);
       }
     },
@@ -72,7 +70,6 @@ export default function Home() {
   const handleSetMeetOurTeamHeight = useCallback(
     (node: HTMLDivElement) => {
       if (node) {
-        console.log(node?.offsetHeight);
         setMeetOurTeamHeight(node?.offsetHeight);
       }
     },
@@ -81,7 +78,6 @@ export default function Home() {
   const handleSetProjectsHeight = useCallback(
     (node: HTMLDivElement) => {
       if (node) {
-        console.log(node?.offsetHeight);
         setProjectsHeight(node?.offsetHeight);
       }
     },
@@ -90,7 +86,6 @@ export default function Home() {
   const handleSetEventsHeight = useCallback(
     (node: HTMLDivElement) => {
       if (node) {
-        console.log(node?.offsetHeight);
         setEventsHeight(node?.offsetHeight);
       }
     },
@@ -99,21 +94,21 @@ export default function Home() {
   const handleSetResourcesHeight = useCallback(
     (node: HTMLDivElement) => {
       if (node) {
-        console.log(node?.offsetHeight);
         setResourcesHeight(node?.offsetHeight);
       }
     },
     [setResourcesHeight]
   );
 
-  const listenToScroll = useCallback(() => {
-    setScrollPosition(window.scrollY + window.innerHeight);
-  }, [setScrollPosition]);
-
   useEffect(() => {
-    window.addEventListener("scroll", listenToScroll);
-    return () => window.removeEventListener("scroll", listenToScroll);
-  }, [listenToScroll]);
+    const handleScroll = throttle(() => {
+      console.log(window.scrollY + window.innerHeight);
+      setScrollPosition(window.scrollY + window.innerHeight);
+    }, 100);
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [setScrollPosition]);
 
   const [showAll, setShowAll] = useState<boolean>(true);
   useEffect(() => {
