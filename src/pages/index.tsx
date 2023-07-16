@@ -162,7 +162,6 @@ export default function Home() {
 
   useEffect(() => {
     const handleScroll = throttle(() => {
-      console.log(window.scrollY + window.innerHeight);
       setScrollPosition(window.scrollY + window.innerHeight);
     }, 100);
 
