@@ -18,6 +18,15 @@ export default function Footer() {
       <div className="relative min-h-[225px]  w-full">
         <div className="absolute bottom-10 flex w-full  flex-col items-center">
           <p className="text-center max-md:text-[8pt]">
+            Designed and Developed by{" "}
+            <a
+              href="https://www.linkedin.com/in/ahmad-gazali/"
+              className="text-[#D3A309] underline"
+            >
+              Ahmad Gazali
+            </a>{" "}
+            | &copy; 2023 All rights reserved
+            <br />
             Brought to you by the AR/VR Club Team @ SJSU
           </p>
           <div className="mt-3 flex h-12 w-36 flex-row items-center justify-between">

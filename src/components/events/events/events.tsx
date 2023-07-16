@@ -7,7 +7,7 @@ export default function Events() {
   return (
     <div
       id="fade-in"
-      className="body-font relative mb-8 flex w-[100vw] justify-center font-azo-sans"
+      className="body-font relative mb-8 flex w-[100vw] justify-center overflow-hidden font-azo-sans"
     >
       <div className="relative flex h-fit min-h-[400px] w-[1200px] max-w-full flex-col ">
         <Content />
@@ -45,7 +45,10 @@ export default function Events() {
             </p>
           </div>
           <div className="mt-4 flex h-[60px] w-[600px] max-w-full max-md:h-[130px] max-md:flex-col">
-            <input placeholder="email@example.com" className="flex-1 rounded-xl p-4" />{" "}
+            <input
+              placeholder="email@example.com"
+              className="flex-1 rounded-xl p-4"
+            />{" "}
             <div className="max-md:mt-4 md:ml-4 md:w-40">
               <Button link="" text="SIGN UP" color="#d87575" />
             </div>

@@ -6,6 +6,7 @@ import discordIconBlack from "../assets/images/discord-icon-black.svg";
 import discordIconWhite from "../assets/images/discord-icon-white.svg";
 import logoWhite from "../../public/logo-white.svg";
 import logoBlack from "../../public/logo-black.svg";
+import { useAppContext } from "~/context/context";
 
 const ListItem = ({
   link,
@@ -17,18 +18,31 @@ const ListItem = ({
   children: React.ReactNode;
 }) => {
   const router = useRouter();
+  const {
+    scrollPosition,
+    heroHeight,
+    aboutUsHeight,
+    equipmentHeight,
+    meetOurTeamHeight,
+    projectsHeight,
+    eventsHeight,
+    resourcesHeight,
+  } = useAppContext();
+
+  const scrollToPage = (scrollY: number) => {
+    window.scrollTo({ top: scrollY, behavior: "smooth" });
+  };
 
   return (
     <li>
-      <Link
-        href={link}
+      <button
         className="transition-all duration-500 ease-in-out max-md:hidden max-md:font-bold md:font-black md:uppercase md:hover:text-[#D3A309]"
         onClick={() => {
           setIsOpen(false);
         }}
       >
         {children}
-      </Link>
+      </button>
 
       {/* Desktop decorator */}
       <div
