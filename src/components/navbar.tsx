@@ -1,19 +1,19 @@
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/router";
 import React, { useCallback, useEffect, useState } from "react";
 import discordIconBlack from "../assets/images/discord-icon-black.svg";
 import discordIconWhite from "../assets/images/discord-icon-white.svg";
 import logoWhite from "../../public/logo-white.svg";
 import logoBlack from "../../public/logo-black.svg";
 import { useAppContext } from "~/context/context";
+import type { ContextPropsPartial } from "~/context/context";
 
 const ListItem = ({
-  order,
+  name,
   setIsOpen,
   children,
 }: {
-  order: number;
+  name: keyof ContextPropsPartial;
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
   children: React.ReactNode;
 }) => {
@@ -23,31 +23,14 @@ const ListItem = ({
     setIsClient(true);
   }, []);
 
-  const {
-    scrollPosition,
-    heroHeight,
-    aboutUsHeight,
-    equipmentHeight,
-    meetOurTeamHeight,
-    projectsHeight,
-    eventsHeight,
-    resourcesHeight,
-  } = useAppContext();
-
-  const heights = [
-    heroHeight,
-    aboutUsHeight + equipmentHeight + meetOurTeamHeight,
-    projectsHeight,
-    eventsHeight,
-    resourcesHeight,
-  ];
+  const heights = useAppContext();
 
   const isAtSection =
     isClient &&
-    scrollPosition - window.innerHeight + 1 >
-      heights.slice(0, order).reduce((a, b) => a + b, 0) - 200 &&
-    scrollPosition - window.innerHeight + 1 <
-      heights.slice(0, order + 1).reduce((a, b) => a + b, 0) - 200;
+    heights.scrollPosition - window.innerHeight + 1 >
+      heights[name]?.pos - 200 &&
+    heights.scrollPosition - window.innerHeight + 1 <
+      heights[name]?.pos + heights[name]?.height - 200;
 
   const scrollToSection = (scrollY: number) => {
     window.scrollTo({ top: scrollY, behavior: "smooth" });
@@ -60,9 +43,7 @@ const ListItem = ({
         onClick={() => {
           setIsOpen(false);
           if (isClient) {
-            scrollToSection(
-              heights.slice(0, order).reduce((a, b) => a + b, 0) - 100
-            );
+            scrollToSection(heights[name]?.pos - 100);
           }
         }}
       >
@@ -100,9 +81,7 @@ const ListItem = ({
             onClick={() => {
               setIsOpen(false);
               if (isClient) {
-                scrollToSection(
-                  heights.slice(0, order).reduce((a, b) => a + b, 0) - 100
-                );
+                scrollToSection(heights[name]?.pos - 100);
               }
             }}
           >
@@ -151,19 +130,19 @@ export default function Navbar() {
   }, [listenToScroll]);
 
   const links = [
-    <ListItem key={0} order={0} setIsOpen={setIsOpen}>
+    <ListItem key={0} name="heroHeight" setIsOpen={setIsOpen}>
       Home
     </ListItem>,
-    <ListItem key={1} order={1} setIsOpen={setIsOpen}>
+    <ListItem key={1} name="aboutUsHeight" setIsOpen={setIsOpen}>
       About
     </ListItem>,
-    <ListItem key={2} order={2} setIsOpen={setIsOpen}>
+    <ListItem key={2} name="projectsHeight" setIsOpen={setIsOpen}>
       Projects
     </ListItem>,
-    <ListItem key={3} order={3} setIsOpen={setIsOpen}>
+    <ListItem key={3} name="eventsHeight" setIsOpen={setIsOpen}>
       Events
     </ListItem>,
-    <ListItem key={4} order={4} setIsOpen={setIsOpen}>
+    <ListItem key={4} name="resourcesHeight" setIsOpen={setIsOpen}>
       Resources
     </ListItem>,
   ];

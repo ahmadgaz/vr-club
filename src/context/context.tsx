@@ -1,35 +1,59 @@
 import { createContext, useContext, useState } from "react";
 import type { ReactNode } from "react";
 
+export type ContextPropsPartial = {
+  heroHeight: { height: number; pos: number };
+  aboutUsHeight: { height: number; pos: number };
+  equipmentHeight: { height: number; pos: number };
+  meetOurTeamHeight: { height: number; pos: number };
+  projectsHeight: { height: number; pos: number };
+  eventsHeight: { height: number; pos: number };
+  resourcesHeight: { height: number; pos: number };
+}
+
 type ContextProps = {
   scrollPosition: number;
-  heroHeight: number;
-  aboutUsHeight: number;
-  equipmentHeight: number;
-  meetOurTeamHeight: number;
-  projectsHeight: number;
-  eventsHeight: number;
-  resourcesHeight: number;
+  heroHeight: { height: number; pos: number };
+  aboutUsHeight: { height: number; pos: number };
+  equipmentHeight: { height: number; pos: number };
+  meetOurTeamHeight: { height: number; pos: number };
+  projectsHeight: { height: number; pos: number };
+  eventsHeight: { height: number; pos: number };
+  resourcesHeight: { height: number; pos: number };
   setScrollPosition: React.Dispatch<React.SetStateAction<number>>;
-  setHeroHeight: React.Dispatch<React.SetStateAction<number>>;
-  setAboutUsHeight: React.Dispatch<React.SetStateAction<number>>;
-  setEquipmentHeight: React.Dispatch<React.SetStateAction<number>>;
-  setMeetOurTeamHeight: React.Dispatch<React.SetStateAction<number>>;
-  setProjectsHeight: React.Dispatch<React.SetStateAction<number>>;
-  setEventsHeight: React.Dispatch<React.SetStateAction<number>>;
-  setResourcesHeight: React.Dispatch<React.SetStateAction<number>>;
+  setHeroHeight: React.Dispatch<
+    React.SetStateAction<{ height: number; pos: number }>
+  >;
+  setAboutUsHeight: React.Dispatch<
+    React.SetStateAction<{ height: number; pos: number }>
+  >;
+  setEquipmentHeight: React.Dispatch<
+    React.SetStateAction<{ height: number; pos: number }>
+  >;
+  setMeetOurTeamHeight: React.Dispatch<
+    React.SetStateAction<{ height: number; pos: number }>
+  >;
+  setProjectsHeight: React.Dispatch<
+    React.SetStateAction<{ height: number; pos: number }>
+  >;
+  setEventsHeight: React.Dispatch<
+    React.SetStateAction<{ height: number; pos: number }>
+  >;
+  setResourcesHeight: React.Dispatch<
+    React.SetStateAction<{ height: number; pos: number }>
+  >;
 };
 
 // Define a default context value
 const defaultContextValue: ContextProps = {
   scrollPosition: 0,
-  heroHeight: 2000,
-  aboutUsHeight: 2000,
-  equipmentHeight: 2000,
-  meetOurTeamHeight: 2000,
-  projectsHeight: 2000,
-  eventsHeight: 2000,
-  resourcesHeight: 2000,
+  heroHeight: { height: 2000, pos: 0 },
+  aboutUsHeight: { height: 2000, pos: 2000 },
+  equipmentHeight: { height: 2000, pos: 4000 },
+  meetOurTeamHeight: { height: 2000, pos: 6000 },
+  projectsHeight: { height: 2000, pos: 8000 },
+  eventsHeight: { height: 2000, pos: 10000 },
+  resourcesHeight: { height: 2000, pos: 12000 },
   setScrollPosition: () => {
     return;
   }, // empty function, it will be replaced by the actual function in the provider
@@ -60,13 +84,33 @@ const AppContext = createContext<ContextProps>(defaultContextValue);
 
 export function AppWrapper({ children }: { children: ReactNode }) {
   const [scrollPosition, setScrollPosition] = useState<number>(0);
-  const [heroHeight, setHeroHeight] = useState<number>(2000);
-  const [aboutUsHeight, setAboutUsHeight] = useState<number>(2000);
-  const [equipmentHeight, setEquipmentHeight] = useState<number>(2000);
-  const [meetOurTeamHeight, setMeetOurTeamHeight] = useState<number>(2000);
-  const [projectsHeight, setProjectsHeight] = useState<number>(2000);
-  const [eventsHeight, setEventsHeight] = useState<number>(2000);
-  const [resourcesHeight, setResourcesHeight] = useState<number>(2000);
+  const [heroHeight, setHeroHeight] = useState<{ height: number; pos: number }>(
+    { height: 2000, pos: 0 }
+  );
+  const [aboutUsHeight, setAboutUsHeight] = useState<{
+    height: number;
+    pos: number;
+  }>({ height: 2000, pos: 2000 });
+  const [equipmentHeight, setEquipmentHeight] = useState<{
+    height: number;
+    pos: number;
+  }>({ height: 2000, pos: 4000 });
+  const [meetOurTeamHeight, setMeetOurTeamHeight] = useState<{
+    height: number;
+    pos: number;
+  }>({ height: 2000, pos: 6000 });
+  const [projectsHeight, setProjectsHeight] = useState<{
+    height: number;
+    pos: number;
+  }>({ height: 2000, pos: 8000 });
+  const [eventsHeight, setEventsHeight] = useState<{
+    height: number;
+    pos: number;
+  }>({ height: 2000, pos: 10000 });
+  const [resourcesHeight, setResourcesHeight] = useState<{
+    height: number;
+    pos: number;
+  }>({ height: 2000, pos: 12000 });
 
   return (
     <AppContext.Provider

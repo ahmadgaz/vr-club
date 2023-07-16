@@ -46,7 +46,7 @@ export default function Home() {
   const handleSetHeroHeight = useCallback(
     (node: HTMLDivElement) => {
       if (node) {
-        setHeroHeight(node?.offsetHeight);
+        setHeroHeight({ height: node?.offsetHeight, pos: 0 });
       }
     },
     [setHeroHeight]
@@ -54,50 +54,110 @@ export default function Home() {
   const handleSetAboutUsHeight = useCallback(
     (node: HTMLDivElement) => {
       if (node) {
-        setAboutUsHeight(node?.offsetHeight);
+        setAboutUsHeight({
+          height: node?.offsetHeight,
+          pos: heroHeight.height,
+        });
       }
     },
-    [setAboutUsHeight]
+    [setAboutUsHeight, heroHeight.height]
   );
   const handleSetEquipmentHeight = useCallback(
     (node: HTMLDivElement) => {
       if (node) {
-        setEquipmentHeight(node?.offsetHeight);
+        setEquipmentHeight({
+          height: node?.offsetHeight,
+          pos: heroHeight.height + aboutUsHeight.height,
+        });
       }
     },
-    [setEquipmentHeight]
+    [setEquipmentHeight, heroHeight.height, aboutUsHeight.height]
   );
   const handleSetMeetOurTeamHeight = useCallback(
     (node: HTMLDivElement) => {
       if (node) {
-        setMeetOurTeamHeight(node?.offsetHeight);
+        setMeetOurTeamHeight({
+          height: node?.offsetHeight,
+          pos:
+            heroHeight.height + aboutUsHeight.height + equipmentHeight.height,
+        });
       }
     },
-    [setMeetOurTeamHeight]
+    [
+      setMeetOurTeamHeight,
+      heroHeight.height,
+      aboutUsHeight.height,
+      equipmentHeight.height,
+    ]
   );
   const handleSetProjectsHeight = useCallback(
     (node: HTMLDivElement) => {
       if (node) {
-        setProjectsHeight(node?.offsetHeight);
+        setProjectsHeight({
+          height: node?.offsetHeight,
+          pos:
+            heroHeight.height +
+            aboutUsHeight.height +
+            equipmentHeight.height +
+            meetOurTeamHeight.height,
+        });
       }
     },
-    [setProjectsHeight]
+    [
+      setProjectsHeight,
+      heroHeight.height,
+      aboutUsHeight.height,
+      equipmentHeight.height,
+      meetOurTeamHeight.height,
+    ]
   );
   const handleSetEventsHeight = useCallback(
     (node: HTMLDivElement) => {
       if (node) {
-        setEventsHeight(node?.offsetHeight);
+        setEventsHeight({
+          height: node?.offsetHeight,
+          pos:
+            heroHeight.height +
+            aboutUsHeight.height +
+            equipmentHeight.height +
+            meetOurTeamHeight.height +
+            projectsHeight.height,
+        });
       }
     },
-    [setEventsHeight]
+    [
+      setEventsHeight,
+      heroHeight.height,
+      aboutUsHeight.height,
+      equipmentHeight.height,
+      meetOurTeamHeight.height,
+      projectsHeight.height,
+    ]
   );
   const handleSetResourcesHeight = useCallback(
     (node: HTMLDivElement) => {
       if (node) {
-        setResourcesHeight(node?.offsetHeight);
+        setResourcesHeight({
+          height: node?.offsetHeight,
+          pos:
+            heroHeight.height +
+            aboutUsHeight.height +
+            equipmentHeight.height +
+            meetOurTeamHeight.height +
+            projectsHeight.height +
+            eventsHeight.height,
+        });
       }
     },
-    [setResourcesHeight]
+    [
+      setResourcesHeight,
+      heroHeight.height,
+      aboutUsHeight.height,
+      equipmentHeight.height,
+      meetOurTeamHeight.height,
+      projectsHeight.height,
+      eventsHeight.height,
+    ]
   );
 
   useEffect(() => {
@@ -129,106 +189,74 @@ export default function Home() {
           <Suspense>
             <Bg />
             {showAll ||
-            (scrollPosition >= 0 &&
-              scrollPosition - window.innerHeight < heroHeight) ? (
+            (scrollPosition >= heroHeight.pos &&
+              scrollPosition - window.innerHeight <
+                heroHeight.pos + heroHeight.height) ? (
               <div ref={handleSetHeroHeight}>
                 <Hero />
               </div>
             ) : (
-              <div style={{ height: `${heroHeight}px` }}></div>
+              <div style={{ height: `${heroHeight.height}px` }}></div>
             )}
             {showAll ||
-            (scrollPosition > heroHeight &&
+            (scrollPosition > aboutUsHeight.pos &&
               scrollPosition - window.innerHeight <
-                heroHeight + aboutUsHeight) ? (
+                aboutUsHeight.pos + aboutUsHeight.height) ? (
               <div ref={handleSetAboutUsHeight}>
                 <AboutUs />
               </div>
             ) : (
-              <div style={{ height: `${aboutUsHeight}px` }}></div>
+              <div style={{ height: `${aboutUsHeight.height}px` }}></div>
             )}
             {showAll ||
-            (scrollPosition > heroHeight + aboutUsHeight &&
+            (scrollPosition > equipmentHeight.pos &&
               scrollPosition - window.innerHeight <
-                heroHeight + aboutUsHeight + equipmentHeight) ? (
+                equipmentHeight.pos + equipmentHeight.height) ? (
               <div ref={handleSetEquipmentHeight}>
                 <Equipment />
               </div>
             ) : (
-              <div style={{ height: `${equipmentHeight}px` }}></div>
+              <div style={{ height: `${equipmentHeight.height}px` }}></div>
             )}
             {showAll ||
-            (scrollPosition > heroHeight + aboutUsHeight + equipmentHeight &&
+            (scrollPosition > meetOurTeamHeight.pos &&
               scrollPosition - window.innerHeight <
-                heroHeight +
-                  aboutUsHeight +
-                  equipmentHeight +
-                  meetOurTeamHeight) ? (
+                meetOurTeamHeight.pos + meetOurTeamHeight.height) ? (
               <div ref={handleSetMeetOurTeamHeight}>
                 <MeetOurTeam />
               </div>
             ) : (
-              <div style={{ height: `${meetOurTeamHeight}px` }}></div>
+              <div style={{ height: `${meetOurTeamHeight.height}px` }}></div>
             )}
             {showAll ||
-            (scrollPosition >
-              heroHeight +
-                aboutUsHeight +
-                equipmentHeight +
-                meetOurTeamHeight &&
+            (scrollPosition > projectsHeight.pos &&
               scrollPosition - window.innerHeight <
-                heroHeight +
-                  aboutUsHeight +
-                  equipmentHeight +
-                  meetOurTeamHeight +
-                  projectsHeight) ? (
+                projectsHeight.pos + projectsHeight.height) ? (
               <div ref={handleSetProjectsHeight}>
                 <Projects />
               </div>
             ) : (
-              <div style={{ height: `${projectsHeight}px` }}></div>
+              <div style={{ height: `${projectsHeight.height}px` }}></div>
             )}
             {showAll ||
-            (scrollPosition >
-              heroHeight +
-                aboutUsHeight +
-                equipmentHeight +
-                meetOurTeamHeight +
-                projectsHeight &&
+            (scrollPosition > eventsHeight.pos &&
               scrollPosition - window.innerHeight <
-                heroHeight +
-                  aboutUsHeight +
-                  equipmentHeight +
-                  meetOurTeamHeight +
-                  projectsHeight +
-                  eventsHeight) ? (
+                eventsHeight.pos + eventsHeight.height) ? (
               <div ref={handleSetEventsHeight}>
                 <Events />
               </div>
             ) : (
-              <div style={{ height: `${eventsHeight}px` }}></div>
+              <div style={{ height: `${eventsHeight.height}px` }}></div>
             )}
             {showAll ||
-            (scrollPosition >
-              heroHeight +
-                aboutUsHeight +
-                equipmentHeight +
-                meetOurTeamHeight +
-                projectsHeight +
-                eventsHeight &&
+            (scrollPosition > resourcesHeight.pos &&
               scrollPosition - window.innerHeight <
-                heroHeight +
-                  aboutUsHeight +
-                  equipmentHeight +
-                  meetOurTeamHeight +
-                  projectsHeight +
-                  eventsHeight +
-                  resourcesHeight) ? (
+                resourcesHeight.pos + resourcesHeight.height) ? (
               <div ref={handleSetResourcesHeight}>
                 <Resources />
               </div>
             ) : (
-              <div style={{ height: `${resourcesHeight}px` }}></div>
+              <div style={{ height: `${resourcesHeight.height}px` }}></div>
             )}
             <Footer />
           </Suspense>
