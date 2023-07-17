@@ -43,7 +43,7 @@ const ListItem = ({
         onClick={() => {
           setIsOpen(false);
           if (isClient) {
-            scrollToSection(heights[name]?.pos - 100);
+            scrollToSection(heights[name]?.pos - 50);
           }
         }}
       >
@@ -81,7 +81,7 @@ const ListItem = ({
             onClick={() => {
               setIsOpen(false);
               if (isClient) {
-                scrollToSection(heights[name]?.pos - 100);
+                scrollToSection(heights[name]?.pos - 50);
               }
             }}
           >
@@ -198,7 +198,11 @@ export default function Navbar() {
             </div>
 
             {/* Desktop */}
-            <ul className=" flex flex-grow justify-between max-md:hidden ">
+            <ul
+              className={`${
+                isAtTop ? "mr-10" : ""
+              } flex flex-grow justify-between transition-all duration-500 ease-in-out max-md:hidden`}
+            >
               {links}
             </ul>
 

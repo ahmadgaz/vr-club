@@ -5,14 +5,24 @@ import light from "../../../assets/images/light-icon.svg";
 import canvas from "../../../assets/images/canvas-icon.svg";
 import Content from "./content";
 import Card from "./card";
+import { useAppContext } from "~/context/context";
 
 export default function AboutUs() {
+  const { equipmentHeight, eventsHeight, projectsHeight } = useAppContext();
+
   return (
     <div id="fade-in" className=" relative mb-8 flex w-[100vw] justify-center">
       <div className="relative flex h-fit min-h-[700px] w-[1200px] max-w-full flex-col ">
         <Content />
         <div className="mt-10 flex w-full flex-1 flex-wrap items-stretch justify-stretch pl-12 md:pl-24 md:pr-12">
-          <Card link="">
+          <Card
+            onPress={() => {
+              window.scrollTo({
+                top: equipmentHeight.pos - 50,
+                behavior: "smooth",
+              });
+            }}
+          >
             <Image
               src={puzzle as string}
               className="mb-1 h-10 w-10 object-contain"
@@ -30,7 +40,14 @@ export default function AboutUs() {
               </p>
             </div>
           </Card>
-          <Card link="">
+          <Card
+            onPress={() => {
+              window.scrollTo({
+                top: eventsHeight.pos - 50,
+                behavior: "smooth",
+              });
+            }}
+          >
             <Image
               src={light as string}
               className="mb-1 h-10 w-10 object-contain"
@@ -48,7 +65,14 @@ export default function AboutUs() {
               </p>
             </div>
           </Card>
-          <Card link="">
+          <Card
+            onPress={() => {
+              window.scrollTo({
+                top: projectsHeight.pos - 50,
+                behavior: "smooth",
+              });
+            }}
+          >
             <Image
               src={canvas as string}
               className="mb-1 h-10 w-10 object-contain"

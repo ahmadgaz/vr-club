@@ -13,7 +13,7 @@
 }
 
 #radial-gradient {
-  background: radial-gradient(#c6e8f9, #e1e0e228 37%, #e1e0e200 50%);
+  background: radial-gradient(#c6e8f9, #e1e0e25a 37%, #e1e0e280 80%);
   /* background: #c6e8f9; */
   border-radius: 100%;
   mix-blend-mode: overlay;

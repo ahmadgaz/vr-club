@@ -20,7 +20,7 @@ export default function Button({
   disabled?: boolean;
   variant?: "fill" | "glass" | "outline";
   text: string;
-  link: string;
+  link?: string;
   onPress?: () => void;
   color?: string;
 }) {
@@ -41,8 +41,20 @@ export default function Button({
       }   text-[12pt]  drop-shadow-3xl transition-all duration-500 ease-in-out ${
         color ? "" : "hover:bg-white"
       }  hover:drop-shadow-4xl active:drop-shadow-none`}
+      onClick={onPress}
     >
-      <Link href={link}>
+      {link ? (
+        <Link href={link}>
+          <span className="flex h-[61px] w-full  items-center justify-center">
+            {text}
+            <Image
+              src={color ? (arrowWhite as string) : (arrowBlack as string)}
+              alt="arrow"
+              className="ml-3 w-3"
+            />
+          </span>
+        </Link>
+      ) : (
         <span className="flex h-[61px] w-full  items-center justify-center">
           {text}
           <Image
@@ -51,7 +63,7 @@ export default function Button({
             className="ml-3 w-3"
           />
         </span>
-      </Link>
+      )}
     </button>
   ) : variant === "glass" ? (
     <button
@@ -67,13 +79,25 @@ export default function Button({
           ? ""
           : "bg-gradient-to-t from-[rgba(83,115,212,0.3)] to-[rgba(255,255,255,0.3)]"
       }    text-[12pt] text-[#E1E0E2]  drop-shadow-5xl backdrop-blur-[30px] transition-all duration-500 ease-in-out hover:border-opacity-50 hover:drop-shadow-6xl active:drop-shadow-none`}
+      onClick={onPress}
     >
-      <Link href={link}>
+      {link ? (
+        <Link href={link}>
+          <span className="flex h-[61px] w-full   items-center justify-center ">
+            {text}
+            <Image
+              src={arrowWhite as string}
+              alt="arrow"
+              className="ml-3 w-3"
+            />
+          </span>
+        </Link>
+      ) : (
         <span className="flex h-[61px] w-full   items-center justify-center ">
           {text}
           <Image src={arrowWhite as string} alt="arrow" className="ml-3 w-3" />
         </span>
-      </Link>
+      )}
     </button>
   ) : (
     <button
@@ -82,13 +106,25 @@ export default function Button({
       }  text-[12pt] ${
         color ? "" : "text-[#E1E0E2]"
       }  mix-blend-screen transition-all duration-500 ease-in-out hover:border-[2px]  active:border-[1px]`}
+      onClick={onPress}
     >
-      <Link href={link}>
+      {link ? (
+        <Link href={link}>
+          <span className="flex h-[30px] w-full   items-center justify-center ">
+            {text}
+            <Image
+              src={arrowWhite as string}
+              alt="arrow"
+              className="ml-3 w-3"
+            />
+          </span>
+        </Link>
+      ) : (
         <span className="flex h-[30px] w-full   items-center justify-center ">
           {text}
           <Image src={arrowWhite as string} alt="arrow" className="ml-3 w-3" />
         </span>
-      </Link>
+      )}
     </button>
   );
 }

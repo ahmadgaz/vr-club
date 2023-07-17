@@ -4,15 +4,17 @@ import heroText from "../../../assets/images/hero-text.svg";
 import heroLogo from "../../../../public/logo-white.svg";
 import Button from "../../button";
 import StarBorder from "./starBorder";
+import { useAppContext } from "~/context/context";
 
 export default function Hero() {
   const [isLoadedLogo, setIsLoadedLogo] = useState<boolean>(false);
   const [isLoadedSubtitle, setIsLoadedSubtitle] = useState<boolean>(false);
+  const { equipmentHeight } = useAppContext();
 
   return (
     <div
       id="fade-in"
-      className="body-font z-[5] mb-20 flex h-[650px] w-[100vw] flex-col items-center justify-center font-azo-sans font-light text-[#E1E0E2]"
+      className="body-font z-[5] mb-10 mt-10 flex h-[650px] w-[100vw] flex-col items-center justify-center font-azo-sans font-light text-[#E1E0E2]"
     >
       <Image
         src={heroLogo as string}
@@ -53,7 +55,15 @@ export default function Hero() {
         } flex w-[500px] pl-1 pt-6 transition-all duration-500 ease-in-out max-md:w-[70%] max-md:flex-col`}
       >
         <span className="flex-1">
-          <Button link="/about" text="EXPLORE" />
+          <Button
+            text="EXPLORE"
+            onPress={() => {
+              window.scrollTo({
+                top: equipmentHeight.pos - 50,
+                behavior: "smooth",
+              });
+            }}
+          />
         </span>
         <span className="flex-1 max-md:mt-3 md:ml-7">
           <Button

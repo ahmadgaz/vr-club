@@ -5,10 +5,12 @@ import arrowWhite from "../../../assets/images/arrow-white.svg";
 import arrowBlack from "../../../assets/images/arrow-black.svg";
 
 export default function Card({
+  onPress,
   link,
   children,
 }: {
-  link: string;
+  onPress?: () => void;
+  link?: string;
   children?: React.ReactNode;
 }) {
   const [hovered, setHovered] = useState<boolean>(false);
@@ -28,8 +30,19 @@ export default function Card({
         className={`${
           hovered ? "bg-[#E1E0E2]" : ""
         } absolute -right-11 top-0 h-full w-24 rounded-[30px] border-[1px] border-[#E1E0E2] transition-all duration-200 ease-in-out`}
+        onClick={onPress}
       >
-        <Link href={link}>
+        {link ? (
+          <Link href={link}>
+            <span className="flex h-full w-full   items-center justify-center ">
+              {hovered ? (
+                <Image src={arrowBlack as string} alt="arrow" className="w-3" />
+              ) : (
+                <Image src={arrowWhite as string} alt="arrow" className="w-3" />
+              )}
+            </span>
+          </Link>
+        ) : (
           <span className="flex h-full w-full   items-center justify-center ">
             {hovered ? (
               <Image src={arrowBlack as string} alt="arrow" className="w-3" />
@@ -37,7 +50,7 @@ export default function Card({
               <Image src={arrowWhite as string} alt="arrow" className="w-3" />
             )}
           </span>
-        </Link>
+        )}
       </button>
       {children}
     </div>

@@ -8,7 +8,7 @@ export default function Content() {
   return (
     <div className="flex h-fit flex-wrap justify-between">
       <div className="body-font relative mx-16 mt-[6.5rem] flex max-w-[550px] flex-col self-start font-azo-sans  text-[#E1E0E2]  max-md:max-w-full max-md:items-center md:flex-1">
-        <p className="text-[36pt] font-black leading-tight tracking-tight max-md:text-center">
+        <p className="text-[36pt] font-black leading-[1] tracking-tight max-md:text-center">
           ABOUT US
         </p>
         <div className="w-[110%] max-w-[80vw]">
