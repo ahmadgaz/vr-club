@@ -1,8 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
-import arrowWhite from "../../../assets/images/arrow-white.svg";
-import arrowBlack from "../../../assets/images/arrow-black.svg";
+import { assets } from "~/assets/data";
 
 export default function Card({
   onPress,
@@ -36,18 +35,42 @@ export default function Card({
           <Link href={link}>
             <span className="flex h-full w-full   items-center justify-center ">
               {hovered ? (
-                <Image src={arrowBlack as string} alt="arrow" className="w-3" />
+                <Image
+                  src={assets.arrowIconBlack}
+                  width={100}
+                  height={100}
+                  alt="arrow"
+                  className="w-3"
+                />
               ) : (
-                <Image src={arrowWhite as string} alt="arrow" className="w-3" />
+                <Image
+                  src={assets.arrowIconWhite}
+                  width={100}
+                  height={100}
+                  alt="arrow"
+                  className="w-3"
+                />
               )}
             </span>
           </Link>
         ) : (
           <span className="flex h-full w-full   items-center justify-center ">
             {hovered ? (
-              <Image src={arrowBlack as string} alt="arrow" className="w-3" />
+              <Image
+                src={assets.arrowIconBlack}
+                width={100}
+                height={100}
+                alt="arrow"
+                className="w-3"
+              />
             ) : (
-              <Image src={arrowWhite as string} alt="arrow" className="w-3" />
+              <Image
+                src={assets.arrowIconWhite}
+                width={100}
+                height={100}
+                alt="arrow"
+                className="w-3"
+              />
             )}
           </span>
         )}

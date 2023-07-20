@@ -2,10 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { default as dayjs } from "dayjs";
-import arrowWhite from "../../../assets/images/arrow-white.svg";
-import location0 from "../../../assets/images/location-0.svg";
-import location1 from "../../../assets/images/location-1.svg";
-import location2 from "../../../assets/images/location-2.svg";
+import { assets } from "~/assets/data";
 
 export default function Card({
   variant = 0,
@@ -63,12 +60,14 @@ export default function Card({
             <Image
               src={
                 variant === 0
-                  ? (location0 as string)
+                  ? assets.locationIcon0
                   : variant === 1
-                  ? (location1 as string)
-                  : (location2 as string)
+                  ? assets.locationIcon1
+                  : assets.locationIcon2
               }
               alt="location-icon"
+              width={100}
+              height={100}
               className="w-10"
             />
           </div>
@@ -110,8 +109,10 @@ export default function Card({
           <span className="flex h-full w-full  items-center justify-center">
             <p className="text-[#E1E0E2] max-md:hidden">RSVP</p>
             <Image
-              src={arrowWhite as string}
+              src={assets.arrowIconWhite}
               alt="arrow"
+              width={100}
+              height={100}
               className=" w-3 md:hidden"
             />
           </span>

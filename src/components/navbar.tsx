@@ -1,12 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useCallback, useEffect, useState } from "react";
-import discordIconBlack from "../assets/images/discord-icon-black.svg";
-import discordIconWhite from "../assets/images/discord-icon-white.svg";
-import logoWhite from "../../public/logo-white.svg";
-import logoBlack from "../../public/logo-black.svg";
 import { useAppContext } from "~/context/context";
 import type { ContextPropsPartial } from "~/context/context";
+import { assets } from "~/assets/data";
 
 const ListItem = ({
   name,
@@ -171,8 +168,10 @@ export default function Navbar() {
               >
                 <Image
                   className={`transition-all duration-500 ease-in-out`}
-                  src={discordIconWhite as string}
-                  alt="logo"
+                  src={assets.discordIconWhite}
+                  alt="discord-icon-white"
+                  width={100}
+                  height={100}
                   onLoadingComplete={() => {
                     setIsLoadedLogo(true);
                   }}
@@ -189,8 +188,10 @@ export default function Navbar() {
             >
               <Image
                 className={`transition-all duration-500 ease-in-out`}
-                src={logoWhite as string}
-                alt="logo"
+                src={assets.logoWhite}
+                alt="logo-white"
+                width={100}
+                height={100}
                 onLoadingComplete={() => {
                   setIsLoadedLogo(true);
                 }}
@@ -259,8 +260,10 @@ export default function Navbar() {
                     >
                       <Image
                         className={`transition-all duration-500 ease-in-out`}
-                        src={discordIconBlack as string}
-                        alt="logo"
+                        src={assets.discordIconBlack}
+                        alt="discord-icon-black"
+                        width={100}
+                        height={100}
                         onLoadingComplete={() => {
                           setIsLoadedLogo(true);
                         }}
@@ -270,8 +273,10 @@ export default function Navbar() {
                   <div className="flex items-center md:flex-1">
                     <Image
                       className="w-10"
-                      src={logoBlack as string}
-                      alt="logo"
+                      src={assets.logoBlack}
+                      width={100}
+                      height={100}
+                      alt="logo-black"
                     />
                   </div>
                   <div className="w-9 md:hidden">

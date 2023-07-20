@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import Button from "../../button";
 import Content from "./content";
 import Carousel from "./carousel";
-import heroImage from "../../../assets/images/hero-image.png";
 
 import Image from "next/image";
+import { assets, links } from "~/assets/data";
 
 export default function Equipment() {
   const [isLoadedBgGradient, setIsLoadedBgGradient] = useState<boolean>(false);
@@ -12,7 +12,9 @@ export default function Equipment() {
   return (
     <div id="fade-in" className="relative mb-8 flex w-[100vw] justify-center">
       <Image
-        src={heroImage}
+        src={assets.bgImageBlurGradient}
+        width={100}
+        height={100}
         id="hero-image"
         alt="hero-image"
         loading="lazy"
@@ -35,7 +37,7 @@ export default function Equipment() {
           </div>
           <div className="mt-4 h-[60px] w-96 max-w-full">
             <Button
-              link="https://discord.gg/gSbpSzZ2uG"
+              link={links.discord}
               text="JOIN OUR DISCORD"
               color="#D3A309"
             />

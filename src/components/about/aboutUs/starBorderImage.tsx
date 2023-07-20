@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import star from "../../../assets/images/star.svg";
+import { assets } from "~/assets/data";
 
 export default function StarBorderImage() {
   return (
@@ -12,23 +12,31 @@ export default function StarBorderImage() {
       </div>
 
       <Image
-        src={star as string}
+        src={assets.starIcon}
+        width={100}
+        height={100}
         alt="star"
         className="absolute -right-12 top-0 w-4 translate-x-[-60%] translate-y-[-50%] transition-all duration-500  ease-in-out"
       />
       <div className="absolute left-0 top-[-1.4rem] h-8 w-10">
         <Image
-          src={star as string}
+          src={assets.starIcon}
+          width={100}
+          height={100}
           alt="star"
           className="absolute -right-4 top-0  w-4 transition-all duration-500  ease-in-out"
         />
         <Image
-          src={star as string}
+          src={assets.starIcon}
+          width={100}
+          height={100}
           alt="star"
           className="absolute -right-8 top-0 w-4 transition-all duration-500  ease-in-out"
         />
         <Image
-          src={star as string}
+          src={assets.starIcon}
+          width={100}
+          height={100}
           alt="star"
           className="absolute -right-12 top-0 w-4 transition-all duration-500  ease-in-out"
         />

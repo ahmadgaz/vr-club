@@ -1,10 +1,9 @@
 import Image from "next/image";
 import React, { useState } from "react";
-import heroText from "../../../assets/images/hero-text.svg";
-import heroLogo from "../../../../public/logo-white.svg";
 import Button from "../../button";
 import StarBorder from "./starBorder";
 import { useAppContext } from "~/context/context";
+import { assets, links } from "~/assets/data";
 
 export default function Hero() {
   const [isLoadedLogo, setIsLoadedLogo] = useState<boolean>(false);
@@ -17,16 +16,20 @@ export default function Hero() {
       className="body-font z-[5] mb-10 mt-10 flex h-[650px] w-[100vw] flex-col items-center justify-center font-azo-sans font-light text-[#E1E0E2]"
     >
       <Image
-        src={heroLogo as string}
+        src={assets.logoWhite}
         alt="hero-logo"
+        width={100}
+        height={100}
         className={`${
           isLoadedLogo ? "opacity-100" : "opacity-0"
         } mb-4 mt-20 w-44 max-w-full drop-shadow-xl transition-all duration-500 ease-in-out`}
         onLoadingComplete={() => setIsLoadedLogo(true)}
       />
       <Image
-        src={heroText as string}
-        alt="hero-logo"
+        src={assets.heroText}
+        alt="hero-text"
+        width={100}
+        height={100}
         className={`${
           isLoadedSubtitle ? "opacity-100" : "opacity-0"
         } mb-5 w-44 max-w-full drop-shadow-xl transition-all duration-500 ease-in-out`}
@@ -66,11 +69,7 @@ export default function Hero() {
           />
         </span>
         <span className="flex-1 max-md:mt-3 md:ml-7">
-          <Button
-            link="https://discord.gg/gSbpSzZ2uG"
-            text="JOIN"
-            variant="glass"
-          />
+          <Button link={links.discord} text="JOIN" variant="glass" />
         </span>
       </div>
     </div>

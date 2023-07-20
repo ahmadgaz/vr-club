@@ -1,9 +1,8 @@
 import Image from "next/image";
 import React from "react";
-import arrowWhite from "../assets/images/arrow-white.svg";
-import arrowBlack from "../assets/images/arrow-black.svg";
 import Link from "next/link";
 import hexToRgb from "~/utils/hexToRGB";
+import { assets } from "~/assets/data";
 
 export default function Button({
   loading = false,
@@ -48,8 +47,10 @@ export default function Button({
           <span className="flex h-[61px] w-full  items-center justify-center">
             {text}
             <Image
-              src={color ? (arrowWhite as string) : (arrowBlack as string)}
+              src={color ? assets.arrowIconWhite : assets.arrowIconBlack}
               alt="arrow"
+              width={100}
+              height={100}
               className="ml-3 w-3"
             />
           </span>
@@ -58,8 +59,10 @@ export default function Button({
         <span className="flex h-[61px] w-full  items-center justify-center">
           {text}
           <Image
-            src={color ? (arrowWhite as string) : (arrowBlack as string)}
+            src={color ? assets.arrowIconWhite : assets.arrowIconBlack}
             alt="arrow"
+            width={100}
+            height={100}
             className="ml-3 w-3"
           />
         </span>
@@ -86,8 +89,10 @@ export default function Button({
           <span className="flex h-[61px] w-full   items-center justify-center ">
             {text}
             <Image
-              src={arrowWhite as string}
+              src={assets.arrowIconWhite}
               alt="arrow"
+              width={100}
+              height={100}
               className="ml-3 w-3"
             />
           </span>
@@ -95,7 +100,13 @@ export default function Button({
       ) : (
         <span className="flex h-[61px] w-full   items-center justify-center ">
           {text}
-          <Image src={arrowWhite as string} alt="arrow" className="ml-3 w-3" />
+          <Image
+            src={assets.arrowIconWhite}
+            alt="arrow"
+            width={100}
+            height={100}
+            className="ml-3 w-3"
+          />
         </span>
       )}
     </button>
@@ -113,8 +124,10 @@ export default function Button({
           <span className="flex h-[30px] w-full   items-center justify-center ">
             {text}
             <Image
-              src={arrowWhite as string}
+              src={assets.arrowIconWhite}
               alt="arrow"
+              width={100}
+              height={100}
               className="ml-3 w-3"
             />
           </span>
@@ -122,7 +135,13 @@ export default function Button({
       ) : (
         <span className="flex h-[30px] w-full   items-center justify-center ">
           {text}
-          <Image src={arrowWhite as string} alt="arrow" className="ml-3 w-3" />
+          <Image
+            src={assets.arrowIconWhite}
+            width={100}
+            height={100}
+            alt="arrow"
+            className="ml-3 w-3"
+          />
         </span>
       )}
     </button>

@@ -2,7 +2,7 @@ import Image from "next/image";
 import React from "react";
 import StarBorderText from "./starBorderText";
 import StarBorderImage from "./starBorderImage";
-import vrGirl from "../../../assets/images/vr-girl.png";
+import { aboutUsContent } from "~/assets/data";
 
 export default function Content() {
   return (
@@ -14,21 +14,17 @@ export default function Content() {
         <div className="w-[110%] max-w-[80vw]">
           <StarBorderText />
         </div>
-        <p className="mt-11 text-[12pt] max-md:text-center ">
-          Our mission is to dive into the immersive world of Augmented and
-          Virtual Realities. We are a community of passionate individuals from
-          all disciplines, bonded together by our shared fascination for AR and
-          VR.
-          <br />
-          <br />
-          Whether you&apos;re a seasoned expert or someone who&apos;s never put
-          on a VR headset before, you&apos;re welcome here!
+        <p className="mt-11 whitespace-pre-wrap text-[12pt] max-md:text-center ">
+          {aboutUsContent.description}
         </p>
       </div>
       <div className="relative mt-10 flex h-fit flex-col items-center self-center  max-md:w-full md:flex-1 ">
         <Image
-          src={vrGirl}
+          src={aboutUsContent.image}
           alt="vr-girl"
+          width={100}
+          height={100}
+          unoptimized
           className=" w-[30rem] max-w-[70%] object-cover"
         />
         <div className="w-full pr-20 ">

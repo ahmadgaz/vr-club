@@ -67,6 +67,13 @@ body {
 }
 
 /* GLOBAL SCROLLBAR */
+::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+  /* display: none; */
+}
+
+/* EVENTS SCROLLBAR */
 #card::-webkit-scrollbar {
   width: 10px;
   height: 10px;
@@ -86,10 +93,25 @@ body {
 #card::-webkit-scrollbar-corner {
   background: transparent;
 }
-::-webkit-scrollbar {
-  width: 0px;
-  height: 0px;
-  /* display: none; */
+
+/* PROJECTS SCROLLBAR */
+#slide::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+#slide::-webkit-scrollbar-track {
+  background: transparent;
+}
+#slide::-webkit-scrollbar-thumb {
+  background: #e1e0e2;
+  border-radius: 5px;
+}
+#slide::-webkit-scrollbar-thumb:hover {
+  background: #e1e0e2;
+}
+#slide::-webkit-scrollbar-corner {
+  background: transparent;
 }
 
 /* GOLD BUTTON */

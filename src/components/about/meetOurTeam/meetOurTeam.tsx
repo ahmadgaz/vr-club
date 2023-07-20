@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import Content from "./content";
 import Card from "./card";
-import heroImage from "../../../assets/images/hero-image.png";
 import Image from "next/image";
+import { assets, meetOurTeamCards } from "~/assets/data";
 
 export default function MeetOurTeam() {
   const [isLoadedBgGradient, setIsLoadedBgGradient] = useState<boolean>(false);
@@ -13,7 +13,9 @@ export default function MeetOurTeam() {
       className="body-font relative mb-8 flex w-[100vw] justify-center font-azo-sans"
     >
       <Image
-        src={heroImage}
+        src={assets.bgImageBlurGradient}
+        width={100}
+        height={100}
         id="hero-image"
         alt="hero-image"
         loading="lazy"
@@ -27,9 +29,16 @@ export default function MeetOurTeam() {
       <div className="relative flex h-fit min-h-[400px] w-[1200px] max-w-full flex-col ">
         <Content />
         <div className="mt-10 flex  max-md:flex-col max-md:items-center md:flex-wrap md:justify-center md:px-20">
-          <Card name="Dexter Allen" title="President" />
-          <Card name="Kyle Nguyen" title="Vice President" />
-          <Card name="Cosmo Maddux" title="Treasurer" />
+          {meetOurTeamCards.map((card, index) => {
+            return (
+              <Card
+                key={index}
+                image={card.image}
+                name={card.name}
+                title={card.position}
+              />
+            );
+          })}
         </div>
       </div>
     </div>

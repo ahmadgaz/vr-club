@@ -5,6 +5,7 @@ import instagramAnimation from "../assets/animations/instagram-animation.json";
 import discordAnimation from "../assets/animations/discord-animation.json";
 import emailAnimation from "../assets/animations/email-animation.json";
 import Link from "next/link";
+import { links } from "~/assets/data";
 
 export default function Footer() {
   const instaRef = useRef<LottieRefCurrentProps | null>(null);
@@ -37,7 +38,7 @@ export default function Footer() {
               }}
               className="h-10 w-10 rounded-xl border-[1px] p-[7px]  transition-all duration-500 ease-in-out hover:h-11 hover:w-11 active:h-10 active:w-10"
             >
-              <Link href="https://www.instagram.com/vrclub.sjsu/">
+              <Link href={links.instagram}>
                 <Lottie
                   lottieRef={instaRef}
                   animationData={instagramAnimation}
@@ -51,7 +52,7 @@ export default function Footer() {
               }}
               className="h-10 w-10 rounded-xl border-[1px] p-[7px]  transition-all duration-500 ease-in-out hover:h-11 hover:w-11 active:h-10 active:w-10"
             >
-              <Link href="https://discord.gg/gSbpSzZ2uG">
+              <Link href={links.discord}>
                 <Lottie
                   lottieRef={discordRef}
                   animationData={discordAnimation}
@@ -66,12 +67,14 @@ export default function Footer() {
               className="h-10 w-10 rounded-xl  border-[1px] p-[7px]  transition-all duration-500 ease-in-out hover:h-11 hover:w-11 active:h-10 active:w-10"
             >
               <div className="relative h-full w-full">
-                <Lottie
-                  lottieRef={emailRef}
-                  animationData={emailAnimation}
-                  loop={false}
-                  className="absolute -top-1"
-                />
+                <Link href={links.email}>
+                  <Lottie
+                    lottieRef={emailRef}
+                    animationData={emailAnimation}
+                    loop={false}
+                    className="absolute -top-1"
+                  />
+                </Link>
               </div>
             </button>
           </div>

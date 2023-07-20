@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import Content from "./content";
 import Carousel from "./carousel";
-import heroImage from "../../../assets/images/hero-image.png";
 
 import Image from "next/image";
+import { assets } from "~/assets/data";
 
 export default function Projects() {
   const [isLoadedBgGradient, setIsLoadedBgGradient] = useState<boolean>(false);
@@ -11,7 +11,9 @@ export default function Projects() {
   return (
     <div id="fade-in" className=" relative mb-8 flex w-[100vw] justify-center">
       <Image
-        src={heroImage}
+        src={assets.bgImageBlurGradient}
+        width={100}
+        height={100}
         id="hero-image"
         alt="hero-image"
         loading="lazy"

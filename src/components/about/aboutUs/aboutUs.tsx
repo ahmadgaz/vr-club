@@ -1,11 +1,9 @@
 import React from "react";
 import Image from "next/image";
-import puzzle from "../../../assets/images/puzzle-icon.svg";
-import light from "../../../assets/images/light-icon.svg";
-import canvas from "../../../assets/images/canvas-icon.svg";
 import Content from "./content";
 import Card from "./card";
 import { useAppContext } from "~/context/context";
+import { aboutUsCards } from "~/assets/data";
 
 export default function AboutUs() {
   const { equipmentHeight, eventsHeight, projectsHeight } = useAppContext();
@@ -24,7 +22,9 @@ export default function AboutUs() {
             }}
           >
             <Image
-              src={puzzle as string}
+              src={aboutUsCards[0]?.icon as string}
+              width={100}
+              height={100}
               className="mb-1 h-10 w-10 object-contain"
               alt="puzzle-icon"
             />
@@ -34,9 +34,7 @@ export default function AboutUs() {
                 <b className="font-black">Experiences</b>
               </p>
               <p className="mt-2 text-[10pt] ">
-                Immerse yourself in different realities with our cutting-edge
-                AR/VR equipment, from Oculus Quest 2 and Microsoft HoloLens 2 to
-                HTC VIVE Pro and more.
+                {aboutUsCards[0]?.description as string}
               </p>
             </div>
           </Card>
@@ -49,7 +47,9 @@ export default function AboutUs() {
             }}
           >
             <Image
-              src={light as string}
+              src={aboutUsCards[1]?.icon as string}
+              width={100}
+              height={100}
               className="mb-1 h-10 w-10 object-contain"
               alt="light-icon"
             />
@@ -59,9 +59,7 @@ export default function AboutUs() {
                 <b className="font-black">Learning</b>
               </p>
               <p className="mt-2 text-[10pt] ">
-                Participate in engaging tutorials, workshops, and discussions.
-                Learn from industry experts, faculty mentors, and fellow
-                members.
+                {aboutUsCards[1]?.description as string}
               </p>
             </div>
           </Card>
@@ -74,7 +72,9 @@ export default function AboutUs() {
             }}
           >
             <Image
-              src={canvas as string}
+              src={aboutUsCards[2]?.icon as string}
+              width={100}
+              height={100}
               className="mb-1 h-10 w-10 object-contain"
               alt="canvas-icon"
             />
@@ -84,9 +84,7 @@ export default function AboutUs() {
                 <b className="font-black">Projects</b>
               </p>
               <p className="mt-2 text-[10pt] ">
-                Collaborate on innovative AR/VR projects, like ZenVR, our
-                mindfulness-focused VR experience. Put theory into practice and
-                see your ideas come to life.
+                {aboutUsCards[2]?.description as string}{" "}
               </p>
             </div>
           </Card>
