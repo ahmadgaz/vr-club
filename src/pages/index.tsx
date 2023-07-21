@@ -177,6 +177,17 @@ export default function Home() {
     }, 500);
   }, [isClient, setScrollPosition]);
 
+  console.log(
+    scrollPosition,
+    heroHeight,
+    aboutUsHeight,
+    equipmentHeight,
+    meetOurTeamHeight,
+    projectsHeight,
+    eventsHeight,
+    resourcesHeight
+  );
+
   return (
     <>
       <Head>

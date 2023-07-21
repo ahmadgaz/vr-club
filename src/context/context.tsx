@@ -9,7 +9,7 @@ export type ContextPropsPartial = {
   projectsHeight: { height: number; pos: number };
   eventsHeight: { height: number; pos: number };
   resourcesHeight: { height: number; pos: number };
-}
+};
 
 type ContextProps = {
   scrollPosition: number;
@@ -47,13 +47,13 @@ type ContextProps = {
 // Define a default context value
 const defaultContextValue: ContextProps = {
   scrollPosition: 0,
-  heroHeight: { height: 2000, pos: 0 },
-  aboutUsHeight: { height: 2000, pos: 2000 },
-  equipmentHeight: { height: 2000, pos: 4000 },
-  meetOurTeamHeight: { height: 2000, pos: 6000 },
-  projectsHeight: { height: 2000, pos: 8000 },
-  eventsHeight: { height: 2000, pos: 10000 },
-  resourcesHeight: { height: 2000, pos: 12000 },
+  heroHeight: { height: 500, pos: 0 },
+  aboutUsHeight: { height: 500, pos: 500 },
+  equipmentHeight: { height: 500, pos: 1000 },
+  meetOurTeamHeight: { height: 500, pos: 1500 },
+  projectsHeight: { height: 500, pos: 2000 },
+  eventsHeight: { height: 500, pos: 2500 },
+  resourcesHeight: { height: 500, pos: 3000 },
   setScrollPosition: () => {
     return;
   }, // empty function, it will be replaced by the actual function in the provider
@@ -85,32 +85,32 @@ const AppContext = createContext<ContextProps>(defaultContextValue);
 export function AppWrapper({ children }: { children: ReactNode }) {
   const [scrollPosition, setScrollPosition] = useState<number>(0);
   const [heroHeight, setHeroHeight] = useState<{ height: number; pos: number }>(
-    { height: 2000, pos: 0 }
+    { height: 500, pos: 0 }
   );
   const [aboutUsHeight, setAboutUsHeight] = useState<{
     height: number;
     pos: number;
-  }>({ height: 2000, pos: 2000 });
+  }>({ height: 500, pos: 500 });
   const [equipmentHeight, setEquipmentHeight] = useState<{
     height: number;
     pos: number;
-  }>({ height: 2000, pos: 4000 });
+  }>({ height: 500, pos: 1000 });
   const [meetOurTeamHeight, setMeetOurTeamHeight] = useState<{
     height: number;
     pos: number;
-  }>({ height: 2000, pos: 6000 });
+  }>({ height: 500, pos: 1500 });
   const [projectsHeight, setProjectsHeight] = useState<{
     height: number;
     pos: number;
-  }>({ height: 2000, pos: 8000 });
+  }>({ height: 500, pos: 2000 });
   const [eventsHeight, setEventsHeight] = useState<{
     height: number;
     pos: number;
-  }>({ height: 2000, pos: 10000 });
+  }>({ height: 500, pos: 2500 });
   const [resourcesHeight, setResourcesHeight] = useState<{
     height: number;
     pos: number;
-  }>({ height: 2000, pos: 12000 });
+  }>({ height: 500, pos: 3000 });
 
   return (
     <AppContext.Provider
