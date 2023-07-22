@@ -198,76 +198,111 @@ export default function Home() {
         {isClient && (
           <Suspense>
             <Bg />
-            {showAll ||
-            (scrollPosition >= heroHeight.pos &&
-              scrollPosition - window.innerHeight <
-                heroHeight.pos + heroHeight.height) ? (
-              <div ref={handleSetHeroHeight}>
-                <Hero />
-              </div>
-            ) : (
-              <div style={{ height: `${heroHeight.height}px` }}></div>
-            )}
-            {showAll ||
-            (scrollPosition > aboutUsHeight.pos &&
-              scrollPosition - window.innerHeight <
-                aboutUsHeight.pos + aboutUsHeight.height) ? (
-              <div ref={handleSetAboutUsHeight}>
-                <AboutUs />
-              </div>
-            ) : (
-              <div style={{ height: `${aboutUsHeight.height}px` }}></div>
-            )}
-            {showAll ||
-            (scrollPosition > equipmentHeight.pos &&
-              scrollPosition - window.innerHeight <
-                equipmentHeight.pos + equipmentHeight.height) ? (
-              <div ref={handleSetEquipmentHeight}>
-                <Equipment />
-              </div>
-            ) : (
-              <div style={{ height: `${equipmentHeight.height}px` }}></div>
-            )}
-            {showAll ||
-            (scrollPosition > meetOurTeamHeight.pos &&
-              scrollPosition - window.innerHeight <
-                meetOurTeamHeight.pos + meetOurTeamHeight.height) ? (
-              <div ref={handleSetMeetOurTeamHeight}>
-                <MeetOurTeam />
-              </div>
-            ) : (
-              <div style={{ height: `${meetOurTeamHeight.height}px` }}></div>
-            )}
-            {showAll ||
-            (scrollPosition > projectsHeight.pos &&
-              scrollPosition - window.innerHeight <
-                projectsHeight.pos + projectsHeight.height) ? (
-              <div ref={handleSetProjectsHeight}>
-                <Projects />
-              </div>
-            ) : (
-              <div style={{ height: `${projectsHeight.height}px` }}></div>
-            )}
-            {showAll ||
-            (scrollPosition > eventsHeight.pos &&
-              scrollPosition - window.innerHeight <
-                eventsHeight.pos + eventsHeight.height) ? (
-              <div ref={handleSetEventsHeight}>
-                <Events />
-              </div>
-            ) : (
-              <div style={{ height: `${eventsHeight.height}px` }}></div>
-            )}
-            {showAll ||
-            (scrollPosition > resourcesHeight.pos &&
-              scrollPosition - window.innerHeight <
-                resourcesHeight.pos + resourcesHeight.height) ? (
-              <div ref={handleSetResourcesHeight}>
-                <Resources />
-              </div>
-            ) : (
-              <div style={{ height: `${resourcesHeight.height}px` }}></div>
-            )}
+            <div
+              ref={handleSetHeroHeight}
+              style={{
+                opacity:
+                  showAll ||
+                  (scrollPosition >= heroHeight.pos &&
+                    scrollPosition - window.innerHeight <
+                      heroHeight.pos + heroHeight.height)
+                    ? "100%"
+                    : "0%",
+              }}
+              className="transition-opacity duration-[500ms] ease-in-out"
+            >
+              <Hero />
+            </div>
+            <div
+              ref={handleSetAboutUsHeight}
+              style={{
+                opacity:
+                  showAll ||
+                  (scrollPosition > aboutUsHeight.pos &&
+                    scrollPosition - window.innerHeight <
+                      aboutUsHeight.pos + aboutUsHeight.height)
+                    ? "100%"
+                    : "0%",
+              }}
+              className="transition-opacity duration-[500ms] ease-in-out"
+            >
+              <AboutUs />
+            </div>
+            <div
+              ref={handleSetEquipmentHeight}
+              style={{
+                opacity:
+                  showAll ||
+                  (scrollPosition > equipmentHeight.pos &&
+                    scrollPosition - window.innerHeight <
+                      equipmentHeight.pos + equipmentHeight.height)
+                    ? "100%"
+                    : "0%",
+              }}
+              className="transition-opacity duration-[500ms] ease-in-out"
+            >
+              <Equipment />
+            </div>
+            <div
+              ref={handleSetMeetOurTeamHeight}
+              style={{
+                opacity:
+                  showAll ||
+                  (scrollPosition > meetOurTeamHeight.pos &&
+                    scrollPosition - window.innerHeight <
+                      meetOurTeamHeight.pos + meetOurTeamHeight.height)
+                    ? "100%"
+                    : "0%",
+              }}
+              className="transition-opacity duration-[500ms] ease-in-out"
+            >
+              <MeetOurTeam />
+            </div>
+            <div
+              ref={handleSetProjectsHeight}
+              style={{
+                opacity:
+                  showAll ||
+                  (scrollPosition > projectsHeight.pos &&
+                    scrollPosition - window.innerHeight <
+                      projectsHeight.pos + projectsHeight.height)
+                    ? "100%"
+                    : "0%",
+              }}
+              className="transition-opacity duration-[500ms] ease-in-out"
+            >
+              <Projects />
+            </div>
+            <div
+              ref={handleSetEventsHeight}
+              style={{
+                opacity:
+                  showAll ||
+                  (scrollPosition > eventsHeight.pos &&
+                    scrollPosition - window.innerHeight <
+                      eventsHeight.pos + eventsHeight.height)
+                    ? "100%"
+                    : "0%",
+              }}
+              className="transition-opacity duration-[500ms] ease-in-out"
+            >
+              <Events />
+            </div>
+            <div
+              ref={handleSetResourcesHeight}
+              style={{
+                opacity:
+                  showAll ||
+                  (scrollPosition > resourcesHeight.pos &&
+                    scrollPosition - window.innerHeight <
+                      resourcesHeight.pos + resourcesHeight.height)
+                    ? "100%"
+                    : "0%",
+              }}
+              className="transition-opacity duration-[500ms] ease-in-out"
+            >
+              <Resources />
+            </div>
             <Footer />
           </Suspense>
         )}
