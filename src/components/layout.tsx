@@ -6,7 +6,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <div className="flex justify-center">
       <link rel="stylesheet" href="https://use.typekit.net/ivb4kbt.css" />
       <Navbar />
-      <meta name="theme-color" content="#ffffff" />
+      <meta name="theme-color" content="#414c59" />
       <link rel="icon" href="/favicon.ico" />
       <main className="">{children}</main>
     </div>
