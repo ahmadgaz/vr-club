@@ -40,9 +40,6 @@ export default function Carousel() {
           }}
           loop={true}
           scrollbar={{ draggable: true }}
-          onSlideChange={(slide) => {
-            console.log(slide);
-          }}
           className="h-full"
         >
           {projectsSlides.map((slide, index) => {
