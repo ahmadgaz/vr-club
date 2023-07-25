@@ -188,7 +188,7 @@ export const resourcesCards: ResourcesCardType[] = [
     title: "SJSU Game Dev Club",
     description:
       "A club for game makers and fans. Everyone is welcome, even non-students!",
-    link: "https://sjsugamedev.com/#/games",
+    link: "https://sjsugamedev.com/#/",
   },
   {
     image:
