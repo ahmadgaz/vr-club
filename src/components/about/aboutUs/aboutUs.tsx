@@ -9,7 +9,10 @@ export default function AboutUs() {
   const { equipmentHeight, eventsHeight, projectsHeight } = useAppContext();
 
   return (
-    <div id="fade-in" className=" relative mb-8 flex w-[100vw] justify-center">
+    <div
+      id="fade-in"
+      className=" relative z-10 mb-8 flex w-[100vw] justify-center"
+    >
       <div className="relative flex h-fit min-h-[700px] w-[1200px] max-w-full flex-col ">
         <Content />
         <div className="mt-10 flex w-full flex-1 flex-wrap items-stretch justify-stretch pl-5 md:pl-24 md:pr-12">

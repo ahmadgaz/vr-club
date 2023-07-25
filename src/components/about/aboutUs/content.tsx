@@ -2,7 +2,8 @@ import Image from "next/image";
 import React from "react";
 import StarBorderText from "./starBorderText";
 import StarBorderImage from "./starBorderImage";
-import { aboutUsContent } from "~/assets/data";
+import { aboutUsContent, links } from "~/assets/data";
+import Link from "next/link";
 
 export default function Content() {
   return (
@@ -11,11 +12,15 @@ export default function Content() {
         <p className="text-[36pt] font-black leading-[1] tracking-tight max-md:text-center">
           ABOUT US
         </p>
-        <div className="w-[110%] max-w-[80vw]">
+        <div className="-z-20 w-[110%] max-w-[80vw]">
           <StarBorderText />
         </div>
         <p className="mt-11 whitespace-pre-wrap text-[12pt] max-md:text-center ">
           {aboutUsContent.description}
+          <br />
+          <Link className="underline" href={links.discord}>
+            Join us on Discord!
+          </Link>
         </p>
       </div>
       <div className="relative mt-10 flex h-fit flex-col items-center self-center  max-md:w-full md:flex-1 ">

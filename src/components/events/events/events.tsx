@@ -28,7 +28,7 @@ export default function Events() {
           setIsLoadedBgGradient(true);
         }}
       />
-      <div className="relative flex h-fit min-h-[400px] w-[1200px] max-w-full flex-col ">
+      <div className="relative z-10 flex h-fit min-h-[400px] w-[1200px] max-w-full flex-col ">
         <Content />
         <div className="mt-10 flex  max-md:flex-col max-md:items-center md:flex-wrap md:justify-center md:px-20">
           {eventsCards.map((card, index) => {

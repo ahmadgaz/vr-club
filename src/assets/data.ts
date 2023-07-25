@@ -79,7 +79,7 @@ export const aboutUsCards: AboutUsCardType[] = [
 export const aboutUsContent: AboutUsContentType = {
   description: `Our mission is to dive into the immersive world of Augmented and Virtual Realities. We are a community of passionate individuals from all disciplines, bonded together by our shared fascination for AR and VR. 
     
-Whether you're a seasoned expert or someone who's never put on a VR headset before, you're welcome here!`,
+Whether you're a seasoned expert or someone who's never put on a VR headset before, you're welcome here.`,
   image: assets.vrGirl,
 };
 
@@ -179,21 +179,23 @@ export const resourcesCards: ResourcesCardType[] = [
       "https://res.cloudinary.com/dglwv2m2o/image/upload/v1689887100/KLEVR-lab.jpg",
     title: "KLEVR Lab",
     description:
-      "During this meeting, we will go over the summer roadmap, you will meet fellow team members and we will begin working with unity.",
+      "The King Library Experiential Virtual Reality (KLEVR) Lab provides a new form of learning and instruction through the use of AR and VR technologies.",
     link: "https://library.sjsu.edu/klevr-lab",
   },
   {
-    image: "",
-    title: "JMC Storytelling Lab",
+    image:
+      "https://res.cloudinary.com/dglwv2m2o/image/upload/v1690315460/game_dev.png",
+    title: "SJSU Game Dev Club",
     description:
-      "We will go over everything you need to know to create your first virtual reality game, from the basics of Unity all the way to porting your game into a headset (Headsets will be provided). The meeting will be approximately 3 hours with an intermission in the middle.",
-    link: "",
+      "A club for game makers and fans. Everyone is welcome, even non-students!",
+    link: "https://sjsugamedev.com/#/games",
   },
   {
-    image: "",
+    image:
+      "https://res.cloudinary.com/dglwv2m2o/image/upload/v1690315461/unity.png",
     title: "Unity 3D Engine",
     description:
-      "Experience the future of technology. Join the SJSU Virtual Reality Club to create, learn, and explore with like minded students. Don't miss out, become a part of the VR Club today!",
-    link: "",
+      "The Unity 3D Engine is a powerful platform for creating interactive, real-time 3D content.",
+    link: "https://store.unity.com/download",
   },
 ];

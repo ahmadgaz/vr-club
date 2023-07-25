@@ -4,6 +4,7 @@ import Button from "../../button";
 import StarBorder from "./starBorder";
 import { useAppContext } from "~/context/context";
 import { assets, links } from "~/assets/data";
+import sjsu from "public/trace.svg";
 
 export default function Hero() {
   const [isLoadedLogo, setIsLoadedLogo] = useState<boolean>(false);
@@ -15,26 +16,29 @@ export default function Hero() {
       id="fade-in"
       className="body-font z-[5] mb-10 mt-10 flex h-[650px] w-[100vw] flex-col items-center justify-center font-azo-sans font-light text-[#E1E0E2]"
     >
-      <Image
-        src={assets.logoWhite}
-        alt="hero-logo"
-        width={100}
-        height={100}
-        className={`${
-          isLoadedLogo ? "opacity-100" : "opacity-0"
-        } mb-4 mt-20 w-44 max-w-full drop-shadow-xl transition-all duration-500 ease-in-out`}
-        onLoadingComplete={() => setIsLoadedLogo(true)}
-      />
-      <Image
-        src={assets.heroText}
-        alt="hero-text"
-        width={100}
-        height={100}
-        className={`${
-          isLoadedSubtitle ? "opacity-100" : "opacity-0"
-        } mb-5 w-44 max-w-full drop-shadow-xl transition-all duration-500 ease-in-out`}
-        onLoadingComplete={() => setIsLoadedSubtitle(true)}
-      />
+      <div className="flex w-[300px] max-w-full items-center">
+        <Image
+          src={assets.logoWhite}
+          alt="hero-logo"
+          width={100}
+          height={100}
+          className={`${
+            isLoadedLogo ? "opacity-100" : "opacity-0"
+          } mb-4 h-32 drop-shadow-xl transition-all duration-500 ease-in-out`}
+          onLoadingComplete={() => setIsLoadedLogo(true)}
+        />
+        <p className=" mb-8 ml-2 mr-4 text-[35pt]">@</p>
+        <Image
+          src={sjsu as string}
+          alt="hero-text"
+          width={100}
+          height={100}
+          className={`${
+            isLoadedSubtitle ? "opacity-100" : "opacity-0"
+          } mb-3 h-32 flex-1 drop-shadow-xl  transition-all duration-500 ease-in-out`}
+          onLoadingComplete={() => setIsLoadedSubtitle(true)}
+        />
+      </div>
       <div
         className={`${
           isLoadedSubtitle ? "opacity-100" : "opacity-0"
