@@ -11,7 +11,7 @@ export default function AboutUs() {
   return (
     <div
       id="fade-in"
-      className=" relative z-10 mb-8 flex w-[100vw] justify-center"
+      className=" relative z-20 mb-8 flex w-[100vw] justify-center"
     >
       <div className="relative flex h-fit min-h-[700px] w-[1200px] max-w-full flex-col ">
         <Content />
