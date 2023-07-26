@@ -30,20 +30,29 @@ export default function Events() {
       />
       <div className="relative z-10 flex h-fit min-h-[400px] w-[1200px] max-w-full flex-col ">
         <Content />
+
         <div className="mt-10 flex  max-md:flex-col max-md:items-center md:flex-wrap md:justify-center md:px-20">
-          {eventsCards.map((card, index) => {
-            return (
-              <Card
-                key={index}
-                variant={index % 3}
-                title={card.title}
-                desc={card.description}
-                location={card.location}
-                date={new Date(card.date).getTime()}
-                link={card.link}
-              />
-            );
-          })}
+          {eventsCards.length > 0 ? (
+            <>
+              {eventsCards.map((card, index) => {
+                return (
+                  <Card
+                    key={index}
+                    variant={index % 3}
+                    title={card.title}
+                    desc={card.description}
+                    location={card.location}
+                    date={new Date(card.date).getTime()}
+                    link={card.link}
+                  />
+                );
+              })}
+            </>
+          ) : (
+            <div className="body-font mt-5 max-w-full text-center font-azo-sans text-[12pt] font-bold  text-[#E1E0E2]">
+              No upcoming events.
+            </div>
+          )}
         </div>
         <div className="flex w-full flex-1 flex-col flex-wrap items-center justify-stretch px-10 md:px-20 ">
           <div className="body-font mt-5 max-w-full text-center font-azo-sans text-[12pt] font-bold italic text-[#E1E0E2]">
