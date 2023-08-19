@@ -54,23 +54,6 @@ export default function Events() {
             </div>
           )}
         </div>
-        <div className="flex w-full flex-1 flex-col flex-wrap items-center justify-stretch px-10 md:px-20 ">
-          <div className="body-font mt-5 max-w-full text-center font-azo-sans text-[12pt] font-bold italic text-[#E1E0E2]">
-            <p>
-              Sign up to our <b className="text-[#d87575]">newsletter</b> and
-              stay up to date on the latest news and events!
-            </p>
-          </div>
-          <div className="mt-4 flex h-[60px] w-[600px] max-w-full max-md:h-[130px] max-md:flex-col">
-            <input
-              placeholder="email@example.com"
-              className="flex-1 rounded-xl p-4"
-            />{" "}
-            <div className="max-md:mt-4 md:ml-4 md:w-40">
-              <Button link="" text="SIGN UP" color="#d87575" />
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   );

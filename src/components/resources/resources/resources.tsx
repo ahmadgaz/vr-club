@@ -10,7 +10,7 @@ export default function Resources() {
   return (
     <div
       id="fade-in"
-      className="body-font relative mb-8 flex w-[100vw] justify-center overflow-visible font-azo-sans"
+      className="body-font  relative mb-8 flex w-[100vw] justify-center overflow-visible font-azo-sans"
     >
       <Image
         src={assets.bgImageBlurGradient}

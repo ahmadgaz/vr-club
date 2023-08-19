@@ -5,6 +5,7 @@ import StarBorder from "./starBorder";
 import { useAppContext } from "~/context/context";
 import { assets, links } from "~/assets/data";
 import sjsu from "public/trace.svg";
+import Spline from "@splinetool/react-spline";
 
 export default function Hero() {
   const [isLoadedLogo, setIsLoadedLogo] = useState<boolean>(false);
@@ -14,20 +15,19 @@ export default function Hero() {
   return (
     <div
       id="fade-in"
-      className="body-font z-[5] mb-10 mt-10 flex h-[650px] w-[100vw] flex-col items-center justify-center font-azo-sans font-light text-[#E1E0E2]"
+      className="body-font z-[5]  mt-52 flex w-[100vw] flex-col items-center font-azo-sans  font-light text-[#E1E0E2] md:h-[1150px]"
     >
-      <div className="flex w-[300px] max-w-full items-center">
+      <div className="flex w-[150px] max-w-full flex-col items-center">
         <Image
           src={assets.logoWhite}
           alt="hero-logo"
-          width={100}
-          height={100}
+          width={150}
+          height={150}
           className={`${
             isLoadedLogo ? "opacity-100" : "opacity-0"
-          } mb-4 h-32 drop-shadow-xl transition-all duration-500 ease-in-out`}
+          } h-[10.5rem]  drop-shadow-3xl transition-all duration-500 ease-in-out`}
           onLoadingComplete={() => setIsLoadedLogo(true)}
         />
-        <p className=" mb-8 ml-2 mr-4 text-[35pt]">@</p>
         <Image
           src={sjsu as string}
           alt="hero-text"
@@ -35,7 +35,7 @@ export default function Hero() {
           height={100}
           className={`${
             isLoadedSubtitle ? "opacity-100" : "opacity-0"
-          } mb-3 h-32 flex-1 drop-shadow-xl  transition-all duration-500 ease-in-out`}
+          } mb-6 h-32 w-full flex-1  drop-shadow-3xl transition-all duration-500 ease-in-out`}
           onLoadingComplete={() => setIsLoadedSubtitle(true)}
         />
       </div>
@@ -72,9 +72,29 @@ export default function Hero() {
             }}
           />
         </span>
-        <span className="flex-1 max-md:mt-3 md:ml-7">
-          <Button link={links.discord} text="JOIN" variant="glass" />
-        </span>
+      </div>
+      <div className="mt-52 flex w-full max-w-[1200px] overflow-hidden  max-md:flex-col  md:h-[400px] md:items-center">
+        <Spline
+          className="flex-1 drop-shadow-3xl"
+          scene="https://prod.spline.design/2QufjIbz0TkJDOil/scene.splinecode"
+        />
+        <div className="flex-1  pb-16 pl-1 pt-6 max-md:px-[15%]">
+          <h1 className="mb-2 text-[20pt] font-bold max-md:text-[15pt]">
+            JOIN OUR
+          </h1>
+          <h1 className="mb-10 text-[75pt] font-black leading-[0.85] max-md:text-[50pt]">
+            DISCORD SERVER
+          </h1>
+          <div
+            className={`${
+              isLoadedSubtitle ? "opacity-100" : "opacity-0"
+            } flex w-[90%]  transition-all duration-500 ease-in-out max-md:w-full max-md:flex-col `}
+          >
+            <span className="flex-1 max-md:mt-3 ">
+              <Button link={links.discord} text="JOIN" variant="glass" />
+            </span>
+          </div>
+        </div>
       </div>
     </div>
   );

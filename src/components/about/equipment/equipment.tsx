@@ -25,7 +25,7 @@ export default function Equipment() {
           setIsLoadedBgGradient(true);
         }}
       />
-      <div className="relative z-10 flex h-fit min-h-[700px] w-[1200px] max-w-full flex-col ">
+      <div className="relative z-10 flex h-fit min-h-[700px] w-[1200px] max-w-full flex-col  ">
         <Content />
         <div className="mt-10 flex w-full flex-1 flex-col flex-wrap items-center justify-stretch px-5 md:px-20 ">
           <Carousel />

@@ -33,7 +33,7 @@ export default function Carousel() {
   return (
     <div
       id="carousel-container"
-      className="body-font relative mt-5 flex max-w-full flex-1 items-stretch self-stretch overflow-hidden overflow-hidden rounded-[30px] border-[1px] border-[#E1E0E2] border-opacity-10 bg-gradient-to-t from-[rgba(83,115,212,0.3)] to-[rgba(255,255,255,0.3)] font-azo-sans font-light text-[#E1E0E2] drop-shadow-5xl backdrop-blur-[30px] transition-all duration-500  ease-in-out "
+      className="body-font relative mt-5 flex max-w-full flex-1 items-stretch self-stretch overflow-hidden rounded-[30px] border-[1px] border-[#E1E0E2] border-opacity-10 bg-gradient-to-t from-[rgba(83,115,212,0.3)] to-[rgba(255,255,255,0.3)] font-azo-sans font-light text-[#E1E0E2] drop-shadow-5xl backdrop-blur-[30px] transition-all duration-500  ease-in-out "
     >
       <div className="w-full ">
         <Swiper

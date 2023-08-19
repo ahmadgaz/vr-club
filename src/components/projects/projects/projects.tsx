@@ -9,7 +9,7 @@ export default function Projects() {
   const [isLoadedBgGradient, setIsLoadedBgGradient] = useState<boolean>(false);
 
   return (
-    <div id="fade-in" className=" relative mb-8 flex w-[100vw] justify-center">
+    <div id="fade-in" className=" relative mb-8 flex w-[100vw] justify-center ">
       <Image
         src={assets.bgImageBlurGradient}
         width={100}
