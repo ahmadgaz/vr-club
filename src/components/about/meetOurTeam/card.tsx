@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React from "react";
+import { assets } from "~/assets/data";
 
 export default function Card({
   image,
@@ -14,13 +15,23 @@ export default function Card({
     <div className="flex h-[300px] items-center justify-center self-stretch rounded-[30px] bg-[#E1E0E2] text-[12pt] leading-[1.1] text-black drop-shadow-3xl transition-all duration-500 ease-in-out hover:drop-shadow-4xl max-md:mx-5  max-md:mt-5 max-md:h-[125px] md:m-5 md:w-[300px] md:flex-col">
       <div className="relative h-[190px] w-[190px] max-w-full max-md:ml-10 max-md:h-[95px] max-md:w-[95px] md:mb-5">
         <div className="absolute bottom-0 left-0 h-[170px] w-[170px] overflow-hidden rounded-full bg-[#A05858] max-md:h-[85px] max-md:w-[85px]">
-          <Image
-            src={image}
-            className="h-full w-full"
-            width={100}
-            height={100}
-            alt="member-image"
-          />
+          {image ? (
+            <Image
+              src={image}
+              className="h-full w-full"
+              width={100}
+              height={100}
+              alt="member-image"
+            />
+          ) : (
+            <Image
+              src={assets.memberImagePlaceHolder}
+              className="h-full w-full"
+              width={100}
+              height={100}
+              alt="member-image"
+            />
+          )}
         </div>
         <div
           style={{

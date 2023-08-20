@@ -2,12 +2,7 @@ import type {
   AboutUsCardType,
   AboutUsContentType,
   AssetsType,
-  EquipmentSlideType,
-  EventsCardType,
   LinksType,
-  MeetOurTeamCardType,
-  ProjectsSlideType,
-  ResourcesCardType,
 } from "./types";
 
 export const links: LinksType = {
@@ -59,6 +54,10 @@ export const assets: AssetsType = {
     "https://res.cloudinary.com/dglwv2m2o/image/upload/f_auto,q_auto/arrow-black",
   carouselGuide:
     "https://res.cloudinary.com/dglwv2m2o/image/upload/v1689883866/3d-carousel-guide.svg",
+  memberImagePlaceHolder:
+    "https://res.cloudinary.com/dglwv2m2o/image/upload/v1692490571/Portrait_Placeholder_w70pnl.png",
+  imagePlaceHolder:
+    "https://res.cloudinary.com/dglwv2m2o/image/upload/v1692490736/placeholder_pgfe0j.jpg",
 };
 
 export const aboutUsCards: AboutUsCardType[] = [
@@ -82,120 +81,3 @@ export const aboutUsContent: AboutUsContentType = {
 Whether you're a seasoned expert or someone who's never put on a VR headset before, you're welcome here.`,
   image: assets.vrGirl,
 };
-
-export const equipmentSlides: EquipmentSlideType[] = [
-  {
-    title: "Oculus Go",
-    model: "https://prod.spline.design/oAD77Xt0Dt-TXloM/scene.splinecode",
-  },
-  {
-    title: "Oculus Go",
-    model: "https://prod.spline.design/oAD77Xt0Dt-TXloM/scene.splinecode",
-  },
-  {
-    title: "Oculus Go",
-    model: "https://prod.spline.design/oAD77Xt0Dt-TXloM/scene.splinecode",
-  },
-  {
-    title: "Oculus Go",
-    model: "https://prod.spline.design/oAD77Xt0Dt-TXloM/scene.splinecode",
-  },
-];
-
-export const meetOurTeamCards: MeetOurTeamCardType[] = [
-  {
-    image:
-      "https://res.cloudinary.com/dglwv2m2o/image/upload/v1689885904/dexter.jpg",
-    name: "Dexter Allen",
-    position: "President",
-  },
-  {
-    image:
-      "https://res.cloudinary.com/dglwv2m2o/image/upload/v1689885904/kyle.jpg",
-    name: "Kyle Nguyen",
-    position: "Vice President",
-  },
-  {
-    image: "",
-    name: "Cosmo Maddux",
-    position: "Treasurer",
-  },
-];
-
-export const projectsSlides: ProjectsSlideType[] = [
-  {
-    image:
-      "https://res.cloudinary.com/dglwv2m2o/image/upload/v1689886106/zen-vr.jpg",
-    title: "ZenVR",
-    description:
-      "Take a breath, relax, and immerse yourself in tranquility with ZenVR. Our team at the AR/VR Club @ SJSU has taken mindfulness to a whole new level by developing a unique VR experience designed to promote relaxation and mental well-being.",
-  },
-  {
-    image:
-      "https://res.cloudinary.com/dglwv2m2o/image/upload/v1689886631/haunted-house.png",
-    title: "Haunted House VR",
-    description:
-      "Prepare for a spine-chilling, adrenaline-pumping adventure with our VR Haunted House Project. At the AR/VR Club, we have ventured into the realm of virtual horror, designing an immersive haunted house experience that pushes the boundaries of fear and fun.",
-  },
-  {
-    image:
-      "https://res.cloudinary.com/dglwv2m2o/image/upload/v1689886631/haptic-glove.webp",
-    title: "Haptic Gloves",
-    description:
-      "Ever wished you could touch and feel objects in the virtual world? With our Haptic Glove Project, we're making that possible. True immersion in AR/VR comes not just from what we see or hear, but also from what we can touch.",
-  },
-];
-
-export const eventsCards: EventsCardType[] = [
-  {
-    title: "AR/VR Club General Meeting",
-    description:
-      "During this meeting, we will go over the summer roadmap, you will meet fellow team members and we will begin working with unity.    ",
-    location: "375 South 9th St San Jose, CA 95112",
-    date: "2023-07-20T08:39:14+0000",
-    link: "",
-  },
-  {
-    title: "Unity workshop",
-    description:
-      "We will go over everything you need to know to create your first virtual reality game, from the basics of Unity all the way to porting your game into a headset (Headsets will be provided). The meeting will be approximately 3 hours with an intermission in the middle.",
-    location: "150 E San Fernando St San Jose, CA 95112 KLEVR Lab",
-    date: "2023-07-20T08:39:14+0000",
-    link: "",
-  },
-  {
-    title: "AR/VR Social",
-    description:
-      "Experience the future of technology. Join the SJSU Virtual Reality Club to create, learn, and explore with like minded students. Don't miss out, become a part of the VR Club today!",
-    location: "375 South 9th St San Jose, CA 95112",
-    date: "2023-07-20T08:39:14+0000",
-    link: "",
-  },
-];
-
-export const resourcesCards: ResourcesCardType[] = [
-  {
-    image:
-      "https://res.cloudinary.com/dglwv2m2o/image/upload/v1689887100/KLEVR-lab.jpg",
-    title: "KLEVR Lab",
-    description:
-      "The King Library Experiential Virtual Reality (KLEVR) Lab provides a new form of learning and instruction through the use of AR and VR technologies.",
-    link: "https://library.sjsu.edu/klevr-lab",
-  },
-  {
-    image:
-      "https://res.cloudinary.com/dglwv2m2o/image/upload/v1690315460/game_dev.png",
-    title: "SJSU Game Dev Club",
-    description:
-      "A club for game makers and fans. Everyone is welcome, even non-students!",
-    link: "https://sjsugamedev.com/#/",
-  },
-  {
-    image:
-      "https://res.cloudinary.com/dglwv2m2o/image/upload/v1690315461/unity.png",
-    title: "Unity 3D Engine",
-    description:
-      "The Unity 3D Engine is a powerful platform for creating interactive, real-time 3D content.",
-    link: "https://store.unity.com/download",
-  },
-];

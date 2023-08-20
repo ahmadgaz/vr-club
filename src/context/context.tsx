@@ -42,6 +42,8 @@ type ContextProps = {
   setResourcesHeight: React.Dispatch<
     React.SetStateAction<{ height: number; pos: number }>
   >;
+  apiLoading: boolean[];
+  setApiLoading: React.Dispatch<React.SetStateAction<boolean[]>>;
 };
 
 // Define a default context value
@@ -78,6 +80,10 @@ const defaultContextValue: ContextProps = {
   setResourcesHeight: () => {
     return;
   },
+  apiLoading: [],
+  setApiLoading: () => {
+    return;
+  },
 };
 
 const AppContext = createContext<ContextProps>(defaultContextValue);
@@ -111,6 +117,7 @@ export function AppWrapper({ children }: { children: ReactNode }) {
     height: number;
     pos: number;
   }>({ height: 500, pos: 3000 });
+  const [apiLoading, setApiLoading] = useState<boolean[]>([]);
 
   return (
     <AppContext.Provider
@@ -131,6 +138,8 @@ export function AppWrapper({ children }: { children: ReactNode }) {
         setProjectsHeight,
         setEventsHeight,
         setResourcesHeight,
+        apiLoading,
+        setApiLoading,
       }}
     >
       {children}

@@ -26,6 +26,8 @@ export type AssetsType = {
   arrowIconWhite: string;
   arrowIconBlack: string;
   carouselGuide: string;
+  memberImagePlaceHolder: string;
+  imagePlaceHolder: string;
 };
 
 export type AboutUsCardType = {

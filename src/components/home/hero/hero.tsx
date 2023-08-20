@@ -73,18 +73,25 @@ export default function Hero() {
           />
         </span>
       </div>
-      <div className="mt-52 flex w-full max-w-[1200px] overflow-hidden  max-md:flex-col  md:h-[400px] md:items-center">
+      <div className="mt-52 flex w-full max-w-[1200px] overflow-hidden max-md:flex-col  md:h-[500px]  md:items-center md:px-10">
         <Spline
           className="flex-1 drop-shadow-3xl"
           scene="https://prod.spline.design/2QufjIbz0TkJDOil/scene.splinecode"
         />
-        <div className="flex-1  pb-16 pl-1 pt-6 max-md:px-[15%]">
+        <div className="flex-1  pb-28 pl-1 pt-6 max-md:px-[15%]">
           <h1 className="mb-2 text-[20pt] font-bold max-md:text-[15pt]">
             JOIN OUR
           </h1>
           <h1 className="mb-10 text-[75pt] font-black leading-[0.85] max-md:text-[50pt]">
             DISCORD SERVER
           </h1>
+          <div
+            className={`${
+              isLoadedSubtitle ? "opacity-100" : "opacity-0"
+            } mb-3 min-h-[35px] max-w-full transition-all duration-500  ease-in-out md:pr-10`}
+          >
+            <StarBorder />
+          </div>
           <div
             className={`${
               isLoadedSubtitle ? "opacity-100" : "opacity-0"

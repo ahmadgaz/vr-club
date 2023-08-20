@@ -1,11 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Content from "./content";
 import Card from "./card";
 import Image from "next/image";
-import { assets, meetOurTeamCards } from "~/assets/data";
+import { assets } from "~/assets/data";
+import { api } from "~/utils/api";
+import { useAppContext } from "~/context/context";
 
 export default function MeetOurTeam() {
   const [isLoadedBgGradient, setIsLoadedBgGradient] = useState<boolean>(false);
+  const { data, error, isLoading } = api.meetOurTeam.getAll.useQuery();
+  const { setApiLoading } = useAppContext();
+  useEffect(() => {
+    setApiLoading((prev) => {
+      prev.push(isLoading);
+      return prev;
+    });
+  }, [isLoading, setApiLoading]);
 
   return (
     <div
@@ -29,11 +39,11 @@ export default function MeetOurTeam() {
       <div className="relative z-10 flex h-fit min-h-[400px] w-[1200px] max-w-full flex-col ">
         <Content />
         <div className="mt-10 flex  max-md:flex-col max-md:items-center md:flex-wrap md:justify-center md:px-20">
-          {meetOurTeamCards.map((card, index) => {
+          {data?.map((card, index) => {
             return (
               <Card
                 key={index}
-                image={card.image}
+                image={card.image ? card.image : ""}
                 name={card.name}
                 title={card.position}
               />

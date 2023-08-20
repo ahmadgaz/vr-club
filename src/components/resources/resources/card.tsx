@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { assets } from "~/assets/data";
 
 export default function Card({
   title = "",
@@ -16,13 +17,23 @@ export default function Card({
   return (
     <div className="flex flex-col justify-center rounded-[30px] p-6  text-[12pt] leading-[1.1] text-[#E1E0E2] drop-shadow-3xl transition-all duration-500 ease-in-out hover:drop-shadow-4xl max-md:mx-5 max-md:mt-5  max-md:items-center  md:m-5 md:w-[300px] md:self-stretch">
       <div className="aspect-video w-full overflow-hidden rounded-[30px] bg-black">
-        <Image
-          src={image}
-          width={100}
-          height={100}
-          className="h-full w-full object-cover"
-          alt="resource-image"
-        />
+        {image ? (
+          <Image
+            src={image}
+            width={100}
+            height={100}
+            className="h-full w-full object-cover"
+            alt="resource-image"
+          />
+        ) : (
+          <Image
+            src={assets.imagePlaceHolder}
+            width={100}
+            height={100}
+            className="h-full w-full object-cover"
+            alt="resource-image"
+          />
+        )}
       </div>
       <button
         style={{

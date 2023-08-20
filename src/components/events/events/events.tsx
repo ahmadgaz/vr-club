@@ -1,13 +1,22 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Content from "./content";
 import Card from "./card";
-import Button from "~/components/button";
 
 import Image from "next/image";
-import { assets, eventsCards } from "~/assets/data";
+import { assets } from "~/assets/data";
+import { api } from "~/utils/api";
+import { useAppContext } from "~/context/context";
 
 export default function Events() {
   const [isLoadedBgGradient, setIsLoadedBgGradient] = useState<boolean>(false);
+  const { data, error, isLoading } = api.events.getAll.useQuery();
+  const { setApiLoading } = useAppContext();
+  useEffect(() => {
+    setApiLoading((prev) => {
+      prev.push(isLoading);
+      return prev;
+    });
+  }, [isLoading, setApiLoading]);
 
   return (
     <div
@@ -32,27 +41,30 @@ export default function Events() {
         <Content />
 
         <div className="mt-10 flex  max-md:flex-col max-md:items-center md:flex-wrap md:justify-center md:px-20">
-          {eventsCards.length > 0 ? (
-            <>
-              {eventsCards.map((card, index) => {
-                return (
-                  <Card
-                    key={index}
-                    variant={index % 3}
-                    title={card.title}
-                    desc={card.description}
-                    location={card.location}
-                    date={new Date(card.date).getTime()}
-                    link={card.link}
-                  />
-                );
-              })}
-            </>
-          ) : (
-            <div className="body-font mt-5 max-w-full text-center font-azo-sans text-[12pt] font-bold  text-[#E1E0E2]">
-              No upcoming events.
-            </div>
-          )}
+          {!isLoading &&
+            !error &&
+            data &&
+            (data?.length > 0 ? (
+              <>
+                {data.map((card, index) => {
+                  return (
+                    <Card
+                      key={index}
+                      variant={index % 3}
+                      title={card.title}
+                      desc={card.description ? card.description : ""}
+                      location={card.location ? card.location : ""}
+                      date={new Date(card.date).getTime()}
+                      link={card.link ? card.link : ""}
+                    />
+                  );
+                })}
+              </>
+            ) : (
+              <div className="body-font mt-5 max-w-full text-center font-azo-sans text-[12pt] font-bold  text-[#E1E0E2]">
+                No upcoming events.
+              </div>
+            ))}
         </div>
       </div>
     </div>

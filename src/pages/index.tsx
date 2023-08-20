@@ -1,7 +1,7 @@
 import Head from "next/head";
 import React, { lazy, Suspense, useCallback, useEffect, useState } from "react";
 import { useAppContext } from "~/context/context";
-import { throttle } from "lodash";
+import { set, throttle } from "lodash";
 
 const Bg = lazy(() => import("~/components/bg"));
 const Hero = lazy(() => import("~/components/home/hero/hero"));
@@ -41,6 +41,7 @@ export default function Home() {
     setProjectsHeight,
     setEventsHeight,
     setResourcesHeight,
+    apiLoading,
   } = useAppContext();
 
   const handleSetHeroHeight = useCallback(
@@ -169,13 +170,17 @@ export default function Home() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [setScrollPosition]);
 
-  const [showAll, setShowAll] = useState<boolean>(true);
+  const [showAll, setShowAll] = useState<boolean>(false);
   useEffect(() => {
     setScrollPosition(window.scrollY + window.innerHeight);
-    setTimeout(() => {
-      setShowAll(false);
-    }, 500);
-  }, [isClient, setScrollPosition]);
+    console.log(apiLoading);
+    if (apiLoading.length >= 5) {
+      setShowAll(true);
+      setTimeout(() => {
+        setShowAll(false);
+      }, 500);
+    }
+  }, [isClient, setScrollPosition, apiLoading]);
 
   return (
     <>
