@@ -39,35 +39,3 @@ export type AboutUsContentType = {
   description: string;
   image: string;
 };
-
-export type EquipmentSlideType = {
-  title: string;
-  model: string;
-};
-
-export type MeetOurTeamCardType = {
-  image: string;
-  name: string;
-  position: string;
-};
-
-export type ProjectsSlideType = {
-  image: string;
-  title: string;
-  description: string;
-};
-
-export type EventsCardType = {
-  title: string;
-  description: string;
-  location: string;
-  date: string;
-  link: string;
-};
-
-export type ResourcesCardType = {
-  image: string;
-  title: string;
-  description: string;
-  link: string;
-};
