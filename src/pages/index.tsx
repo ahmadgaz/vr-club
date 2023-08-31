@@ -201,7 +201,7 @@ export default function Home() {
                     scrollPosition - window.innerHeight <
                       heroHeight.pos + heroHeight.height)
                     ? "100%"
-                    : "0%",
+                    : "100%",
               }}
               className="transition-opacity duration-[500ms] ease-in-out"
             >
@@ -216,7 +216,7 @@ export default function Home() {
                     scrollPosition - window.innerHeight <
                       aboutUsHeight.pos + aboutUsHeight.height)
                     ? "100%"
-                    : "0%",
+                    : "100%",
               }}
               className="transition-opacity duration-[500ms] ease-in-out"
             >
@@ -231,7 +231,7 @@ export default function Home() {
                     scrollPosition - window.innerHeight <
                       equipmentHeight.pos + equipmentHeight.height)
                     ? "100%"
-                    : "0%",
+                    : "100%",
               }}
               className="transition-opacity duration-[500ms] ease-in-out"
             >
@@ -246,7 +246,7 @@ export default function Home() {
                     scrollPosition - window.innerHeight <
                       meetOurTeamHeight.pos + meetOurTeamHeight.height)
                     ? "100%"
-                    : "0%",
+                    : "100%",
               }}
               className="transition-opacity duration-[500ms] ease-in-out"
             >
@@ -261,7 +261,7 @@ export default function Home() {
                     scrollPosition - window.innerHeight <
                       projectsHeight.pos + projectsHeight.height)
                     ? "100%"
-                    : "0%",
+                    : "100%",
               }}
               className="transition-opacity duration-[500ms] ease-in-out"
             >
@@ -276,7 +276,7 @@ export default function Home() {
                     scrollPosition - window.innerHeight <
                       eventsHeight.pos + eventsHeight.height)
                     ? "100%"
-                    : "0%",
+                    : "100%",
               }}
               className="transition-opacity duration-[500ms] ease-in-out"
             >
@@ -291,7 +291,7 @@ export default function Home() {
                     scrollPosition - window.innerHeight <
                       resourcesHeight.pos + resourcesHeight.height)
                     ? "100%"
-                    : "0%",
+                    : "100%",
               }}
               className="transition-opacity duration-[500ms] ease-in-out"
             >
