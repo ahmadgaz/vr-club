@@ -13,7 +13,7 @@ export default function Hero() {
     >
       <Bg />
       <div className={`flex w-[150px] max-w-full flex-col items-center pb-5`}>
-        <h1 className=" text-6xl font-light leading-[5rem] tracking-tight">
+        <h1 className=" text-3xl font-light leading-[3rem] tracking-tight sm:text-4xl sm:leading-[4rem] md:text-6xl md:leading-[5rem]">
           Imagination
           <br />
           Meets
