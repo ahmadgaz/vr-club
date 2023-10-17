@@ -23,6 +23,7 @@ export default function Footer() {
             Designed and Developed by{" "}
             <a
               href="https://www.linkedin.com/in/ahmad-gazali/"
+              target="_blank"
               className="text-[#D3A309] underline"
             >
               Ahmad Gazali
@@ -38,7 +39,7 @@ export default function Footer() {
               }}
               className="h-10 w-10 rounded-xl border-[1px] p-[7px]  transition-all duration-500 ease-in-out hover:h-11 hover:w-11 active:h-10 active:w-10"
             >
-              <Link href={links.instagram}>
+              <Link href={links.instagram} target="_blank">
                 <Lottie
                   lottieRef={instaRef}
                   animationData={instagramAnimation}
@@ -52,7 +53,7 @@ export default function Footer() {
               }}
               className="h-10 w-10 rounded-xl border-[1px] p-[7px]  transition-all duration-500 ease-in-out hover:h-11 hover:w-11 active:h-10 active:w-10"
             >
-              <Link href={links.discord}>
+              <Link href={links.discord} target="_blank">
                 <Lottie
                   lottieRef={discordRef}
                   animationData={discordAnimation}

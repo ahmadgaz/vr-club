@@ -43,7 +43,7 @@ export default function Hero() {
           </Link>
         </span>
         <span className="flex-1">
-          <Link href={links.discord}>
+          <Link href={links.discord} target="_blank">
             <Button text="JOIN" variant="glass" />
           </Link>
         </span>
