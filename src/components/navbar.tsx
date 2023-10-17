@@ -232,7 +232,7 @@ export default function Navbar() {
               isOpen ? "max-md:translate-x-0 " : "max-md:translate-x-full  "
             } ${
               isHidden ? "max-md:hidden" : ""
-            } absolute left-0 top-0 flex h-[100dvh] w-[100vw]  flex-col overflow-scroll overflow-x-hidden  bg-[#E1E0E2] p-4 shadow-xl transition-all duration-500 ease-in-out`}
+            } absolute left-0 top-0 flex h-[100vh] w-[100vw]  flex-col overflow-scroll overflow-x-hidden  bg-[#E1E0E2] p-4 shadow-xl transition-all duration-500 ease-in-out`}
           >
             <div className="absolute left-0 top-0 z-10 w-[100vw] bg-transparent px-12 py-6">
               <div className="flex flex-col">
