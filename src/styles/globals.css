@@ -12,6 +12,11 @@
   }
 }
 
+::selection {
+  background: #d3a309;
+  color: #414c59;
+}
+
 #radial-gradient {
   background: radial-gradient(#c6e8f9, #e1e0e25a 37%, #e1e0e280 80%);
   /* background: #c6e8f9; */

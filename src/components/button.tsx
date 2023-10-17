@@ -43,7 +43,7 @@ export default function Button({
       onClick={onPress}
     >
       {link ? (
-        <Link href={link}>
+        <Link href={link} target="_blank">
           <span className="flex h-[61px] w-full  items-center justify-center">
             {text}
             <Image

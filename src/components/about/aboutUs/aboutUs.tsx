@@ -3,8 +3,11 @@ import Image from "next/image";
 import Content from "./content";
 import Card from "./card";
 import { aboutUsCards } from "~/assets/data";
+import { useRouter } from "next/navigation";
 
 export default function AboutUs() {
+  const router = useRouter();
+
   return (
     <div
       id="fade-in"
@@ -45,7 +48,10 @@ export default function AboutUs() {
         <div className="mt-10 flex w-full flex-1 flex-wrap items-stretch justify-stretch pl-5 md:pl-24 md:pr-12">
           <Card
             onPress={() => {
-              return;
+              window.scrollBy({
+                top: 600,
+                behavior: "smooth",
+              });
             }}
           >
             <Image
@@ -67,29 +73,7 @@ export default function AboutUs() {
           </Card>
           <Card
             onPress={() => {
-              return;
-            }}
-          >
-            <Image
-              src={aboutUsCards[1]?.icon as string}
-              width={100}
-              height={100}
-              className="mb-1 h-10 w-10 object-contain"
-              alt="light-icon"
-            />
-            <div className="text-[12pt]">
-              <p>Interactive</p>
-              <p className="leading-[1rem]">
-                <b className="font-black">Learning</b>
-              </p>
-              <p className="mt-2 text-[10pt] ">
-                {aboutUsCards[1]?.description as string}
-              </p>
-            </div>
-          </Card>
-          <Card
-            onPress={() => {
-              return;
+              router.push("/projects");
             }}
           >
             <Image
@@ -106,6 +90,28 @@ export default function AboutUs() {
               </p>
               <p className="mt-2 text-[10pt] ">
                 {aboutUsCards[2]?.description as string}{" "}
+              </p>
+            </div>
+          </Card>
+          <Card
+            onPress={() => {
+              router.push("/events");
+            }}
+          >
+            <Image
+              src={aboutUsCards[1]?.icon as string}
+              width={100}
+              height={100}
+              className="mb-1 h-10 w-10 object-contain"
+              alt="light-icon"
+            />
+            <div className="text-[12pt]">
+              <p>Interactive</p>
+              <p className="leading-[1rem]">
+                <b className="font-black">Learning</b>
+              </p>
+              <p className="mt-2 text-[10pt] ">
+                {aboutUsCards[1]?.description as string}
               </p>
             </div>
           </Card>

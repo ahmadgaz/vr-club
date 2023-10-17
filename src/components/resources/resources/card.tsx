@@ -41,7 +41,7 @@ export default function Card({
         }}
         className="relative mt-4 flex max-h-[40px] min-h-[40px] max-w-full items-center justify-center rounded-[20px] shadow-sm transition-all duration-500  ease-in-out hover:shadow-md max-md:min-w-full md:h-[100px]"
       >
-        <Link href={link} className="h-full w-full">
+        <Link href={link} target="_blank" className="h-full w-full">
           <span className="flex h-full w-full  items-center justify-center">
             <p className="text-[#E1E0E2] ">{title}</p>
           </span>

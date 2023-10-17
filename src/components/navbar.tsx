@@ -142,6 +142,7 @@ export default function Navbar() {
             <div className="flex w-9 items-center justify-start md:hidden">
               <Link
                 href={linkStrings.discord}
+                target="_blank"
                 className={`${
                   isLoadedLogo ? "opacity-100 md:mr-40" : "opacity-0 md:mr-0"
                 } ${
