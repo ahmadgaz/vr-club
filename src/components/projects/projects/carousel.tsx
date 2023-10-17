@@ -8,7 +8,6 @@ import "swiper/css/pagination";
 import { assets } from "~/assets/data";
 import Image from "next/image";
 import { api } from "~/utils/api";
-import { useAppContext } from "~/context/context";
 
 export type SwiperStyleType = Properties<string | number> & {
   "--swiper-navigation-size"?: string;
@@ -26,13 +25,6 @@ const styles: SwiperStyleType = {
 
 export default function Carousel() {
   const { data, error, isLoading } = api.projects.getAll.useQuery();
-  const { setApiLoading } = useAppContext();
-  useEffect(() => {
-    setApiLoading((prev) => {
-      prev.push(isLoading);
-      return prev;
-    });
-  }, [isLoading, setApiLoading]);
 
   return (
     <div

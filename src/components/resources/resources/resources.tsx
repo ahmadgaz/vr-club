@@ -4,23 +4,14 @@ import Card from "./card";
 import Image from "next/image";
 import { assets } from "~/assets/data";
 import { api } from "~/utils/api";
-import { useAppContext } from "~/context/context";
 
 export default function Resources() {
   const [isLoadedBgGradient, setIsLoadedBgGradient] = useState<boolean>(false);
   const { data, error, isLoading } = api.resources.getAll.useQuery();
-  const { setApiLoading } = useAppContext();
-  useEffect(() => {
-    setApiLoading((prev) => {
-      prev.push(isLoading);
-      return prev;
-    });
-  }, [isLoading, setApiLoading]);
-
   return (
     <div
       id="fade-in"
-      className="body-font  relative mb-8 flex w-[100vw] justify-center overflow-visible font-azo-sans"
+      className="body-font  relative mb-8 mt-[8.5rem] flex w-[100vw] justify-center overflow-visible font-azo-sans max-md:mt-[5.5rem]"
     >
       <Image
         src={assets.bgImageBlurGradient}

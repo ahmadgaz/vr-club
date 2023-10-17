@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import { assets } from "~/assets/data";
+import gradient from "public/gradient.png";
 
 export default function Bg() {
   const [isLoadedPlanets, setIsLoadedPlanets] = useState<boolean>(false);
@@ -40,39 +41,9 @@ export default function Bg() {
         />
       </div>
 
-      {/* Circle gradients */}
-      <div className="absolute top-[750px] -z-20 flex w-full justify-center opacity-50 blur-[40px]">
-        <div className="flex w-[600px] max-w-[50%] max-md:flex-col">
-          <div className="flex flex-1 justify-center">
-            <div
-              id="radial-gradient"
-              className="absolute aspect-square w-[600px] max-w-full md:max-w-[50%]"
-            ></div>
-          </div>
-          <div className="flex flex-1 justify-center">
-            <div
-              id="radial-gradient"
-              className=" absolute aspect-square w-[600px] max-w-full max-md:mt-[200px] md:max-w-[50%]"
-            ></div>
-          </div>
-          <div className="flex flex-1 justify-center md:hidden">
-            <div
-              id="radial-gradient"
-              className=" absolute aspect-square w-[600px] max-w-full max-md:mt-[400px] md:max-w-[50%]"
-            ></div>
-          </div>
-          <div className="flex flex-1 justify-center md:hidden">
-            <div
-              id="radial-gradient"
-              className=" absolute aspect-square w-[600px] max-w-full max-md:mt-[600px] md:max-w-[50%]"
-            ></div>
-          </div>
-        </div>
-      </div>
-
       {/* BG Gradient */}
       <Image
-        src={assets.bgImageBlurGradient}
+        src={gradient}
         id="hero-image"
         alt="hero-image"
         width={100}
@@ -80,7 +51,7 @@ export default function Bg() {
         loading="lazy"
         className={`${
           isLoadedBgGradient ? "opacity-100" : "opacity-0"
-        } absolute -z-30 h-[100vh]  w-[100vw] overflow-hidden   object-bottom transition-opacity duration-[1500ms] ease-in-out max-md:blur-[75px] md:blur-[100px] xl:blur-[300px]`}
+        } absolute top-0 -z-30 h-[100vh] max-h-[100dvh]  w-[100vw] overflow-hidden   object-bottom blur-[75px] brightness-125 transition-opacity duration-[1500ms] ease-in-out `}
         onLoadingComplete={() => {
           setIsLoadedBgGradient(true);
         }}

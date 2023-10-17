@@ -4,18 +4,10 @@ import Card from "./card";
 import Image from "next/image";
 import { assets } from "~/assets/data";
 import { api } from "~/utils/api";
-import { useAppContext } from "~/context/context";
 
 export default function MeetOurTeam() {
   const [isLoadedBgGradient, setIsLoadedBgGradient] = useState<boolean>(false);
   const { data, error, isLoading } = api.meetOurTeam.getAll.useQuery();
-  const { setApiLoading } = useAppContext();
-  useEffect(() => {
-    setApiLoading((prev) => {
-      prev.push(isLoading);
-      return prev;
-    });
-  }, [isLoading, setApiLoading]);
 
   return (
     <div

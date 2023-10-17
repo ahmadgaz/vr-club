@@ -1,107 +1,52 @@
-import Image from "next/image";
-import React, { useState } from "react";
+import React from "react";
 import Button from "../../button";
 import StarBorder from "./starBorder";
-import { useAppContext } from "~/context/context";
-import { assets, links } from "~/assets/data";
-import sjsu from "public/trace.svg";
-import Spline from "@splinetool/react-spline";
+import Bg from "~/components/bg";
+import Link from "next/link";
+import { links } from "~/assets/data";
 
 export default function Hero() {
-  const [isLoadedLogo, setIsLoadedLogo] = useState<boolean>(false);
-  const [isLoadedSubtitle, setIsLoadedSubtitle] = useState<boolean>(false);
-  const { equipmentHeight } = useAppContext();
-
   return (
     <div
       id="fade-in"
-      className="body-font z-[5]  mt-52 flex w-[100vw] flex-col items-center font-azo-sans  font-light text-[#E1E0E2] md:h-[1150px]"
+      className="  mt-52 flex w-[100vw] flex-col items-center font-azo-sans font-light  text-[#E1E0E2] max-md:mt-36 "
     >
-      <div className="flex w-[150px] max-w-full flex-col items-center">
-        <Image
-          src={assets.logoWhite}
-          alt="hero-logo"
-          width={150}
-          height={150}
-          className={`${
-            isLoadedLogo ? "opacity-100" : "opacity-0"
-          } h-[10.5rem]  drop-shadow-3xl transition-all duration-500 ease-in-out`}
-          onLoadingComplete={() => setIsLoadedLogo(true)}
-        />
-        <Image
-          src={sjsu as string}
-          alt="hero-text"
-          width={100}
-          height={100}
-          className={`${
-            isLoadedSubtitle ? "opacity-100" : "opacity-0"
-          } mb-6 h-32 w-full flex-1  drop-shadow-3xl transition-all duration-500 ease-in-out`}
-          onLoadingComplete={() => setIsLoadedSubtitle(true)}
-        />
+      <Bg />
+      <div className={`flex w-[150px] max-w-full flex-col items-center pb-5`}>
+        <h1 className=" text-6xl font-light leading-[5rem] tracking-tight">
+          Imagination
+          <br />
+          Meets
+          <br />
+          <b className="font-extrabold">Innovation.</b>
+        </h1>
       </div>
       <div
-        className={`${
-          isLoadedSubtitle ? "opacity-100" : "opacity-0"
-        } min-h-[35px] w-[500px] max-w-full px-10  transition-all duration-500 ease-in-out`}
+        className={` min-h-[35px] w-[500px] max-w-full px-10  transition-all duration-500 ease-in-out`}
       >
         <StarBorder />
       </div>
       <div
-        className={`${
-          isLoadedSubtitle ? "opacity-100" : "opacity-0"
-        } w-[500px] max-w-full px-10 text-center text-[14pt] transition-all duration-500 ease-in-out`}
+        className={` w-[500px] max-w-full px-10 text-center text-[14pt] transition-all duration-500 ease-in-out`}
       >
         <p>
-          Welcome to the official website of the AR/VR club at San Jose State
+          Join the official Discord of the AR/VR club at San Jose State
           University.
         </p>
       </div>
       <div
-        className={`${
-          isLoadedSubtitle ? "opacity-100" : "opacity-0"
-        } flex w-[500px] pl-1 pt-6 transition-all duration-500 ease-in-out max-md:w-[70%] max-md:flex-col`}
+        className={`flex w-[500px] gap-5 pl-1 pt-6 transition-all duration-500 ease-in-out max-md:w-[70%] max-md:flex-col`}
       >
         <span className="flex-1">
-          <Button
-            text="EXPLORE"
-            onPress={() => {
-              window.scrollTo({
-                top: equipmentHeight.pos - 50,
-                behavior: "smooth",
-              });
-            }}
-          />
+          <Link href="/about">
+            <Button text="EXPLORE" />
+          </Link>
         </span>
-      </div>
-      <div className="mt-52 flex w-full max-w-[1200px] overflow-hidden max-md:flex-col  md:h-[500px]  md:items-center md:px-10">
-        <Spline
-          className="flex-1 drop-shadow-3xl"
-          scene="https://prod.spline.design/2QufjIbz0TkJDOil/scene.splinecode"
-        />
-        <div className="flex-1  pb-28 pl-1 pt-6 max-md:px-[15%]">
-          <h1 className="mb-2 text-[20pt] font-bold max-md:text-[15pt]">
-            JOIN OUR
-          </h1>
-          <h1 className="mb-10 text-[75pt] font-black leading-[0.85] max-md:text-[50pt]">
-            DISCORD SERVER
-          </h1>
-          <div
-            className={`${
-              isLoadedSubtitle ? "opacity-100" : "opacity-0"
-            } mb-3 min-h-[35px] max-w-full transition-all duration-500  ease-in-out md:pr-10`}
-          >
-            <StarBorder />
-          </div>
-          <div
-            className={`${
-              isLoadedSubtitle ? "opacity-100" : "opacity-0"
-            } flex w-[90%]  transition-all duration-500 ease-in-out max-md:w-full max-md:flex-col `}
-          >
-            <span className="flex-1 max-md:mt-3 ">
-              <Button link={links.discord} text="JOIN" variant="glass" />
-            </span>
-          </div>
-        </div>
+        <span className="flex-1">
+          <Link href={links.discord}>
+            <Button text="JOIN" variant="glass" />
+          </Link>
+        </span>
       </div>
     </div>
   );

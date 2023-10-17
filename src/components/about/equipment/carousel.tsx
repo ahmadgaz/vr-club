@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, EffectCoverflow } from "swiper/modules";
 import type { Properties } from "csstype";
@@ -9,8 +9,6 @@ import { assets } from "~/assets/data";
 import Image from "next/image";
 import Spline from "@splinetool/react-spline";
 import { api } from "~/utils/api";
-import { useAppContext } from "~/context/context";
-import { set } from "lodash";
 
 export type SwiperStyleType = Properties<string | number> & {
   "--swiper-navigation-size"?: string;
@@ -34,13 +32,6 @@ const styles: SwiperStyleType = {
 
 export default function Carousel() {
   const { data, error, isLoading } = api.equipment.getAll.useQuery();
-  const { setApiLoading } = useAppContext();
-  useEffect(() => {
-    setApiLoading((prev) => {
-      prev.push(isLoading);
-      return prev;
-    });
-  }, [isLoading, setApiLoading]);
 
   return (
     <div

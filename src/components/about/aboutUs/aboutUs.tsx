@@ -2,26 +2,50 @@ import React from "react";
 import Image from "next/image";
 import Content from "./content";
 import Card from "./card";
-import { useAppContext } from "~/context/context";
 import { aboutUsCards } from "~/assets/data";
 
 export default function AboutUs() {
-  const { equipmentHeight, eventsHeight, projectsHeight } = useAppContext();
-
   return (
     <div
       id="fade-in"
-      className=" relative z-20 mb-8 flex w-[100vw] justify-center"
+      className="relative z-20 mb-8 mt-20 flex w-[100vw] justify-center max-md:mt-10"
     >
+      {/* Circle gradients */}
+      <div className="absolute top-[20px] -z-20 flex w-full justify-center opacity-50 blur-[30px]">
+        <div className="flex w-[600px] max-w-[50%] max-md:flex-col">
+          <div className="flex flex-1 justify-center">
+            <div
+              id="radial-gradient"
+              className="absolute aspect-square w-[600px] max-w-full md:max-w-[50%]"
+            ></div>
+          </div>
+          <div className="flex flex-1 justify-center">
+            <div
+              id="radial-gradient"
+              className=" absolute aspect-square w-[600px] max-w-full max-md:mt-[200px] md:max-w-[50%]"
+            ></div>
+          </div>
+          <div className="flex flex-1 justify-center md:hidden">
+            <div
+              id="radial-gradient"
+              className=" absolute aspect-square w-[600px] max-w-full max-md:mt-[400px] md:max-w-[50%]"
+            ></div>
+          </div>
+          <div className="flex flex-1 justify-center md:hidden">
+            <div
+              id="radial-gradient"
+              className=" absolute aspect-square w-[600px] max-w-full max-md:mt-[600px] md:max-w-[50%]"
+            ></div>
+          </div>
+        </div>
+      </div>
+
       <div className="relative flex h-fit min-h-[700px] w-[1200px] max-w-full flex-col ">
         <Content />
         <div className="mt-10 flex w-full flex-1 flex-wrap items-stretch justify-stretch pl-5 md:pl-24 md:pr-12">
           <Card
             onPress={() => {
-              window.scrollTo({
-                top: equipmentHeight.pos - 50,
-                behavior: "smooth",
-              });
+              return;
             }}
           >
             <Image
@@ -43,10 +67,7 @@ export default function AboutUs() {
           </Card>
           <Card
             onPress={() => {
-              window.scrollTo({
-                top: eventsHeight.pos - 50,
-                behavior: "smooth",
-              });
+              return;
             }}
           >
             <Image
@@ -68,10 +89,7 @@ export default function AboutUs() {
           </Card>
           <Card
             onPress={() => {
-              window.scrollTo({
-                top: projectsHeight.pos - 50,
-                behavior: "smooth",
-              });
+              return;
             }}
           >
             <Image

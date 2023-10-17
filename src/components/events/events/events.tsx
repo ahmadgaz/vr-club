@@ -3,25 +3,17 @@ import Content from "./content";
 import Card from "./card";
 
 import Image from "next/image";
-import { assets } from "~/assets/data";
+import { assets, links } from "~/assets/data";
 import { api } from "~/utils/api";
-import { useAppContext } from "~/context/context";
 
 export default function Events() {
   const [isLoadedBgGradient, setIsLoadedBgGradient] = useState<boolean>(false);
   const { data, error, isLoading } = api.events.getAll.useQuery();
-  const { setApiLoading } = useAppContext();
-  useEffect(() => {
-    setApiLoading((prev) => {
-      prev.push(isLoading);
-      return prev;
-    });
-  }, [isLoading, setApiLoading]);
 
   return (
     <div
       id="fade-in"
-      className="body-font relative mb-8 flex w-[100vw] justify-center overflow-visible font-azo-sans"
+      className="body-font relative mb-8  mt-36 flex w-[100vw] justify-center  overflow-visible font-azo-sans max-md:mt-24"
     >
       <Image
         src={assets.bgImageBlurGradient}
@@ -55,7 +47,7 @@ export default function Events() {
                       desc={card.description ? card.description : ""}
                       location={card.location ? card.location : ""}
                       date={new Date(card.date).getTime()}
-                      link={card.link ? card.link : ""}
+                      link={card.link ? card.link : links.discord}
                     />
                   );
                 })}

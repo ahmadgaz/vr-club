@@ -1,51 +1,33 @@
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React, { useCallback, useEffect, useState } from "react";
-import { useAppContext } from "~/context/context";
-import type { ContextPropsPartial } from "~/context/context";
-import { assets } from "~/assets/data";
+import { assets, links as linkStrings } from "~/assets/data";
 
 const ListItem = ({
   name,
   setIsOpen,
   children,
 }: {
-  name: keyof ContextPropsPartial;
+  name: string;
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
   children: React.ReactNode;
 }) => {
-  const [isClient, setIsClient] = useState(false);
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
-
-  const heights = useAppContext();
-
-  const isAtSection =
-    isClient &&
-    heights.scrollPosition - window.innerHeight + 1 >
-      heights[name]?.pos - 200 &&
-    heights.scrollPosition - window.innerHeight + 1 <
-      heights[name]?.pos + heights[name]?.height - 200;
-
-  const scrollToSection = (scrollY: number) => {
-    window.scrollTo({ top: scrollY, behavior: "smooth" });
-  };
+  const router = useRouter();
+  console.log(router.pathname);
 
   return (
     <li>
-      <button
-        className="transition-all duration-500 ease-in-out max-md:hidden max-md:font-bold md:font-black md:uppercase md:hover:text-[#D3A309]"
-        onClick={() => {
-          setIsOpen(false);
-          if (isClient) {
-            scrollToSection(heights[name]?.pos - 50);
-          }
-        }}
-      >
-        {children}
-      </button>
+      <Link href={name}>
+        <button
+          className="transition-all duration-500 ease-in-out max-md:hidden max-md:font-bold md:font-black md:uppercase md:hover:text-[#D3A309]"
+          onClick={() => {
+            setIsOpen(false);
+          }}
+        >
+          {children}
+        </button>
+      </Link>
 
       {/* Desktop decorator */}
       <div
@@ -54,7 +36,7 @@ const ListItem = ({
       >
         <div
           className={`${
-            isAtSection ? "w-10/12" : "w-0"
+            router.pathname === name ? "w-10/12" : "w-0"
           } h-[2px] rounded bg-[#E1E0E2]  transition-all duration-500 ease-in-out`}
         ></div>
       </div>
@@ -66,24 +48,23 @@ const ListItem = ({
       >
         <div
           className={`${
-            isAtSection ? "w-full" : "w-0"
+            router.pathname === name ? "w-full" : "w-0"
           } absolute left-0 top-0 flex  h-[80px] items-center rounded-3xl bg-black  transition-all duration-500 ease-in-out`}
         >
-          <button
-            className={`${
-              isAtSection
-                ? "max-md:text-[#E1E0E2]"
-                : "max-md:text-black max-md:hover:text-[#D3A309]"
-            } p-6 text-2xl uppercase transition-all duration-500 ease-in-out max-md:font-bold md:hidden md:font-black md:hover:text-[#D3A309]`}
-            onClick={() => {
-              setIsOpen(false);
-              if (isClient) {
-                scrollToSection(heights[name]?.pos - 50);
-              }
-            }}
-          >
-            {children}
-          </button>
+          <Link href={name}>
+            <button
+              className={`${
+                router.pathname === name
+                  ? "max-md:text-[#E1E0E2]"
+                  : "max-md:text-black max-md:hover:text-[#D3A309]"
+              } p-6 text-2xl uppercase transition-all duration-500 ease-in-out max-md:font-bold md:hidden md:font-black md:hover:text-[#D3A309]`}
+              onClick={() => {
+                setIsOpen(false);
+              }}
+            >
+              {children}
+            </button>
+          </Link>
         </div>
       </div>
     </li>
@@ -110,7 +91,7 @@ export default function Navbar() {
   }, [isOpen]);
 
   const listenToScroll = useCallback(() => {
-    const heightToHideFrom = 0;
+    const heightToHideFrom = 20;
     const winScroll = window.scrollY;
 
     if (winScroll > heightToHideFrom) {
@@ -127,19 +108,19 @@ export default function Navbar() {
   }, [listenToScroll]);
 
   const links = [
-    <ListItem key={0} name="heroHeight" setIsOpen={setIsOpen}>
+    <ListItem key={0} name="/" setIsOpen={setIsOpen}>
       Home
     </ListItem>,
-    <ListItem key={1} name="aboutUsHeight" setIsOpen={setIsOpen}>
+    <ListItem key={1} name="/about" setIsOpen={setIsOpen}>
       About
     </ListItem>,
-    <ListItem key={2} name="projectsHeight" setIsOpen={setIsOpen}>
+    <ListItem key={2} name="/projects" setIsOpen={setIsOpen}>
       Projects
     </ListItem>,
-    <ListItem key={3} name="eventsHeight" setIsOpen={setIsOpen}>
+    <ListItem key={3} name="/events" setIsOpen={setIsOpen}>
       Events
     </ListItem>,
-    <ListItem key={4} name="resourcesHeight" setIsOpen={setIsOpen}>
+    <ListItem key={4} name="/resources" setIsOpen={setIsOpen}>
       Resources
     </ListItem>,
   ];
@@ -151,7 +132,7 @@ export default function Navbar() {
         !isAtTop
           ? "border-b-[1px] border-[#ffffff35] bg-[#ffffff14] backdrop-blur-2xl"
           : ""
-      } body-font fixed top-0 z-50 flex w-full justify-center px-8 py-3 pt-3 font-azo-sans text-xs  text-[#E1E0E2] md:py-6`}
+      } body-font fixed top-0 z-50 flex w-full justify-center px-8 py-3 pt-3 font-azo-sans text-xs  text-[#E1E0E2] md:py-6 `}
     >
       <div className="w-[1200px] max-w-full">
         <div className="flex flex-col">
@@ -159,7 +140,7 @@ export default function Navbar() {
             {/* Discord */}
             <div className="flex w-9 items-center justify-start md:hidden">
               <Link
-                href="https://discord.gg/gSbpSzZ2uG"
+                href={linkStrings.discord}
                 className={`${
                   isLoadedLogo ? "opacity-100 md:mr-40" : "opacity-0 md:mr-0"
                 } ${
@@ -186,16 +167,18 @@ export default function Navbar() {
                   : "opacity-0 md:mr-0"
               } flex h-7 w-7 items-center justify-center transition-all duration-500 ease-in-out md:h-9 md:w-9 `}
             >
-              <Image
-                className={`transition-all duration-500 ease-in-out`}
-                src={assets.logoWhite}
-                alt="logo-white"
-                width={100}
-                height={100}
-                onLoadingComplete={() => {
-                  setIsLoadedLogo(true);
-                }}
-              />
+              <Link href="/">
+                <Image
+                  className={`transition-all duration-500 ease-in-out`}
+                  src={assets.logoWhite}
+                  alt="logo-white"
+                  width={100}
+                  height={100}
+                  onLoadingComplete={() => {
+                    setIsLoadedLogo(true);
+                  }}
+                />
+              </Link>
             </div>
 
             {/* Desktop */}
@@ -208,7 +191,7 @@ export default function Navbar() {
             </ul>
 
             {/* Mobile */}
-            <div className="flex w-9 items-center justify-end md:hidden">
+            <div className="flex w-9 items-center justify-end  md:hidden">
               <button
                 type="button"
                 onClick={() => {
@@ -243,12 +226,11 @@ export default function Navbar() {
             </div>
           </div>
           <ul
-            id="hide-scrollbar"
             className={`md:hidden ${
               isOpen ? "max-md:translate-x-0 " : "max-md:translate-x-full  "
             } ${
               isHidden ? "max-md:hidden" : ""
-            } absolute left-0 top-0 flex h-[100dvh]  w-[100vw] flex-col overflow-scroll  bg-[#E1E0E2] p-4 shadow-xl transition-all duration-500 ease-in-out`}
+            } absolute left-0 top-0 flex h-[100dvh] w-[100vw]  flex-col overflow-scroll overflow-x-hidden  bg-[#E1E0E2] p-4 shadow-xl transition-all duration-500 ease-in-out`}
           >
             <div className="absolute left-0 top-0 z-10 w-[100vw] bg-transparent px-12 py-6">
               <div className="flex flex-col">
@@ -271,13 +253,15 @@ export default function Navbar() {
                     </Link>
                   </div>
                   <div className="flex items-center md:flex-1">
-                    <Image
-                      className="w-10"
-                      src={assets.logoBlack}
-                      width={100}
-                      height={100}
-                      alt="logo-black"
-                    />
+                    <Link href="/">
+                      <Image
+                        className="w-10"
+                        src={assets.logoBlack}
+                        width={100}
+                        height={100}
+                        alt="logo-black"
+                      />
+                    </Link>
                   </div>
                   <div className="w-9 md:hidden">
                     <button type="button" onClick={() => setIsOpen(!isOpen)}>

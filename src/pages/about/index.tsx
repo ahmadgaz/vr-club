@@ -1,9 +1,13 @@
 import Head from "next/head";
 import React, { lazy, Suspense } from "react";
 
-const Hero = lazy(() => import("~/components/home/hero/hero"));
+const AboutUs = lazy(() => import("~/components/about/aboutUs/aboutUs"));
+const Equipment = lazy(() => import("~/components/about/equipment/equipment"));
+const MeetOurTeam = lazy(
+  () => import("~/components/about/meetOurTeam/meetOurTeam")
+);
 
-export default function Home() {
+export default function About() {
   return (
     <>
       <Head>
@@ -12,7 +16,9 @@ export default function Home() {
       </Head>
       <main className="relative flex min-h-[95dvh] min-w-full flex-col">
         <Suspense>
-          <Hero />
+          <AboutUs />
+          <Equipment />
+          <MeetOurTeam />
         </Suspense>
       </main>
     </>

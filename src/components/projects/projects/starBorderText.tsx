@@ -6,8 +6,6 @@ export default function StarBorderText() {
   return (
     <div className="relative w-full">
       <div className="absolute -left-10 -top-96 h-[800px] w-full">
-        <div className="absolute right-0 h-full w-[2px] border-l-[1px] border-[#E1E0E2] max-md:hidden"></div>
-        <div className="absolute right-2 top-1 h-[95%] w-[2px] border-l-[1px] border-[#E1E0E2] max-md:hidden"></div>
         <div className="absolute  right-1 top-[24.5rem] h-[2px] w-[95%] border-t-[1px] border-[#E1E0E2]"></div>
         <div className="absolute right-0 top-[25rem] h-[2px] w-[98%] border-t-[1px] border-[#E1E0E2]"></div>
       </div>

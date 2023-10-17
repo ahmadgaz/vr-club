@@ -1,5 +1,7 @@
 import React from "react";
 import Navbar from "./navbar";
+import Footer from "./footer";
+import Bg from "./bg";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -8,7 +10,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <Navbar />
       <meta name="theme-color" content="#ffffff" />
       <link rel="icon" href="/favicon.ico" />
-      <main className="">{children}</main>
+      <main className="">
+        {children}
+        <Footer />
+      </main>
     </div>
   );
 }
