@@ -76,6 +76,7 @@ export default function Navbar() {
   const [isHidden, setIsHidden] = useState<boolean>(true);
   const [isLoadedLogo, setIsLoadedLogo] = useState<boolean>(false);
   const [isAtTop, setIsAtTop] = useState<boolean>(true);
+  const router = useRouter();
 
   useEffect(() => {
     if (!isHidden) {
@@ -132,7 +133,7 @@ export default function Navbar() {
         !isAtTop
           ? "border-b-[1px] border-[#ffffff35] bg-[#ffffff14] backdrop-blur-2xl"
           : ""
-      } body-font fixed top-0 z-50 flex w-full justify-center px-8 py-3 pt-3 font-azo-sans text-xs  text-[#E1E0E2] md:py-6 `}
+      } body-font fixed top-0 z-50 flex w-full justify-center px-8 py-3 pt-3 font-azo-sans text-xs  text-[#E1E0E2] transition-colors duration-500 ease-in-out md:py-6 `}
     >
       <div className="w-[1200px] max-w-full">
         <div className="flex flex-col">
@@ -144,7 +145,7 @@ export default function Navbar() {
                 className={`${
                   isLoadedLogo ? "opacity-100 md:mr-40" : "opacity-0 md:mr-0"
                 } ${
-                  isAtTop ? " h-9 w-9" : " h-6 w-6"
+                  isAtTop && router.pathname === "/" ? " h-9 w-9" : " h-6 w-6"
                 } flex items-center justify-center transition-all duration-500 ease-in-out md:hidden md:h-9 md:w-9 `}
               >
                 <Image
@@ -162,7 +163,7 @@ export default function Navbar() {
             {/* Logo */}
             <div
               className={`${
-                isLoadedLogo && !isAtTop
+                isLoadedLogo && (!isAtTop || router.pathname !== "/")
                   ? "opacity-100 md:mr-40"
                   : "opacity-0 md:mr-0"
               } flex h-7 w-7 items-center justify-center transition-all duration-500 ease-in-out md:h-9 md:w-9 `}
@@ -184,7 +185,7 @@ export default function Navbar() {
             {/* Desktop */}
             <ul
               className={`${
-                isAtTop ? "mr-10" : ""
+                isAtTop && router.pathname === "/" ? "mr-10" : ""
               } flex flex-grow justify-between transition-all duration-500 ease-in-out max-md:hidden`}
             >
               {links}
@@ -208,7 +209,7 @@ export default function Navbar() {
                   viewBox="0 0 24 24"
                   stroke="currentColor"
                   className={`${
-                    isAtTop ? " h-9 w-9" : " h-6 w-6"
+                    isAtTop && router.pathname === "/" ? " h-9 w-9" : " h-6 w-6"
                   }  pt-1 transition-all duration-500 ease-in-out`}
                 >
                   <path
