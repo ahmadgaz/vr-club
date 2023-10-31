@@ -17,7 +17,7 @@ export default function Card({
     <div
       className={`${
         hovered ? "hover:border-opacity-50 hover:drop-shadow-6xl" : ""
-      } body-font relative mr-20 mt-5 flex-1    rounded-[30px] border-[1px] border-[#E1E0E2] border-opacity-10 bg-gradient-to-t from-[rgba(83,115,212,0.3)] to-[rgba(255,255,255,0.3)] px-8 py-8 pr-16 font-azo-sans font-light text-[#E1E0E2] drop-shadow-5xl backdrop-blur-[30px] transition-all duration-500 ease-in-out  max-md:mr-16 `}
+      } body-font relative mr-20 mt-5 flex-[200px]    rounded-[30px] border-[1px] border-[#E1E0E2] border-opacity-10 bg-gradient-to-t from-[rgba(83,115,212,0.3)] to-[rgba(255,255,255,0.3)] px-8 py-8 pr-16 font-azo-sans font-light text-[#E1E0E2] drop-shadow-5xl backdrop-blur-[30px] transition-all duration-500 ease-in-out  max-md:mr-16 `}
     >
       <button
         onMouseOver={() => {

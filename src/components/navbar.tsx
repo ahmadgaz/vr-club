@@ -14,7 +14,6 @@ const ListItem = ({
   children: React.ReactNode;
 }) => {
   const router = useRouter();
-  console.log(router.pathname);
 
   return (
     <li>
