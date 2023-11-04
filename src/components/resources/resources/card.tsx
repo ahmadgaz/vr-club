@@ -15,7 +15,7 @@ export default function Card({
   image: string;
 }) {
   return (
-    <div className="flex flex-col justify-center rounded-[30px] p-6  text-[12pt] leading-[1.1] text-[#E1E0E2] drop-shadow-3xl transition-all duration-500 ease-in-out hover:drop-shadow-4xl max-md:mx-5 max-md:mt-5  max-md:items-center  md:m-5 md:w-[300px] md:self-stretch">
+    <div className="flex flex-col justify-center rounded-[30px] p-6  text-[12pt] leading-[1.1] text-[#E1E0E2] drop-shadow-3xl transition-all duration-500 ease-in-out hover:drop-shadow-4xl max-md:mx-5 max-md:mt-5  max-md:w-full  max-md:items-center md:m-5 md:w-[300px] md:self-stretch">
       <div className="aspect-video w-full overflow-hidden rounded-[30px] bg-black">
         {image ? (
           <Image
