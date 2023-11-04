@@ -20,7 +20,7 @@ export default function Card({
   link: string;
 }) {
   return (
-    <div className="flex h-[450px] flex-col self-stretch rounded-[30px] bg-[#E1E0E2] p-6 text-[12pt] leading-[1.1] text-black drop-shadow-3xl transition-all duration-500 ease-in-out hover:drop-shadow-4xl max-md:mx-5  max-md:mt-5  max-md:items-center md:m-5 md:w-[300px]">
+    <div className="flex min-h-[450px] flex-col self-stretch rounded-[30px] bg-[#E1E0E2] p-6 text-[12pt] leading-[1.1] text-black drop-shadow-3xl transition-all duration-500 ease-in-out hover:drop-shadow-4xl max-md:mx-5  max-md:mt-5  max-md:items-center md:m-5 md:w-[300px]">
       <div className="items-left flex w-full flex-1 flex-col rounded-[20px]   md:max-h-[150px]  md:min-h-[150px]">
         <p className="flex-0 text-[14pt] font-bold">{title}</p>
         {desc && (
@@ -48,6 +48,7 @@ export default function Card({
             href={`https://www.google.com/maps/search/?api=1&query=${location
               .replace(/[^a-zA-Z0-9 ]/g, "")
               .replace(/ /g, "%20")}`}
+            target="_blank"
             className="flex h-full w-full items-center"
           >
             <div
@@ -59,7 +60,7 @@ export default function Card({
                     ? "#A1C4D180"
                     : "#BC535880",
               }}
-              className="flex aspect-square h-full items-center justify-center rounded-[15px] "
+              className="flex aspect-square  h-full items-center justify-center rounded-[15px] max-md:max-h-[80px] max-md:min-h-[80px] "
             >
               <Image
                 src={

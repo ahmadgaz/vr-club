@@ -53,7 +53,6 @@ export default function Carousel() {
               clickable: true,
               dynamicBullets: true,
             }}
-            loop={true}
             // scrollbar={{ draggable: true }}
             className="h-full"
             coverflowEffect={{

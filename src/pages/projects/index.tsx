@@ -10,7 +10,7 @@ export default function Projects() {
     <>
       <Head>
         <title>Projects</title>
-        <meta name="description" content="VR-Club - Projects" />
+        <meta content="VR-Club - Projects" />
       </Head>
       <main className="relative flex min-h-[95vh] min-w-full flex-col">
         <Suspense>
