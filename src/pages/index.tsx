@@ -1,7 +1,6 @@
 import Head from "next/head";
-import React, { lazy, Suspense } from "react";
-
-const Hero = lazy(() => import("~/components/home/hero/hero"));
+import React from "react";
+import Hero from "~/components/home/hero/hero";
 
 export default function Home() {
   return (
@@ -14,9 +13,7 @@ export default function Home() {
         />
       </Head>
       <main className="relative flex min-h-[95vh] min-w-full flex-col">
-        <Suspense>
-          <Hero />
-        </Suspense>
+        <Hero />
       </main>
     </>
   );

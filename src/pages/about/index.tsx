@@ -1,7 +1,7 @@
 import Head from "next/head";
 import React, { lazy, Suspense } from "react";
+import AboutUs from "~/components/about/aboutUs/aboutUs";
 
-const AboutUs = lazy(() => import("~/components/about/aboutUs/aboutUs"));
 const Equipment = lazy(() => import("~/components/about/equipment/equipment"));
 const MeetOurTeam = lazy(
   () => import("~/components/about/meetOurTeam/meetOurTeam")

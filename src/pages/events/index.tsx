@@ -1,7 +1,6 @@
 import Head from "next/head";
-import React, { lazy, Suspense } from "react";
-
-const EventsComponent = lazy(() => import("~/components/events/events/events"));
+import React from "react";
+import EventsComponent from "~/components/events/events/events";
 
 export default function Events() {
   return (
@@ -11,9 +10,7 @@ export default function Events() {
         <meta name="description" content="VR-Club - Events" />
       </Head>
       <main className="relative flex min-h-[95vh] min-w-full flex-col">
-        <Suspense>
-          <EventsComponent />
-        </Suspense>
+        <EventsComponent />
       </main>
     </>
   );

@@ -1,9 +1,6 @@
 import Head from "next/head";
-import React, { lazy, Suspense } from "react";
-
-const ResourcesComponent = lazy(
-  () => import("~/components/resources/resources/resources")
-);
+import React from "react";
+import ResourcesComponent from "~/components/resources/resources/resources";
 
 export default function Resources() {
   return (
@@ -13,9 +10,7 @@ export default function Resources() {
         <meta name="description" content="VR-Club - Resources" />
       </Head>
       <main className="relative flex min-h-[95vh] min-w-full flex-col">
-        <Suspense>
-          <ResourcesComponent />
-        </Suspense>
+        <ResourcesComponent />
       </main>
     </>
   );

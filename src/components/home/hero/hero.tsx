@@ -1,9 +1,10 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import Button from "../../button";
 import StarBorder from "./starBorder";
-import Bg from "~/components/bg";
 import Link from "next/link";
 import { links } from "~/assets/data";
+
+const Bg = lazy(() => import("~/components/bg"));
 
 export default function Hero() {
   return (
@@ -11,7 +12,9 @@ export default function Hero() {
       id="fade-in"
       className="  mt-52 flex w-[100vw] flex-col items-center font-azo-sans font-light  text-[#E1E0E2] max-md:mt-36 "
     >
-      <Bg />
+      <Suspense fallback={null}>
+        <Bg />
+      </Suspense>
       <div className={`flex w-[150px] max-w-full flex-col items-center pb-5`}>
         <h1 className="  text-4xl  font-light leading-[3rem] tracking-tight md:text-6xl md:leading-[5rem]">
           Imagination
